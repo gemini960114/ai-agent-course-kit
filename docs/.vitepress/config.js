@@ -4,7 +4,7 @@ import { githubSlugify } from '../../scripts/slugify.mjs'
 export default defineConfig({
   lang: 'zh-TW',
   title: 'AI Agent 協作開發與研究',
-  description: '和 AI 一起寫程式、做研究，用 skill 讓它照你整理好的方法做事，並且學會不盲目相信它',
+  description: '以 Antigravity 為主要工具，透過整理文獻、GitHub、網頁開發與交叉審查等實作，學會使用與檢查 AI Agent，並把工作流程寫成 Skills',
   head: [
     ['meta', { name: 'theme-color', content: '#0284c7' }]
   ],
