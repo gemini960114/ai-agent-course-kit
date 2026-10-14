@@ -10,7 +10,7 @@ Skill 是寫給 AI 的工作說明書：告訴它某一類任務該怎麼做、�
 
 ## 開始之前
 
-1. 完成 [階段一](../01-install/README.md) 的模組一～三。第 5 節輸出 PDF 需要模組三的 LaTeX。
+1. 完成 [階段一](../01-install/README.md) 的模組一～三。單元 5 輸出 PDF 需要模組三的 LaTeX。
 2. 在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟**這個資料夾** `06-agent-skills/`（不是教材的最上層資料夾）。課程用的 skill 已經放在這裡的 `.agents/skills/` 與 `.claude/skills/`，只有開啟這個資料夾時才會被載入。
 3. 打開 [tutorial.md](tutorial.md)，從「0. 先備知識」開始，依順序練習。
 

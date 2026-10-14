@@ -2,7 +2,7 @@
 
 > 適用：Claude Code、Antigravity
 > 內容：每類 skill 的安裝指令、用途說明，以及**可直接照抄的提示詞範例**
-> 練習方式：每個範例的產出都放在 `example/caseXX/`；大多數範例不需要事先準備檔案，少數範例（第 5 節、第 8 節範例、第 9 節實作）使用老師提供的素材，會在範例中註明。有些範例會沿用前面範例的成果，請依順序練習。
+> 練習方式：每個範例的產出都放在 `example/caseXX/`；大多數範例不需要事先準備檔案，少數範例（單元 5、單元 8 範例、單元 9 實作）使用老師提供的素材，會在範例中註明。有些範例會沿用前面範例的成果，請依順序練習。
 
 ---
 
@@ -12,30 +12,30 @@
 
 | 時間 | 內容 | 練到的 Skill |
 | --- | --- | --- |
-| 0:00–0:10 | 開場：什麼是 skill、確認 skill 已就緒、怎麼看 skill 有沒有被用到（第 0 節） | — |
-| 0:10–0:25 | 第 1 節範例 1：有個性的產品頁，完成後驗證觸發 | `frontend-design` |
-| 0:25–0:35 | 第 2 節範例 1：幫同一個品牌做宣傳海報 | `canvas-design` |
-| 0:35–0:45 | 第 6 節：多輪討論，改進第 5 節的論文 | `brainstorming` |
-| 0:45–1:20 | 第 9 節實作步驟 1～3：盤點、整理、核對會議文件 | `docx`、`pdf`、`pptx`、`xlsx`（自動觸發） |
-| 1:20–1:50 | 第 9 節實作延伸 A：把整理流程做成自己的 skill，換一批檔案測試 | `skill-creator` |
+| 0:00–0:10 | 開場：什麼是 skill、確認 skill 已就緒、怎麼看 skill 有沒有被用到（單元 0） | — |
+| 0:10–0:25 | 單元 1 範例 1：有個性的產品頁，完成後驗證觸發 | `frontend-design` |
+| 0:25–0:35 | 單元 2 範例 1：幫同一個品牌做宣傳海報 | `canvas-design` |
+| 0:35–0:45 | 單元 6：多輪討論，改進單元 5 的論文 | `brainstorming` |
+| 0:45–1:20 | 單元 9 實作步驟 1～3：盤點、整理、核對會議文件 | `docx`、`pdf`、`pptx`、`xlsx`（自動觸發） |
+| 1:20–1:50 | 單元 9 實作延伸 A：把整理流程做成自己的 skill，換一批檔案測試 | `skill-creator` |
 | 1:50–2:00 | 總結與課後練習說明 | — |
 
 **課後自學**
 
 | 內容 | 說明 |
 | --- | --- |
-| 第 1、2 節範例 2 | 和範例 1 性質相近，可加深印象 |
-| 第 3 節 `remotion-best-practices` | 影片算圖較花時間 |
-| 第 4 節 `arxiv` | 查論文、寫論文前言，需要較多時間閱讀與核對 |
-| 第 5 節 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文 |
-| 第 7-1 節 `find-skills` | 操作簡單，照範例做即可 |
-| 第 7-2 節 `skill-creator` 範例 | 做一個語音講稿 skill，課堂上已在第 9 節實作延伸 A 練過做 skill |
-| 第 8 節文件處理 | 課堂上已在第 9 節間接用過，這裡練習產出 Excel 與簡報 |
-| 第 9 節實作延伸 B、C、D | 合併新資料、建立知識庫並驗證、產出交付成果 |
+| 單元 1、2 範例 2 | 和範例 1 性質相近，可加深印象 |
+| 單元 3 `remotion-best-practices` | 影片算圖較花時間 |
+| 單元 4 `arxiv` | 查論文、寫論文前言，需要較多時間閱讀與核對 |
+| 單元 5 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文 |
+| 單元 7-1 `find-skills` | 操作簡單，照範例做即可 |
+| 單元 7-2 `skill-creator` 範例 | 範例 1 做語音講稿 skill（課堂上已在單元 9 實作延伸 A 練過做 skill）；範例 2 把階段五的交叉審查流程做成 skill，上過階段五再做 |
+| 單元 8 文件處理 | 課堂上已在單元 9 間接用過，這裡練習產出 Excel 與簡報 |
+| 單元 9 實作延伸 B、C、D | 合併新資料、建立知識庫並驗證、產出交付成果 |
 
 ---
 
-## 0. 先備知識
+## 單元 0：先備知識
 
 ### 什麼是 Skill？
 
@@ -79,7 +79,7 @@ npx skills update          # 更新所有已安裝 skill
 
 ---
 
-## 1. 設計品質 — `frontend-design`
+## 單元 1：設計品質 — `frontend-design`
 
 ```bash
 npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code --copy -y
@@ -133,7 +133,7 @@ npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code -
 
 ---
 
-## 2. 視覺設計 — `canvas-design`
+## 單元 2：視覺設計 — `canvas-design`
 
 ```bash
 npx skills add anthropics/skills@canvas-design -a antigravity -a claude-code --copy -y
@@ -151,9 +151,9 @@ npx skills add anthropics/skills@canvas-design -a antigravity -a claude-code --c
 海報上要有品牌名稱與一句標語，中文使用系統內建的中文字型。
 ```
 
-> 沿用第 1 節範例 1 的品牌設定；沒做過也可以直接執行。
+> 沿用單元 1 範例 1 的品牌設定；沒做過也可以直接執行。
 
-**預期行為**：先產出設計理念，說明配色、構圖與想傳達的感覺，再依理念畫出海報。畫面以山、霧、茶這類意象構成，文字只有品牌名稱與標語，而且不會超出邊界或互相重疊。可以和第 1 節的官網並排比較，看看同一個品牌在網頁和海報上的設計是否一致。
+**預期行為**：先產出設計理念，說明配色、構圖與想傳達的感覺，再依理念畫出海報。畫面以山、霧、茶這類意象構成，文字只有品牌名稱與標語，而且不會超出邊界或互相重疊。可以和單元 1 的官網並排比較，看看同一個品牌在網頁和海報上的設計是否一致。
 
 ### 範例 2：比較有沒有 skill 的差異
 
@@ -188,7 +188,7 @@ npx skills add anthropics/skills@canvas-design -a antigravity -a claude-code --c
 
 ---
 
-## 3. 做影片 — `remotion-best-practices`
+## 單元 3：做影片 — `remotion-best-practices`
 
 ```bash
 npx skills add remotion-dev/skills@remotion-best-practices -a antigravity -a claude-code --copy -y
@@ -214,7 +214,7 @@ npx skills add remotion-dev/skills@remotion-best-practices -a antigravity -a cla
 完成後直接輸出成 example/case03/out/promo.mp4。
 ```
 
-**預期行為**：建立 Remotion 專案 → 以 `useCurrentFrame()` + `spring()` / `interpolate()` 做出花朵綻放與文字彈跳的動畫 → 執行 `npx remotion render` 輸出 MP4。想邊看邊調整時，可以請 agent「開 Studio 讓我預覽」。可以和第 2 節範例 2 的海報對照，看同一個活動在海報與影片上的視覺是否一致。
+**預期行為**：建立 Remotion 專案 → 以 `useCurrentFrame()` + `spring()` / `interpolate()` 做出花朵綻放與文字彈跳的動畫 → 執行 `npx remotion render` 輸出 MP4。想邊看邊調整時，可以請 agent「開 Studio 讓我預覽」。可以和單元 2 範例 2 的海報對照，看同一個活動在海報與影片上的視覺是否一致。
 
 ### 範例 2：幫影片加上旁白與字幕
 
@@ -228,11 +228,11 @@ npx skills add remotion-dev/skills@remotion-best-practices -a antigravity -a cla
 
 **預期行為**：用 `edge-tts --voice zh-TW-HsiaoChenNeural --rate=+15% --pitch=+10Hz ... --write-media narration.mp3 --write-subtitles narration.srt` 產生語氣輕快的音檔與字幕，載入 captions 子指南的 SRT 匯入方式，以 `<Audio>` 放入旁白、依時間軸渲染字幕，再算繪輸出。修改的是範例 1 的 Remotion 專案，不是已輸出的 MP4；新影片另存成 `promo-narrated.mp4`，可以和加旁白前的 `promo.mp4` 比較。不需要另外準備影片或語音辨識模型。
 
-> edge-tts 依賴微軟線上服務，若出現 403 錯誤，先執行 `uv tool upgrade edge-tts` 更新到最新版再試。可用的聲音與語氣參數見第 7-2 節。
+> edge-tts 依賴微軟線上服務，若出現 403 錯誤，先執行 `uv tool upgrade edge-tts` 更新到最新版再試。可用的聲音與語氣參數見單元 7-2。
 
 ---
 
-## 4. 論文研究 — `arxiv`
+## 單元 4：論文研究 — `arxiv`
 
 ```bash
 npx skills add NousResearch/hermes-agent@arxiv -a antigravity -a claude-code --copy -y
@@ -279,9 +279,9 @@ AI 的訓練資料有截止日，也記不住精確的引用數；沒有這個 s
 
 ---
 
-## 5. 研究論文寫作 — `research-paper-writing`
+## 單元 5：研究論文寫作 — `research-paper-writing`
 
-延續第 4 節的 arxiv，用真實的開放資料，從分析、找文獻到寫出一篇完整的研究論文。這個實作結合兩個 skill 與一個工具：`research-paper-writing` 負責論文結構與寫作品質，`arxiv` 負責查證參考文獻，產出 PDF 時會用到 `pandoc`。
+延續單元 4 的 arxiv，用真實的開放資料，從分析、找文獻到寫出一篇完整的研究論文。這個實作結合兩個 skill 與一個工具：`research-paper-writing` 負責論文結構與寫作品質，`arxiv` 負責查證參考文獻，產出 PDF 時會用到 `pandoc`。
 
 ```bash
 npx skills add master-cai/research-paper-writing-skills@research-paper-writing -a antigravity -a claude-code --copy -y
@@ -416,7 +416,7 @@ example/case05/source/data/ 裡有臺灣高級中等學校的校級面板資料�
 
 ---
 
-## 6. 多輪討論 — `brainstorming`
+## 單元 6：多輪討論 — `brainstorming`
 
 ```bash
 npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --copy -y
@@ -426,9 +426,9 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 
 > 這個 skill 預設會把討論結果存到 `docs/superpowers/specs/`，並在最後建議接著寫實作計畫（需要另一個本課程沒裝的 skill）。範例的提示詞會指定存檔位置，並說明「先不要修改」。
 
-### 範例：多輪討論，改進第 5 節的論文
+### 範例：多輪討論，改進單元 5 的論文
 
-第 5 節的論文已經寫好，也做過自我審稿，但 AI 一次寫完的論文，常有單次檢查看不出的問題。這個範例用 brainstorming 和 agent 一輪一輪討論：每次只談一個問題、用資料驗證、由你決定怎麼改，最後產出修正版。原本的論文保留在 `example/case05/`，修正版放在 `example/case06/`，方便前後比較。
+單元 5 的論文已經寫好，也做過自我審稿，但 AI 一次寫完的論文，常有單次檢查看不出的問題。這個範例用 brainstorming 和 agent 一輪一輪討論：每次只談一個問題、用資料驗證、由你決定怎麼改，最後產出修正版。原本的論文保留在 `example/case05/`，修正版放在 `example/case06/`，方便前後比較。
 
 ### 第一段：討論改進方向
 
@@ -472,13 +472,13 @@ example/case05/ 裡的檔案都不要修改。
 
 **預期行為**：依改進計畫逐項修改，例如結果一節加入學校數與平均每校人數的拆解、新增敏感度分析，討論一節把「公立微升」改成「依計算方式不同，公立大致持平」並說明原因，刪除沒有根據的敘述。`example/case05/` 的原版維持不變。
 
-**比較看看**：把 `example/case05/paper.md` 和 `example/case06/paper-v2.md` 並排比較，找出哪些結論被修正、哪些分析是新增的，以及有哪些問題是第 5 節的自我審稿沒有發現的。討論時最值得問的一題，也是審稿人最常問的一題：**換一種合理的做法，結論還成立嗎？**
+**比較看看**：把 `example/case05/paper.md` 和 `example/case06/paper-v2.md` 並排比較，找出哪些結論被修正、哪些分析是新增的，以及有哪些問題是單元 5 的自我審稿沒有發現的。討論時最值得問的一題，也是審稿人最常問的一題：**換一種合理的做法，結論還成立嗎？**
 
 修正版也要核對：修改時新增的事實描述（例如資料集以外的統計數字）有沒有附上來源，「結果」一節是否仍只描述數據。agent 在修正問題的同時，也可能加入新的、沒有根據的說法。
 
 ---
 
-## 7. 找 Skills 與自己做 Skill — `find-skills`、`skill-creator`
+## 單元 7：找 Skills 與自己做 Skill — `find-skills`、`skill-creator`
 
 ### 7-1. `find-skills` — 找現成的 skill
 
@@ -494,7 +494,7 @@ npx skills add vercel-labs/skills@find-skills -a antigravity -a claude-code --co
 我想讓 AI 幫我搜尋與閱讀 arXiv 上的學術論文，有沒有推薦的 skill？
 ```
 
-**預期行為**：搜尋 `arxiv` 或 `academic`，列出候選並說明安裝數與功能。agent 應該會發現本專案已經裝了 `NousResearch/hermes-agent@arxiv`（第 4 節使用），不需要再裝；可以請它比較其他候選和已安裝的有什麼不同。
+**預期行為**：搜尋 `arxiv` 或 `academic`，列出候選並說明安裝數與功能。agent 應該會發現本專案已經裝了 `NousResearch/hermes-agent@arxiv`（單元 4 使用），不需要再裝；可以請它比較其他候選和已安裝的有什麼不同。
 
 **練習版本**
 
@@ -522,7 +522,7 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 
 > **做 skill 的三個步驟**：**先手動做一次**（摸清流程與參數）→ **做成 skill**（寫入經驗與對照表）→ **換個題目測試**（確認會自動觸發）
 
-#### 範例：做一個「語音講稿」skill
+#### 範例 1：做一個「語音講稿」skill
 
 這個範例使用免費的 `edge-tts`（微軟語音合成）與 `ffmpeg`，Windows 與 macOS 都能使用。因為語音合成無法直接指定「喜怒哀樂」，必須組合聲音、語速與音高來呈現情緒。我們要把這個「調音經驗」固定成 skill。
 
@@ -567,9 +567,39 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 
 > edge-tts 依賴微軟的線上服務，偶爾會出現 403 錯誤。遇到時先執行 `uv tool upgrade edge-tts` 更新到最新版。
 
+#### 範例 2：把交叉審查流程做成 skill（上過階段五再做）
+
+階段五的 `REVIEW-LOOP.md` 是寫給人看的流程說明。把它做成 skill 之後，在任何專案說「幫我準備審查」，AI 就會照同一套流程產生審查 prompt、留下紀錄。
+
+**步驟 1：準備流程文件**
+
+用檔案總管（Finder）把教材的 `05-review-loop/REVIEW-LOOP.md` 複製到 `06-agent-skills/example/case07/`。目前開啟的資料夾以外的檔案，AI 不一定讀得到。
+
+**步驟 2：做成 skill**
+
+```text
+用 skill-creator 依照 example/case07/REVIEW-LOOP.md 做一個 skill「review-loop」，
+用在「請另一個 AI 審查我的程式或文件」的情境：
+產生審查 prompt（背景、已決定的事、只讀不執行、依 🔴／🟡 回報）→ 存到 review-log/round-N-prompt.md →
+審查回覆貼回來後逐項判斷（接受／部分接受／否決），先不要修改 → 我確認後才套用，並存成 round-N-decision.md →
+依停止條件判斷能不能結束。
+建立在 .claude/skills/review-loop/，並複製一份到 .agents/skills/review-loop/。
+做好後先不要測試，也不用跑評估。
+```
+
+**步驟 3：重新啟動工作階段，換個題目測試**
+
+```text
+我想請另一個 AI 審查 .claude/skills/voice-script/SKILL.md，幫我準備第 1 輪的審查，紀錄放在 example/case07/review-log/。
+```
+
+沒有做範例 1 時，可以改成審查其他產出，例如單元 5 的 `example/case05/paper.md`。
+
+**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個不同模型的 AI。
+
 ---
 
-## 8. 文件處理 — `docx`、`pdf`、`pptx`、`xlsx`
+## 單元 8：文件處理 — `docx`、`pdf`、`pptx`、`xlsx`
 
 ```bash
 npx skills add anthropics/skills@docx -a antigravity -a claude-code --copy -y
@@ -587,7 +617,7 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 | `pptx` | 讀取、建立、修改簡報（版面、圖表、講者備註） |
 | `xlsx` | 讀取、建立、修改試算表（公式、格式、圖表） |
 
-> 這幾個 skill 不用特別點名，只要任務牽涉到這些檔案就會觸發。第 9 節實作讀取各種會議文件、延伸 D 產出交付成果時，也都會用到。
+> 這幾個 skill 不用特別點名，只要任務牽涉到這些檔案就會觸發。單元 9 實作讀取各種會議文件、延伸 D 產出交付成果時，也都會用到。
 
 ### 範例 1：把 CSV 做成有圖表的 Excel
 
@@ -609,7 +639,7 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 
 ---
 
-## 9. 組合技：一個完整專案怎麼串起來
+## 單元 9：組合技 — 一個完整專案怎麼串起來
 
 以「做一個課程報名網站 + 宣傳影片」為例：
 
@@ -777,7 +807,7 @@ plan.md 和這段指示不同的地方，以這段指示為準。
 
 #### 延伸 D：交付成果
 
-整理和驗證完成後，最後一步通常是交給別人。這一步會同時用到第 8 節的文件處理 skill。
+整理和驗證完成後，最後一步通常是交給別人。這一步會同時用到單元 8 的文件處理 skill。
 
 ```text
 根據 example/case09/organized_files/ 和 example/case09/timeline.md，做三份交付成果，存到 example/case09/deliverables/：
@@ -795,7 +825,7 @@ plan.md 和這段指示不同的地方，以這段指示為準。
 
 ---
 
-## 10. 常見問題
+## 常見問題
 
 **Q1：安裝後 agent 好像沒用到 skill？**
 
@@ -851,7 +881,7 @@ npx skills add anthropics/skills@pptx -a antigravity -a claude-code --copy -y
 npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 ```
 
-也可以直接執行專案根目錄的 [install.sh](install.sh)，內容相同。
+專案根目錄的 [install.sh](install.sh) 是相同的指令清單。Windows 的 PowerShell 不能直接執行 `.sh` 檔，請逐行複製貼到終端機執行。
 
 **參考連結**
 

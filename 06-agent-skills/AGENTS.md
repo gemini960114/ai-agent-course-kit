@@ -12,7 +12,7 @@
 > - `example/case08/source/` 是老師提供的素材，只讀取、不要修改或刪除。
 > - `example/case09/messy_files/`、`example/case09/extra_files/`、`example/case09/new_files/`、`example/case09/reference/` 是老師提供的素材，只讀取、不要修改、移動或刪除；整理結果一律複製到提示詞指定的新資料夾。
 > - `example/case05/source/` 是老師提供的資料（`data/`）、參考文獻（`references.bib`）與 APA 引用格式檔（`apa.csl`），只讀取、不要修改或刪除；分析結果存到提示詞指定的位置。
-> - `example/case09/teacher/` 是老師的答案表與原始資料。只有提示詞明確指定時才可以讀取（例如核對步驟），盤點與分類時不要讀取或參考。
+> - `example/case09/teacher/` 是老師的答案表。只有提示詞明確指定時才可以讀取（例如核對步驟），盤點與分類時不要讀取或參考。
 
 ---
 

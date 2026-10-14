@@ -69,4 +69,6 @@
 3. build 後發布到 GitHub Pages，最後給我網址
 ```
 
+> 若在階段三結束時執行過 `gh auth logout`，先重新做一次階段三的 Step 1 登入 GitHub。
+>
 > GitHub Pages 需要 **public repo**（免費帳號的 private repo 無法使用）。發布後通常要等 1～2 分鐘網址才會生效。
