@@ -1,10 +1,8 @@
 # AI Agent 協作開發與研究
 
-> 學會使用 AI Agent，也學會檢查它的成果
-
 📖 **教學網站：<https://gemini960114.github.io/ai-agent-course-kit/>**
 
-以 Antigravity 為主要工具，從整理文獻、使用 GitHub、開發網頁到交叉審查，七個階段逐步練習使用與檢查 AI Agent，最後把自己的工作流程寫成 Skills。
+以 Antigravity 為主要工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。
 
 ## 課程地圖
 
@@ -14,7 +12,7 @@
 | [02 AI 整理文獻](02-organize-data/README.md) | 一張論文比較表 | 補寫摘要沒有的樣本數和結果 | 30 分 |
 | [03 連線 GitHub](03-hello-github/README.md) | 第一個推上 GitHub 的程式 | — | 30 分 |
 | [04 網頁小遊戲](04-web-game/README.md) | 一個能玩、能分享的網頁遊戲 | 說「做好了」，不代表沒有 bug | 30～40 分 |
-| [05 AI 交叉審查](05-review-loop/README.md) | 經過多輪審查的成績統計程式 | 審查 AI 很有自信地給出錯誤建議 | 2 × 90 分 |
+| [05 AI 交叉審查](05-review-loop/README.md) | 經過多輪審查的成績統計程式 | 審查 AI 很有自信地給出錯誤建議 | 90 分～2 × 90 分 |
 | [06 Agent Skills](06-agent-skills/README.md) | 產品頁、海報、研究論文、整理好的會議文件，以及自己做的 skill | 照著 skill 做，不代表成果正確 | 2 小時＋課後自學 |
 | [07 超級電腦](07-hpc-demo/README.md)（老師示範） | （示範）AI 操作國網中心超級電腦 | 謊報「15/15 完成」、自行修改程式 | 20～30 分 |
 

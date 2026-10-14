@@ -24,7 +24,7 @@ teacher/
 | 二 | `02-organize-data/` | 約 30 分鐘 | 請 AI 整理文獻比較表，並**檢查 AI 有沒有編造內容** | `02-answers.md` |
 | 三 | `03-hello-github/` | 約 30 分鐘 | 登入 GitHub，用 git 存版本、推上 GitHub | — |
 | 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲，並自己玩一輪檢查 AI 說的「完成」 | — |
-| 五 | `05-review-loop/` | 兩次課，各 90 分鐘 | 用另一個 AI 交叉審查，自己判斷要不要採納 | `05-course-plan.md`、`05-answers.md` |
+| 五 | `05-review-loop/` | 兩次課各 90 分鐘；只有一次課時用 90 分鐘精簡版（見 `05-course-plan.md`） | 用另一個 AI 交叉審查，自己判斷要不要採納 | `05-course-plan.md`、`05-answers.md` |
 | 六 | `06-agent-skills/` | 課堂 2 小時＋課後自學 | 用 skill 產出網頁、海報、論文與 Office 文件，並用 `skill-creator` 把整理流程做成自己的 skill | `06-agent-skills/tutorial.md` 開頭的課程時間規劃；`example/case09/teacher/` 答案表 |
 | 七 | `07-hpc-demo/` | 約 20～30 分鐘（**教師示範**，學生不操作） | 看 AI 在超級電腦上操作真實研究管線，以及 AI 在真實運作中犯過的 20 個錯誤 | `07-demo-script.md` |
 

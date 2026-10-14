@@ -3,8 +3,7 @@ layout: home
 
 hero:
   name: "AI Agent 協作開發與研究"
-  text: "學會使用 AI Agent，也學會檢查它的成果"
-  tagline: "以 Antigravity 為主要工具，從整理文獻、使用 GitHub、開發網頁到交叉審查，七個階段逐步練習使用與檢查 AI Agent，最後把自己的工作流程寫成 Skills。"
+  tagline: "以 Antigravity 為主要工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。"
   actions:
     - theme: brand
       text: 進入課程總覽
