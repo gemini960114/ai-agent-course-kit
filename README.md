@@ -29,6 +29,6 @@
 
 ---
 
-**給老師：** 依對象選擇的課程路線、上課前檢查清單、參考答案與示範腳本，見 [teacher/README.md](teacher/README.md)。
+**學習路徑建議：** 依科系背景與可用時間選擇路線，見 [teacher/README.md](teacher/README.md#學習路徑建議)。上課前檢查清單、參考答案與示範腳本也在同一份文件。
 
 **關於 [AGENTS.md](AGENTS.md)：** 給 AI 的規則，用 Antigravity IDE 開啟這個資料夾時會自動套用。`06-agent-skills/` 有自己的 AGENTS.md。

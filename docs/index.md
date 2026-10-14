@@ -49,9 +49,9 @@ features:
     details: 看 AI 在國網中心超級電腦上操作真實研究管線，以及它在真實運作中犯過的錯。
     link: /guide/07_hpc_demo
     linkText: 看示範
-  - icon: 👩‍🏫
-    title: 給老師
-    details: 依對象選擇的課程路線、上課前檢查清單、課程規劃與示範腳本。
-    link: /guide/teacher_guide
-    linkText: 教師手冊
+  - icon: 🧭
+    title: 學習路徑建議
+    details: 依科系背景與可用時間選擇路線：教育與統計相關系所、工學院，或完整的七個階段。
+    link: /guide/teacher_guide#學習路徑建議
+    linkText: 選擇路線
 ---

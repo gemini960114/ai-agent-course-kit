@@ -32,7 +32,7 @@ export default defineConfig({
         ]
       },
       { text: 'AI 規則 (AGENTS.md)', link: '/guide/agents_md' },
-      { text: '給老師', link: '/guide/teacher_guide' }
+      { text: '學習路徑建議', link: '/guide/teacher_guide#學習路徑建議' }
     ],
     sidebar: [
       {
