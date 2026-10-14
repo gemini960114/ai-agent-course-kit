@@ -3,6 +3,7 @@ layout: home
 
 hero:
   name: "AI Agent 協作開發與研究"
+  text: "不只聊天：讓 AI Agent 和你一起開發與研究"
   tagline: "以 Antigravity 為主要工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。"
   actions:
     - theme: brand
