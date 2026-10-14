@@ -63,11 +63,11 @@ antigravity-ide .
    - `review-log/round-N-prompt.md`：給審查者的 prompt
    - `review-log/round-N-review.md`：審查者回覆的原文
    - `review-log/round-N-decision.md`：你的逐項判斷與理由
-3. **停止條件：** 完全依照 REVIEW-LOOP.md：一位與寫程式不同的 AI 審查者對**最後的版本**判定「可以發布」，且最後的版本已用 `grades.csv` 實際執行確認輸出正確。**本作業至少要做 2 輪**：即使第 1 輪就判定可以發布，也請再做 1 輪確認。停止後再執行 `git add -A` 與 `git commit -m "審查完成：共 N 輪"`。
+3. **停止條件：** 完全依照 REVIEW-LOOP.md：一位與寫程式不同工具、不同模型的 AI 審查者對**最後的版本**判定「可以發布」，且最後的版本已用 `grades.csv` 實際執行確認輸出正確。**本作業至少要做 2 輪**：即使第 1 輪就判定可以發布，也請再做 1 輪確認。停止後再執行 `git add -A` 與 `git commit -m "審查完成：共 N 輪"`。
 
 > git 只需要 commit 兩次：初版與審查完成。每一輪的過程記錄在 `review-log/`。
 
-**產出用與審查用請使用不同的 AI 工具。**
+**產出用與審查用請使用不同的 AI 工具，並確認兩者使用不同的模型。**
 
 ---
 

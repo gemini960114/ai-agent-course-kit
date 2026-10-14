@@ -2,7 +2,7 @@
 
 > 適用：Claude Code、Antigravity
 > 內容：每類 skill 的安裝指令、用途說明，以及**可直接照抄的提示詞範例**
-> 練習方式：每個範例的產出都放在 `example/caseXX/`；大多數範例不需要事先準備檔案，少數範例（單元 5、單元 8 範例、單元 9 實作）使用老師提供的素材，會在範例中註明。有些範例會沿用前面範例的成果，請依順序練習。
+> 練習方式：每個範例的產出都放在 `example/caseXX/`；大多數範例不需要事先準備檔案，少數範例（單元 5、單元 6 課堂版、單元 8 範例、單元 9 實作）使用老師提供的素材，會在範例中註明。有些範例會沿用前面範例的成果，請依順序練習。
 
 ---
 
@@ -15,7 +15,7 @@
 | 0:00–0:10 | 開場：什麼是 skill、確認 skill 已就緒、怎麼看 skill 有沒有被用到（單元 0） | — |
 | 0:10–0:25 | 單元 1 範例 1：有個性的產品頁，完成後驗證觸發 | `frontend-design` |
 | 0:25–0:35 | 單元 2 範例 1：幫同一個品牌做宣傳海報 | `canvas-design` |
-| 0:35–0:45 | 單元 6：多輪討論，改進單元 5 的論文 | `brainstorming` |
+| 0:35–0:45 | 單元 6：多輪討論，改進老師提供的論文（課堂版提示詞） | `brainstorming` |
 | 0:45–1:20 | 單元 9 實作步驟 1～3：盤點、整理、核對會議文件 | `docx`、`pdf`、`pptx`、`xlsx`（自動觸發） |
 | 1:20–1:50 | 單元 9 實作延伸 A：把整理流程做成自己的 skill，換一批檔案測試 | `skill-creator` |
 | 1:50–2:00 | 總結與課後練習說明 | — |
@@ -55,6 +55,8 @@ Skill 可以裝在兩個地方：
 如果你的電腦上另外裝了全域 skill，它們也會在本課程的專案裡出現，可能和課程的 skill 搶著被觸發。
 
 ### 安裝指令說明
+
+> **本課程的 12 個 skill 已經裝好，課堂上不要執行本教材裡的安裝、更新、移除指令。** 重新安裝可能換成不同版本，讓你的結果和教材不同。這些指令是給你離開本課程、在自己的專案安裝 skill 時參考。
 
 ```bash
 npx skills add <GitHub擁有者>/<repo>[@skill名稱] -a antigravity -a claude-code --copy -y
@@ -434,6 +436,18 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 
 建議**開一個新的對話視窗**做討論：新的工作階段不記得論文當初怎麼寫，比較能客觀挑出問題。第二段修改沿用同一個視窗即可。
 
+> **課堂版（還沒做單元 5 時）**：老師在 `example/case06/source/` 準備了一份用單元 5 提示詞跑出來的論文與自我審稿紀錄。第一段討論改用下面的提示詞：
+>
+> ```text
+> 請用 brainstorming 跟我討論如何改進 example/case06/source/paper.md，審稿意見在 example/case06/source/review.md，
+> 資料在 example/case05/source/data/。
+> 先讀完論文，找出最值得改進的 3～5 個問題，一次只討論一個：說明問題在哪、提出 2～3 種改法與取捨，
+> 等我選定再討論下一個。需要驗證的地方，先用資料計算給我看。
+> 討論完把決定整理成 example/case06/improvement-plan.md，先不要修改論文。
+> ```
+>
+> 第二段修改時，把提示詞裡的 `example/case05/paper.md` 換成 `example/case06/source/paper.md`、圖表與參考文獻改從 `example/case06/source/` 複製，並改成「example/case06/source/ 裡的檔案都不要修改」。課堂上時間有限，第一段討論 2～3 個問題即可。
+
 ```text
 請用 brainstorming 跟我討論如何改進 example/case05/paper.md，審稿意見在 example/case05/review.md，
 資料在 example/case05/source/data/。
@@ -535,7 +549,7 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 | **溫柔感性** | `zh-TW-HsiaoYuNeural`（女） | `-15%` | `-5Hz` | 激勵、抒情收尾 |
 | **新聞播報** | `zh-CN-YunyangNeural`（男） | `-5%` | `+0Hz` | 正式發表、權威分析 |
 
-> 註：臺灣男聲（`zh-TW-YunJheNeural`）微軟服務暫不可用，需要男聲時推薦使用專業感強的 Yunyang。可用的完整聲音清單執行 `edge-tts --list-voices` 查詢。講稿的標點也會影響語氣：「！」較有力，「……」會停頓，短句更有節奏感。
+> 註：臺灣男聲（`zh-TW-YunJheNeural`）曾經暫時無法產生語音，課前請實際產生一次確認；無法使用時，需要男聲可改用專業感強的 Yunyang。可用的完整聲音清單執行 `edge-tts --list-voices` 查詢。講稿的標點也會影響語氣：「！」較有力，「……」會停頓，短句更有節奏感。
 
 **步驟 1：手動做一次（摸索流程）**
 
@@ -573,15 +587,17 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 
 **步驟 1：準備流程文件**
 
-用檔案總管（Finder）把教材的 `05-review-loop/REVIEW-LOOP.md` 複製到 `06-agent-skills/example/case07/`。目前開啟的資料夾以外的檔案，AI 不一定讀得到。
+先確認 `06-agent-skills/example/` 裡有 `case07` 資料夾，沒有就建立一個（Windows：在檔案總管的 `example` 資料夾裡按右鍵 →「新增 → 資料夾」；macOS：在 Finder 的 `example` 資料夾裡按右鍵 →「新增檔案夾」）。再把教材的 `05-review-loop/REVIEW-LOOP.md` 複製到 `example/case07/`。目前開啟的資料夾以外的檔案，AI 不一定讀得到。
 
 **步驟 2：做成 skill**
 
 ```text
 用 skill-creator 依照 example/case07/REVIEW-LOOP.md 做一個 skill「review-loop」，
 用在「請另一個 AI 審查我的程式或文件」的情境：
-產生審查 prompt（背景、已決定的事、只讀不執行、依 🔴／🟡 回報）→ 存到 review-log/round-N-prompt.md →
-審查回覆貼回來後逐項判斷（接受／部分接受／否決），先不要修改 → 我確認後才套用，並存成 round-N-decision.md →
+產生審查 prompt（背景、已決定的事、只讀不執行、依 🔴／🟡 回報）→ 存到 review-log/round-N-prompt.md；
+第 2 輪起要帶入前幾輪已修正與已否決的項目；審查者讀不到檔案時（例如網頁版），提醒我把待審內容附在 prompt 後面 →
+我把審查回覆原文存成 review-log/round-N-review.md →
+逐項判斷（接受／部分接受／否決），先不要修改 → 我確認後才套用，並存成 round-N-decision.md →
 依停止條件判斷能不能結束。
 建立在 .claude/skills/review-loop/，並複製一份到 .agents/skills/review-loop/。
 做好後先不要測試，也不用跑評估。
@@ -596,6 +612,8 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 沒有做範例 1 時，可以改成審查其他產出，例如單元 5 的 `example/case05/paper.md`。
 
 **預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個不同模型的 AI。
+
+**有時間再做（選做）：完整跑一輪。** 把 prompt 和 `SKILL.md` 的內容貼給另一個不同模型的 AI，回覆原文存成 `round-1-review.md`，再貼回來請它逐項判斷。確認 skill 會先停下來等你決定、存好 `round-1-decision.md`，才算驗證了整個流程，不只是產生 prompt。
 
 ---
 
@@ -865,6 +883,8 @@ Skill 就是一個資料夾，有兩種分享方式：
 ---
 
 ## 附錄：一次安裝全部
+
+> 本課程已經裝好，課堂上不要執行。這裡是給你在自己的專案重建同一組 skill 時參考。
 
 ```bash
 npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code --copy -y

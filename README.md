@@ -22,10 +22,10 @@ AI 幾秒鐘就能寫程式、整理文獻、做出網頁和文件，但它也�
 
 1. 安裝 AI 編輯器：[01-install/00-antigravity.md](01-install/00-antigravity.md)
 2. 取得教材：下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」（資料夾名稱為 `ai-agent-course-kit-main`）。已經裝好 Git 的人也可以用 `git clone https://github.com/gemini960114/ai-agent-course-kit`
-3. 用 Antigravity IDE 開啟教材資料夾，安裝模組一：[01-install/README.md](01-install/README.md)。模組二、三可以課後安裝，階段六之前要裝好模組三
+3. 用 Antigravity IDE 開啟教材資料夾，安裝模組一：[01-install/README.md](01-install/README.md)。模組二、三可以課後安裝，階段六之前要裝好模組二、三
 4. 從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做。階段六要另外開啟 `06-agent-skills/` 資料夾，見 [06-agent-skills/README.md](06-agent-skills/README.md)
 
-需要：Windows 10/11 或 macOS、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組三的 LaTeX（輸出 PDF）。
+需要：Windows 10／11（64 位元）或 macOS 12 以上的 Apple Silicon（M 系列晶片）Mac（Intel Mac 不支援，見 [00-antigravity.md](01-install/00-antigravity.md)）、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組二（語音、影音）與模組三（LaTeX 輸出 PDF）。
 
 ---
 

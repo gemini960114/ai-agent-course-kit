@@ -3,7 +3,7 @@
 本指南採用 macOS 套件管理器 **Homebrew** 與 Python 極速套件管理器 **uv**。  
 請開啟「**終端機**」（Terminal，預設 shell 為 zsh），以一般使用者身分執行；遇到要求輸入密碼時，輸入本機登入密碼即可（輸入時畫面不會顯示字元）。
 
-> - 建議使用 Apple Silicon（M 系列晶片）Mac 與近期版本的 macOS。Intel Mac 在 Homebrew 的支援層級較低，部分套件可能沒有預先編譯版本，需要較長的編譯時間或安裝失敗。
+> - 本課程只支援 **Apple Silicon（M 系列晶片）Mac**、macOS 12 以上。Homebrew 官方安裝腳本在 Intel Mac 上會直接中止（顯示「Homebrew on macOS is only supported on Apple Silicon processors!」）。
 > - 偵測到已存在的工具會保留現有版本、不會自動升級；請以各模組的「驗證」結果為準。
 
 > 開始之前：若要把安裝工作交給 AI，請先完成[第 0 步：安裝 Antigravity IDE](00-antigravity.md)。

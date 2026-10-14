@@ -11,6 +11,7 @@
 > - 課程使用的 skill 已由老師預先安裝在 `.claude/skills/` 與 `.agents/skills/`。不要自行安裝、移除、修改或刪除這些 skill；唯一例外是使用者用 `skill-creator` 製作自己的新 skill 時，可以在這兩個資料夾建立該 skill。使用者明確要求加入 skill 時（例如練習 `find-skills`），使用 `npx skills add <owner>/<repo>@<skill> -a antigravity -a claude-code --copy -y`。
 > - `example/case08/source/` 是老師提供的素材，只讀取、不要修改或刪除。
 > - `example/case09/messy_files/`、`example/case09/extra_files/`、`example/case09/new_files/`、`example/case09/reference/` 是老師提供的素材，只讀取、不要修改、移動或刪除；整理結果一律複製到提示詞指定的新資料夾。
+> - `example/case06/source/` 是老師提供的單元 6 課堂用論文，只讀取、不要修改或刪除。
 > - `example/case05/source/` 是老師提供的資料（`data/`）、參考文獻（`references.bib`）與 APA 引用格式檔（`apa.csl`），只讀取、不要修改或刪除；分析結果存到提示詞指定的位置。
 > - `example/case09/teacher/` 是老師的答案表。只有提示詞明確指定時才可以讀取（例如核對步驟），盤點與分類時不要讀取或參考。
 
@@ -62,7 +63,7 @@
 1. **語音生成（文字轉語音）**：
    - 優先使用 `edge-tts`（例如：`edge-tts --voice zh-TW-HsiaoChenNeural --text "內容" --write-media output.mp3`），避免呼叫高成本或需複雜設定的第三方 API。可用 `edge-tts --list-voices` 查詢語音。
    - edge-tts 依賴微軟的線上服務，偶爾會失效（出現 403 錯誤），通常是版本太舊。遇到時告知使用者執行 `uv tool upgrade edge-tts` 更新後再試，**不要反覆重試**，也不要自行更新；需要音效時可改用 `ffmpeg` 合成。
-   - 個別聲音也可能暫時無法使用（例如 `zh-TW-YunJheNeural`），出現「No audio was received」時改用其他聲音，例如 `zh-TW-HsiaoChenNeural`、`zh-TW-HsiaoYuNeural`。
+   - 個別聲音也可能暫時無法使用（例如 `zh-TW-YunJheNeural` 曾經發生過），出現「No audio was received」時改用其他聲音，例如 `zh-TW-HsiaoChenNeural`、`zh-TW-HsiaoYuNeural`。
 2. **影音與音訊剪輯**：
    - 底層處理優先使用 `ffmpeg` 命令。
 3. **影音下載與擷取**：

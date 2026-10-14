@@ -6,15 +6,18 @@
 
 ## 1. 下載
 
+> **電腦需求：** Windows 10／11（64 位元），或 macOS 12（Monterey）以上的 **Apple Silicon（M 系列晶片）Mac**。
+> 本課程**不支援 Intel Mac**：Antigravity 官方文件寫明不支援 x86 Mac，安裝其他工具用的 Homebrew 也只支援 Apple Silicon。
+
 打開官方下載頁：**https://antigravity.google/download**
 
-> ⚠️ **注意：頁面最上方的大按鈕是「Antigravity 2.0」，不是我們要的。**
+> ⚠️ **注意：不要選頁面上方的「Antigravity app」。**
 > 請往下捲動，找到 **「Antigravity IDE (Standalone)」** 這一區，再依你的電腦選擇下載。
 
 | 電腦 | 選擇 | 怎麼知道是哪一種 |
 | --- | --- | --- |
 | **Windows** | 大多數電腦選 **x64**；少數 ARM 筆電選 ARM64 | 「設定 → 系統 → 關於」的「系統類型」：寫「x64」選 x64，寫「ARM」選 ARM64 |
-| **macOS** | **Apple Silicon**（M 系列晶片）或 **Intel** | 左上角蘋果選單 →「關於這台 Mac」：顯示「晶片 Apple M…」選 Apple Silicon，顯示「處理器 Intel」選 Intel |
+| **macOS** | **Apple Silicon**（M 系列晶片） | 左上角蘋果選單 →「關於這台 Mac」：顯示「晶片 Apple M…」即可；顯示「處理器 Intel」的 Mac 不支援本課程 |
 
 ## 2. 安裝
 

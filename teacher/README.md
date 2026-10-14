@@ -6,7 +6,8 @@ teacher/
 ├── 02-answers.md        ← 階段二參考答案
 ├── 05-course-plan.md    ← 階段五課程規劃與評分
 ├── 05-answers.md        ← 階段五參考答案
-└── 07-demo-script.md    ← 階段七教師示範腳本（課前準備、Remote-SSH 設定、示範流程）
+├── 07-demo-script.md    ← 階段七教師示範腳本（課前準備、Remote-SSH 設定、示範流程）
+└── review-log/          ← 這份教材的交叉審查紀錄（依 05 的 REVIEW-LOOP 流程）
 ```
 
 > 參考答案會一起上傳 GitHub，學生看得到也沒關係。除了階段一，學生練習時都是用 Antigravity IDE 開啟**單一階段的資料夾**（或複製到「文件」的資料夾），AI 不會讀到這裡。階段一安裝時會開啟教材的最上層資料夾，這時 AI 看得到 `teacher/`，靠根目錄 AGENTS.md 的規則要求 AI 不主動讀取。
@@ -19,7 +20,7 @@ teacher/
 
 | 階段 | 資料夾 | 時間 | 學生學到什麼 | 教師資料 |
 | --- | --- | --- | --- | --- |
-| 一 | `01-install/` | 模組一約 15～30 分鐘；模組二、三可課後安裝（階段六需要模組三） | 安裝開發環境 | — |
+| 一 | `01-install/` | 模組一約 15～30 分鐘；模組二、三可課後安裝（階段六需要模組二、三） | 安裝開發環境 | — |
 | 二 | `02-organize-data/` | 約 30 分鐘 | 請 AI 整理文獻比較表，並**檢查 AI 有沒有編造內容** | `02-answers.md` |
 | 三 | `03-hello-github/` | 約 30 分鐘 | 登入 GitHub，用 git 存版本、推上 GitHub | — |
 | 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲，並自己玩一輪檢查 AI 說的「完成」 | — |
@@ -49,7 +50,8 @@ teacher/
 - [ ] 安裝 AI 編輯器 Antigravity IDE（[01-install/00-antigravity.md](../01-install/00-antigravity.md)；手動下載安裝，並用 Google 帳號登入）
 - [ ] 完成階段一的**模組一**（Git、uv、Node.js、gh）
 - [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要和 Antigravity 目前使用的**模型**不同
-- [ ] 階段六前完成階段一的**模組三**（Pandoc、LaTeX）。MacTeX 下載達數 GB，請學生在家中網路先裝好
+- [ ] 確認電腦符合需求：Windows 10／11 64 位元，或 macOS 12 以上的 Apple Silicon Mac（**不支援 Intel Mac**）
+- [ ] 階段六前完成階段一的**模組二、三**（ffmpeg、edge-tts、Pandoc、LaTeX 等）。MacTeX 下載達數 GB，請學生在家中網路先裝好
 
 ---
 
@@ -60,7 +62,7 @@ teacher/
 | **edge-tts 是否正常** | 依賴微軟線上服務，偶爾會整體失效（2026-10 曾出現 403 錯誤，見 [rany2/edge-tts#490](https://github.com/rany2/edge-tts/issues/490)） | 執行 `edge-tts --text "測試" --write-media test.mp3`，有產生檔案即正常。失效時，階段四的音效改用 ffmpeg（README 已是預設做法） |
 | **arXiv 論文狀態** | 論文可能被撤回或改版（階段二曾有一篇被撤回而更換） | 打開 `02-organize-data/` 各篇的 arXiv 連結，確認沒有標示 withdrawn |
 | **階段四 GitHub Pages** | 選做步驟**尚未實測**，需要 public repo | 自己先用一個測試 repo 跑一次 |
-| **macOS 安裝指南** | **尚未在實機上測試**過 | 找一台 Mac 跑完模組一到三 |
+| **macOS 安裝指南** | **尚未在實機上測試**過；本課程只支援 Apple Silicon | 找一台 Apple Silicon Mac 跑完模組一到三 |
 | **公用電腦** | 學生的 GitHub 登入會留在電腦上 | 課後提醒學生執行 `gh auth logout` |
 | **階段六的 skill** | skill 已預先放在 `06-agent-skills/.agents/skills/` 與 `.claude/skills/`；學生若開錯資料夾，skill 不會被載入 | 用 Antigravity 開啟 `06-agent-skills/`，問 AI「目前有哪些 skill 可以用？」，確認列出 12 個課程 skill |
 | **階段六的 LaTeX** | 單元 5 輸出 PDF 需要 xelatex；MiKTeX 第一次編譯會自動下載套件 | 在 `06-agent-skills/` 執行 `xelatex --version`；課前自己先跑一次單元 5 的 PDF 輸出 |

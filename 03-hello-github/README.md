@@ -5,6 +5,8 @@
 **先記住一句話：登入和 GitHub 網站上的事用 `gh`，檔案版本（commit、push）用 `git`。**
 
 > 課前準備：已完成安裝教材的模組一，並已註冊 GitHub 帳號。
+>
+> 開始前，在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟**教材的最上層資料夾**（上一個階段只開了 `02-organize-data`）。
 
 ---
 
@@ -13,12 +15,13 @@
 把下面這段貼給 Antigravity IDE 的 AI：
 
 ```text
-請確認 gh 已安裝（沒有才依 AGENTS.md 安裝），然後用瀏覽器裝置驗證方式登入 GitHub，不要用 personal access token：
+請確認 gh 已安裝（沒有的話停下來告訴我，我會回到階段一安裝），然後用瀏覽器裝置驗證方式登入 GitHub，不要用 personal access token：
 1. 在背景執行 gh auth login --hostname github.com --git-protocol https --web
 2. 把一次性代碼和驗證網址貼給我，我會自己到瀏覽器輸入
 3. 我說完成後，用 gh auth status 確認登入成功
 4. 執行 gh auth setup-git，讓 git push 使用 gh 的登入
-5. 如果 git 還沒設定使用者名稱和信箱，用我的 GitHub 帳號名稱和 noreply 信箱設定
+5. 如果 git 還沒設定使用者名稱和信箱，用我的 GitHub 帳號名稱和 noreply 信箱設定。
+   noreply 信箱不要用猜的：用 gh api user 查出 id 與 login，格式是「id+login@users.noreply.github.com」
 ```
 
 依 AI 給的網址和代碼，在瀏覽器完成登入，再回來告訴 AI「完成」。
