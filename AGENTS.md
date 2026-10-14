@@ -6,7 +6,7 @@
 
 > **`teacher/` 資料夾是老師的參考答案。** 協助學生做練習時，不要主動讀取或引用其中的內容；只有使用者明確表示自己是老師、要修改教材時才可以讀取。
 
-> **`05-agent-skills/` 有自己的 AGENTS.md 與預先安裝的 skill。** 練習階段五時，用 Antigravity IDE 開啟 `05-agent-skills/` 資料夾，並遵守該資料夾 AGENTS.md 的規則。
+> **`06-agent-skills/` 有自己的 AGENTS.md 與預先安裝的 skill。** 練習階段六時，用 Antigravity IDE 開啟 `06-agent-skills/` 資料夾，並遵守該資料夾 AGENTS.md 的規則。
 
 ---
 

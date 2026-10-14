@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "AI 協作開發與 Agent Skills"
   text: "和 AI 一起寫程式、做研究，並且學會不盲目相信它"
-  tagline: "AI 幾秒鐘就能寫程式、整理文獻、做出網頁和文件，但它也會編造內容、謊報完成。六個階段，一步步練習：讓 AI 做事 → 檢查它做的事 → 把做事的方法寫成 skill。"
+  tagline: "AI 幾秒鐘就能寫程式、整理文獻、做出網頁和文件，但它也會編造內容、謊報完成。七個階段，一步步練習：讓 AI 做事 → 檢查它做的事 → 把檢查變成流程 → 把做事的方法寫成 skill。"
   actions:
     - theme: brand
       text: 進入課程總覽
@@ -34,15 +34,20 @@ features:
     details: 用自然語言請 AI 做出網頁小遊戲，再自己玩一輪，檢查 AI 說的「完成」。
     link: /guide/04_web_game
     linkText: 做遊戲
+  - icon: 🔁
+    title: 05｜AI 交叉審查
+    details: 用另一個 AI 審查程式，逐項判斷要不要採納，練習發現審查者也會說錯。
+    link: /guide/05_review_loop
+    linkText: 交叉審查
   - icon: 🧩
-    title: 05｜Agent Skills
+    title: 06｜Agent Skills
     details: 用 12 個精選 skill 做出網頁、海報、論文與 Office 文件，再把整理文件的流程做成自己的 skill。
-    link: /guide/05_agent_skills
+    link: /guide/06_agent_skills
     linkText: 學 Skills
   - icon: ⚡
-    title: 06｜超級電腦（老師示範）
+    title: 07｜超級電腦（老師示範）
     details: 看 AI 在國網中心超級電腦上操作真實研究管線，以及它在真實運作中犯過的錯。
-    link: /guide/06_hpc_demo
+    link: /guide/07_hpc_demo
     linkText: 看示範
   - icon: 👩‍🏫
     title: 給老師

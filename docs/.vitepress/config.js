@@ -26,8 +26,9 @@ export default defineConfig({
           { text: '02 AI 整理文獻', link: '/guide/02_organize_data' },
           { text: '03 連線 GitHub', link: '/guide/03_hello_github' },
           { text: '04 網頁小遊戲', link: '/guide/04_web_game' },
-          { text: '05 Agent Skills', link: '/guide/05_agent_skills' },
-          { text: '06 超級電腦（老師示範）', link: '/guide/06_hpc_demo' }
+          { text: '05 AI 交叉審查', link: '/guide/05_review_loop' },
+          { text: '06 Agent Skills', link: '/guide/06_agent_skills' },
+          { text: '07 超級電腦（老師示範）', link: '/guide/07_hpc_demo' }
         ]
       },
       { text: 'AI 規則 (AGENTS.md)', link: '/guide/agents_md' },
@@ -58,13 +59,22 @@ export default defineConfig({
         ]
       },
       {
-        text: '🧩 Agent Skills',
+        text: '🔍 檢查與 Skills',
         items: [
           {
-            text: '🧩 05 Agent Skills',
-            link: '/guide/05_agent_skills',
+            text: '🔁 05 AI 交叉審查',
+            link: '/guide/05_review_loop',
             items: [
-              { text: '教材：12 個精選 Skills', link: '/guide/05_tutorial' }
+              { text: '審查流程（REVIEW-LOOP）', link: '/guide/05_review_loop_process' },
+              { text: '示範案例', link: '/guide/05_example' },
+              { text: '練習題', link: '/guide/05_assignment' }
+            ]
+          },
+          {
+            text: '🧩 06 Agent Skills',
+            link: '/guide/06_agent_skills',
+            items: [
+              { text: '教材：12 個精選 Skills', link: '/guide/06_tutorial' }
             ]
           }
         ]
@@ -72,7 +82,7 @@ export default defineConfig({
       {
         text: '🖥️ 老師示範',
         items: [
-          { text: '⚡ 06 超級電腦', link: '/guide/06_hpc_demo' }
+          { text: '⚡ 07 超級電腦', link: '/guide/07_hpc_demo' }
         ]
       },
       {
@@ -80,7 +90,8 @@ export default defineConfig({
         items: [
           { text: '🛡️ AI 規則（AGENTS.md）', link: '/guide/agents_md' },
           { text: '👩‍🏫 教師手冊', link: '/guide/teacher_guide' },
-          { text: '🎬 06 示範腳本', link: '/guide/teacher_06_demo_script' }
+          { text: '🗓️ 05 課程規劃', link: '/guide/teacher_05_course_plan' },
+          { text: '🎬 07 示範腳本', link: '/guide/teacher_07_demo_script' }
         ]
       }
     ],

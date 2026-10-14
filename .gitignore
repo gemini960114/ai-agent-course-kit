@@ -18,7 +18,7 @@ docs/guide/
 docs/.vitepress/cache/
 docs/.vitepress/.temp/
 
-# LaTeX 編譯中間檔（05-agent-skills）
+# LaTeX 編譯中間檔（06-agent-skills）
 *.aux
 *.log
 *.out

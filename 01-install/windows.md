@@ -224,7 +224,7 @@ $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [En
 
 if (Get-Command initexmf -ErrorAction SilentlyContinue) {
     # 編譯時自動下載缺少的 LaTeX 套件，不再逐一跳出確認視窗
-    initexmf "--set-config-value=[MPM]AutoInstall=1"
+    initexmf "--set-config-value=[MPM]AutoInstall=yes"
     # 把套件更新到最新版；網路不穩出現 SSL connect error 時自動重試
     foreach ($i in 1..3) {
         miktex packages update

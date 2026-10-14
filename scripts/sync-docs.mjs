@@ -21,12 +21,17 @@ const SOURCES = {
   '02-organize-data/README.md': '02_organize_data',
   '03-hello-github/README.md': '03_hello_github',
   '04-web-game/README.md': '04_web_game',
-  '05-agent-skills/README.md': '05_agent_skills',
-  '05-agent-skills/tutorial.md': '05_tutorial',
-  '06-hpc-demo/README.md': '06_hpc_demo',
+  '05-review-loop/README.md': '05_review_loop',
+  '05-review-loop/REVIEW-LOOP.md': '05_review_loop_process',
+  '05-review-loop/example/README.md': '05_example',
+  '05-review-loop/exercise/ASSIGNMENT.md': '05_assignment',
+  '06-agent-skills/README.md': '06_agent_skills',
+  '06-agent-skills/tutorial.md': '06_tutorial',
+  '07-hpc-demo/README.md': '07_hpc_demo',
   'AGENTS.md': 'agents_md',
   'teacher/README.md': 'teacher_guide',
-  'teacher/06-demo-script.md': 'teacher_06_demo_script',
+  'teacher/05-course-plan.md': 'teacher_05_course_plan',
+  'teacher/07-demo-script.md': 'teacher_07_demo_script',
 }
 
 function resolveTarget(source, target) {
