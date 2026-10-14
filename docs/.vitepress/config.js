@@ -31,7 +31,7 @@ export default defineConfig({
           { text: '07 超級電腦（老師示範）', link: '/guide/07_hpc_demo' }
         ]
       },
-      { text: 'AI 規則 (AGENTS.md)', link: '/guide/agents_md' },
+      { text: 'AI 規則（AGENTS.md）', link: '/guide/agents_md' },
       { text: '學習路徑建議', link: '/guide/teacher_guide#學習路徑建議' }
     ],
     sidebar: [

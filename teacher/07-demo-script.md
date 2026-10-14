@@ -1,4 +1,4 @@
-# 階段七教師示範腳本：Antigravity＋Remote-SSH＋Nano4 FreeSurfer 管線
+# 階段七老師示範腳本：Antigravity＋Remote-SSH＋Nano4 FreeSurfer 管線
 
 示範使用的專案是 [freesurfer-nano4-pipeline](https://github.com/gemini960114/freesurfer-nano4-pipeline)（**私人 repo**，只有擁有者與 collaborator 能存取）。專案本身的完整說明見其 `README.md` 與 `QUICKSTART.md`；本文件只整理**課堂示範**需要的部分。
 
