@@ -1,0 +1,31 @@
+# 階段二 AI 整理的輸出結果（保留空資料夾）
+02-organize-data/output/*
+!02-organize-data/output/.gitkeep
+
+# 作業系統自動產生的檔案
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 在教材資料夾內試跑練習時產生的環境與暫存檔
+.venv/
+__pycache__/
+node_modules/
+dist/
+
+# 教學網站：由 scripts/sync-docs.mjs 產生的頁面與 VitePress 建置結果
+docs/guide/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/
+
+# LaTeX 編譯中間檔（05-agent-skills）
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.toc
+*.synctex.gz
+
+# Claude Code 個人設定
+.claude/settings.local.json
