@@ -3,12 +3,12 @@ import { githubSlugify } from '../../scripts/slugify.mjs'
 
 export default defineConfig({
   lang: 'zh-TW',
-  title: 'AI 協作開發與 Agent Skills',
+  title: 'AI Agent 協作開發與研究',
   description: '和 AI 一起寫程式、做研究，用 skill 讓它照你整理好的方法做事，並且學會不盲目相信它',
   head: [
     ['meta', { name: 'theme-color', content: '#0284c7' }]
   ],
-  base: '/ai-skills-course-kit/',
+  base: '/ai-agent-course-kit/',
   // 內部連結壞掉時讓建置失敗；localhost 是示範用網址
   ignoreDeadLinks: ['localhostLinks'],
   // GitHub 風格的標題錨點，README 中的 #錨點 在 GitHub 與網站上都能用
@@ -104,11 +104,11 @@ export default defineConfig({
       provider: 'local'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/gemini960114/ai-skills-course-kit' }
+      { icon: 'github', link: 'https://github.com/gemini960114/ai-agent-course-kit' }
     ],
     footer: {
       message: 'AI 很快，但會出錯，要自己檢查。',
-      copyright: 'Copyright © 2026 AI 協作開發與 Agent Skills 課程'
+      copyright: 'Copyright © 2026 AI Agent 協作開發與研究 課程'
     }
   }
 })

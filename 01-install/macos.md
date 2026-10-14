@@ -184,7 +184,7 @@ rg "API_KEY" -g '!node_modules/**'  # 不在 Git 儲存庫時，手動排除 nod
 
 ## 模組三：文件轉換工具（Pandoc、LaTeX）
 
-包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）與 `MacTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。Pandoc 幾秒鐘就裝好；MacTeX 內含完整套件，下載約 5 GB，建議在家中寬頻網路安裝。
+包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）與 `MacTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。Pandoc 幾秒鐘就裝好；MacTeX 內含完整套件，下載達數 GB，建議在家中寬頻網路安裝。
 
 > 安裝 MacTeX 時 Homebrew 會要求輸入 Mac 的登入密碼，這是正常的（不要自己在指令前加 `sudo`）。安裝完成後，LaTeX 指令位於 `/Library/TeX/texbin`。
 
@@ -201,7 +201,7 @@ fi
 if command -v xelatex >/dev/null 2>&1; then
     echo "[已安裝] LaTeX (xelatex)，跳過。"
 else
-    echo "[缺少] 正在安裝 MacTeX（約 5 GB，請耐心等候）..."
+    echo "[缺少] 正在安裝 MacTeX（數 GB，請耐心等候）..."
     brew install --cask mactex-no-gui || failed+=("mactex-no-gui")
 fi
 

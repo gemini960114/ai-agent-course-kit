@@ -10,7 +10,7 @@ import { dirname, join, posix } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-const REPO = 'https://github.com/gemini960114/ai-skills-course-kit'
+const REPO = 'https://github.com/gemini960114/ai-agent-course-kit'
 
 const SOURCES = {
   'README.md': '00_course_overview',

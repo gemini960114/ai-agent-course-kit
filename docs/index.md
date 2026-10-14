@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "AI 協作開發與 Agent Skills"
+  name: "AI Agent 協作開發與研究"
   text: "和 AI 一起寫程式、做研究，並且學會不盲目相信它"
   tagline: "AI 幾秒鐘就能寫程式、整理文獻、做出網頁和文件，但它也會編造內容、謊報完成。七個階段，一步步練習：讓 AI 做事 → 檢查它做的事 → 把檢查變成流程 → 把做事的方法寫成 skill。"
   actions:

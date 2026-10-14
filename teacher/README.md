@@ -49,7 +49,7 @@ teacher/
 - [ ] 安裝 AI 編輯器 Antigravity IDE（[01-install/00-antigravity.md](../01-install/00-antigravity.md)；手動下載安裝，並用 Google 帳號登入）
 - [ ] 完成階段一的**模組一**（Git、uv、Node.js、gh）
 - [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要和 Antigravity 目前使用的**模型**不同
-- [ ] 階段六前完成階段一的**模組三**（Pandoc、LaTeX）。MacTeX 約 5 GB，請學生在家中網路先裝好
+- [ ] 階段六前完成階段一的**模組三**（Pandoc、LaTeX）。MacTeX 下載達數 GB，請學生在家中網路先裝好
 
 ---
 

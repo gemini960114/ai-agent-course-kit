@@ -62,7 +62,8 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 
 1. **語音生成（文字轉語音）**：
    - 優先使用 `edge-tts`（例如：`edge-tts --voice zh-TW-HsiaoChenNeural --text "內容" --write-media output.mp3`），避免呼叫高成本或需複雜設定的第三方 API。可用 `edge-tts --list-voices` 查詢語音。
-   - edge-tts 依賴微軟的線上服務，偶爾會整體失效（出現 403 錯誤）。遇到時告知使用者服務暫時無法使用，**不要反覆重試**；需要音效時可改用 `ffmpeg` 合成。
+   - edge-tts 依賴微軟的線上服務，偶爾會失效（出現 403 錯誤），通常是版本太舊。遇到時告知使用者執行 `uv tool upgrade edge-tts` 更新後再試，**不要反覆重試**，也不要自行更新；需要音效時可改用 `ffmpeg` 合成。
+   - 個別聲音也可能暫時無法使用，出現「No audio was received」時改用其他聲音，例如 `zh-TW-HsiaoChenNeural`、`zh-TW-HsiaoYuNeural`。
 2. **影音與音訊剪輯**：
    - 底層處理優先使用 `ffmpeg` 命令。
 3. **影音下載與擷取**：
