@@ -101,4 +101,4 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 ### macOS 注意事項
 
 1. 不要使用 `sudo` 執行 `brew` 或 `uv`。
-2. Apple Silicon 的 Homebrew 位於 `/opt/homebrew`，Intel Mac 位於 `/usr/local`；不要寫死其中一個路徑。
+2. 本課程只支援 Apple Silicon Mac，Homebrew 位於 `/opt/homebrew`；判斷 brew 是否存在時仍用 `command -v brew`，不要假設路徑。

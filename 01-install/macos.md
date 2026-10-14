@@ -23,7 +23,7 @@ else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# 2. Apple Silicon（M 系列晶片）需將 brew 加入 PATH；Intel Mac 可略過
+# 2. 將 brew 加入 PATH（Apple Silicon 的 Homebrew 安裝在 /opt/homebrew）
 if [ -x /opt/homebrew/bin/brew ]; then
     grep -q 'brew shellenv' ~/.zprofile 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -15,7 +15,7 @@
 | 0:00–0:10 | 開場：什麼是 skill、確認 skill 已就緒、怎麼看 skill 有沒有被用到（單元 0） | — |
 | 0:10–0:25 | 單元 1 範例 1：有個性的產品頁，完成後驗證觸發 | `frontend-design` |
 | 0:25–0:35 | 單元 2 範例 1：幫同一個品牌做宣傳海報 | `canvas-design` |
-| 0:35–0:45 | 單元 6：多輪討論，改進老師提供的論文（課堂版提示詞） | `brainstorming` |
+| 0:35–0:45 | 單元 6 第一段：用課堂版提示詞討論老師提供的論文，產出改進計畫（第二段修稿留到課後） | `brainstorming` |
 | 0:45–1:20 | 單元 9 實作步驟 1～3：盤點、整理、核對會議文件 | `docx`、`pdf`、`pptx`、`xlsx`（自動觸發） |
 | 1:20–1:50 | 單元 9 實作延伸 A：把整理流程做成自己的 skill，換一批檔案測試 | `skill-creator` |
 | 1:50–2:00 | 總結與課後練習說明 | — |
@@ -446,7 +446,15 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 > 討論完把決定整理成 example/case06/improvement-plan.md，先不要修改論文。
 > ```
 >
-> 第二段修改時，把提示詞裡的 `example/case05/paper.md` 換成 `example/case06/source/paper.md`、圖表與參考文獻改從 `example/case06/source/` 複製，並改成「example/case06/source/ 裡的檔案都不要修改」。課堂上時間有限，第一段討論 2～3 個問題即可。
+> **課堂上只做第一段**：討論 2～3 個問題、產出 `improvement-plan.md` 即可。第二段修稿留到課後，課後改用下面的提示詞：
+>
+> ```text
+> 依 example/case06/improvement-plan.md 修改 example/case06/source/paper.md，
+> 修正版存成 example/case06/paper-v2.md，需要的圖表從 example/case06/source/figures/ 複製到 example/case06/figures/，
+> 參考文獻從 example/case06/source/references.bib 複製到 example/case06/references.bib，
+> 新增的分析圖表存到 example/case06/figures/，最後用 pandoc 轉成 example/case06/paper-v2.pdf。
+> example/case06/source/ 裡的檔案都不要修改。
+> ```
 
 ```text
 請用 brainstorming 跟我討論如何改進 example/case05/paper.md，審稿意見在 example/case05/review.md，
@@ -609,11 +617,11 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 我想請另一個 AI 審查 .claude/skills/voice-script/SKILL.md，幫我準備第 1 輪的審查，紀錄放在 example/case07/review-log/。
 ```
 
-沒有做範例 1 時，可以改成審查其他產出，例如單元 5 的 `example/case05/paper.md`。
+沒有做範例 1 時，改成審查老師提供的 `example/case06/source/paper.md`（只讀取，不要修改）；做完單元 5 的人，也可以審查自己的 `example/case05/paper.md`。
 
-**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個不同模型的 AI。
+**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個 AI 工具，且使用不同模型。
 
-**有時間再做（選做）：完整跑一輪。** 把 prompt 和 `SKILL.md` 的內容貼給另一個不同模型的 AI，回覆原文存成 `round-1-review.md`，再貼回來請它逐項判斷。確認 skill 會先停下來等你決定、存好 `round-1-decision.md`，才算驗證了整個流程，不只是產生 prompt。
+**有時間再做（選做）：完整跑一輪。** 把 prompt 和 `SKILL.md` 的內容貼給另一個 AI 工具（且使用不同模型），回覆原文存成 `round-1-review.md`，再貼回來請它逐項判斷。確認 skill 會先停下來等你決定、存好 `round-1-decision.md`，才算驗證了整個流程，不只是產生 prompt。
 
 ---
 

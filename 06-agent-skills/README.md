@@ -21,5 +21,5 @@ Skill 是寫給 AI 的工作說明書：告訴它某一類任務該怎麼做、�
 | [tutorial.md](tutorial.md) | 教材：每個 skill 的用途與可直接照抄的提示詞 |
 | [AGENTS.md](AGENTS.md) | 這個階段給 AI 的規則（練習產出放哪裡、哪些素材不能改） |
 | `.agents/skills/`、`.claude/skills/` | 老師預先安裝的 skill（Antigravity 與 Claude Code 各一份） |
-| `example/` | 練習產出的位置；`case05/source/`、`case08/source/`、`case09/` 內有老師提供的素材 |
+| `example/` | 練習產出的位置；`case05/source/`、`case06/source/`（單元 6 課堂用論文）、`case08/source/`、`case09/` 內有老師提供的素材，都只能讀取、不要修改 |
 | [install.sh](install.sh) | 重新安裝課程 skill 的指令清單（一般不需要執行） |
