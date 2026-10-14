@@ -4,7 +4,7 @@
 
 📖 **教學網站：<https://gemini960114.github.io/ai-agent-course-kit/>**
 
-以 Antigravity 為主要工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。
+以 Antigravity 作為 AI Agent 工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。
 
 ## 課程地圖
 
