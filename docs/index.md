@@ -16,7 +16,7 @@ hero:
 features:
   - icon: 🧰
     title: 01｜安裝環境
-    details: 安裝 AI 編輯器 Antigravity IDE 與 Git、uv、Node.js、GitHub CLI 等開發工具。
+    details: 四個步驟：安裝 Antigravity IDE、取得教材、請 AI 安裝 Git、uv、Node.js、GitHub CLI 等開發工具，再調整版面。
     link: /guide/01_install
     linkText: 開始安裝
   - icon: 📚

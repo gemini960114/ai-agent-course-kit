@@ -35,6 +35,25 @@ const SOURCES = {
   'teacher/07-demo-script.md': 'teacher_07_demo_script',
 }
 
+// 側欄中指向同一頁錨點的項目（階段一的第 2、3 步）不會出現在「上一頁／下一頁」，
+// 這裡用 frontmatter 指定，讓學生依步驟順序前進
+const STEP2 = { text: '第 2 步：取得教材', link: '/guide/01_install#第-2-步取得教材' }
+const STEP3 = { text: '第 3 步：安裝軟體', link: '/guide/01_install#第-3-步安裝軟體' }
+const STEP4 = { text: '第 4 步：版面與 AI 擴充功能', link: '/guide/01_layout' }
+const PAGER = {
+  '01-install/00-antigravity.md': { next: STEP2 },
+  '01-install/windows.md': { prev: STEP3, next: STEP4 },
+  '01-install/macos.md': { prev: STEP3, next: STEP4 },
+  '01-install/01-layout.md': { prev: STEP3 },
+}
+
+function frontmatter(source) {
+  const pager = PAGER[source]
+  if (!pager) return ''
+  const lines = Object.entries(pager).map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+  return `---\n${lines.join('\n')}\n---\n\n`
+}
+
 function resolveTarget(source, target) {
   if (/^(https?:|mailto:|#)/.test(target)) return undefined
   const [path, hash = ''] = target.split('#')
@@ -64,6 +83,6 @@ function convert(source, markdown) {
 mkdirSync(join(ROOT, 'docs', 'guide'), { recursive: true })
 for (const [source, page] of Object.entries(SOURCES)) {
   const markdown = readFileSync(join(ROOT, source), 'utf8')
-  writeFileSync(join(ROOT, 'docs', 'guide', `${page}.md`), convert(source, markdown))
+  writeFileSync(join(ROOT, 'docs', 'guide', `${page}.md`), frontmatter(source) + convert(source, markdown))
   console.log(`synced docs/guide/${page}.md  <-  ${source}`)
 }
