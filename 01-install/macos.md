@@ -6,7 +6,7 @@
 > - 本課程只支援 **Apple Silicon（M 系列晶片）Mac**、macOS 12 以上。Homebrew 官方安裝腳本在 Intel Mac 上會直接中止（顯示「Homebrew on macOS is only supported on Apple Silicon processors!」）。
 > - 偵測到已存在的工具會保留現有版本、不會自動升級；請以各模組的「驗證」結果為準。
 
-> 開始之前：若要把安裝工作交給 AI，請先完成[第 0 步：安裝 Antigravity IDE](00-antigravity.md)。
+> 開始之前：若要把安裝工作交給 AI，請先完成[階段一](README.md)的第 1 步（安裝 Antigravity IDE）與第 2 步（取得教材）。
 
 ---
 

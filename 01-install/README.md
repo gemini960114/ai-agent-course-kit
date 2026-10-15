@@ -1,24 +1,45 @@
 # 階段一：安裝開發環境
 
-模組一約 15～30 分鐘；模組二、三可以課後安裝。Windows 和 macOS 的模組編號相同，上課時可以直接說「請安裝模組一」。
+照下面四個步驟完成。第 3 步的模組一約 15～30 分鐘；模組二、三可以課後安裝。Windows 和 macOS 的模組編號相同，上課時可以直接說「請安裝模組一」。
+
+| 步驟 | 做什麼 | 說明 |
+| --- | --- | --- |
+| 第 1 步 | 安裝並啟動 Antigravity IDE（手動） | [00-antigravity.md](00-antigravity.md) |
+| 第 2 步 | 在 Antigravity 的終端機下載教材，並開啟教材資料夾 | [本頁](#第-2-步取得教材) |
+| 第 3 步 | 請 AI 安裝軟體（模組一～三） | [本頁](#第-3-步安裝軟體) |
+| 第 4 步 | 調整版面、安裝其他 AI 擴充功能（建議） | [01-layout.md](01-layout.md) |
 
 ---
 
-## 安裝步驟
+## 第 1 步：安裝並啟動 Antigravity IDE
 
-**第 0 步（手動）：安裝 AI 編輯器**，見 [00-antigravity.md](00-antigravity.md)。有了 AI 編輯器，後面的模組才能交給 AI 安裝。
+見 [00-antigravity.md](00-antigravity.md)。有了 AI 編輯器，後面的軟體才能交給 AI 安裝。
 
-**第 1 步：取得教材。** 後面的安裝 Prompt 和練習都需要教材檔案在你的電腦上。
+## 第 2 步：取得教材
 
-- **還沒有 Git（第一次上課）**：下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」。Windows：在檔案上按右鍵 →「解壓縮全部」；macOS：連按兩下。解壓縮後的資料夾名稱是 `ai-agent-course-kit-main`。
-- **已經有 Git**：在終端機執行：
+後面的安裝 Prompt 和練習都需要教材檔案在你的電腦上。
 
-  ```powershell
-  cd ~/Documents
-  git clone https://github.com/gemini960114/ai-agent-course-kit
-  ```
+1. 在 Antigravity IDE 開啟終端機：選單「終端機 → 新增終端機」（Terminal → New Terminal）。
+2. 確認電腦上有沒有 Git：
 
-**第 2 步起：安裝模組一～三**，可以把下方的 Prompt 貼給 AI，或照安裝指南手動執行。
+   ```powershell
+   git --version
+   ```
+
+3. **有顯示版本號**（例如 `git version 2.x`）：用 Git 下載教材到「文件」資料夾。
+
+   ```powershell
+   cd ~/Documents
+   git clone https://github.com/gemini960114/ai-agent-course-kit
+   ```
+
+   **找不到 git 指令**（第一次上課的 Windows 電腦通常沒有，Git 會在第 3 步的模組一安裝）：改下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」。Windows：在檔案上按右鍵 →「解壓縮全部」；macOS：連按兩下。
+
+   > macOS 輸入 `git` 時，可能跳出安裝「命令列開發者工具」的視窗。按「安裝」，等它完成後再執行一次 `git --version`。第 3 步的 Homebrew 也需要這個工具。
+
+4. 開啟教材資料夾：選單「檔案 → 開啟資料夾」（File → Open Folder），選「文件」裡的 `ai-agent-course-kit`（下載 ZIP 的是 `ai-agent-course-kit-main`）。開啟的是**教材的最上層資料夾**，不是裡面的某個階段。
+
+## 第 3 步：安裝軟體
 
 | 模組 | 內容 | Windows | macOS |
 | --- | --- | --- | --- |
@@ -26,14 +47,12 @@
 | 模組二（多媒體與進階 CLI） | ffmpeg、ripgrep (`rg`)、jq、ImageMagick、edge-tts、yt-dlp | WinGet + uv tool | Homebrew + uv tool |
 | 模組三（文件轉換） | Pandoc、LaTeX（Windows：MiKTeX；macOS：MacTeX） | WinGet | Homebrew |
 
-- **Windows**：[windows.md](windows.md)（Windows 10 請先確認 WinGet 可用，見文件中的「事前確認」）
-- **macOS**：[macos.md](macos.md)（需先完成文件中的「事前準備」安裝 Homebrew）
+把下方的 Prompt 貼給 Antigravity 的 AI，AI 會依你的作業系統選擇對應的安裝指南。
 
----
+**三個 Prompt 怎麼選：**
 
-## 交給 AI 安裝（複製即可使用）
-
-在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟**教材的最上層資料夾**，再把下面的 Prompt 貼給 AI。AI 會依你的作業系統選擇對應的安裝指南。
+- **Prompt 1 和 Prompt 2 二選一。** Prompt 2 已經包含模組一；上課時間有限就先用 Prompt 1，模組二課後再補。
+- **Prompt 3 另外執行**，但要在完成 Prompt 1 或 2 之後才貼（macOS 需要模組一準備好的 Homebrew）。階段六之前裝好即可。
 
 ### Prompt 1：模組一（核心開發，必裝）
 
@@ -68,9 +87,16 @@
 3. 完成後重載 PATH，回報 pandoc 與 xelatex 版本，並執行指南中的 Word 轉檔與中文 PDF 輸出測試。
 ```
 
-## 不透過 AI，手動安裝
+### 不透過 AI，手動安裝
 
-開啟 **Windows PowerShell** 或 macOS **終端機**，把安裝指南中的程式碼區塊整段複製貼上執行即可。
+開啟 **Windows PowerShell** 或 macOS **終端機**，照安裝指南把程式碼區塊整段複製貼上執行即可：
+
+- **Windows**：[windows.md](windows.md)（Windows 10 請先確認 WinGet 可用，見文件中的「事前確認」）
+- **macOS**：[macos.md](macos.md)（需先完成文件中的「事前準備」安裝 Homebrew）
+
+## 第 4 步：調整版面與安裝 AI 擴充功能（建議）
+
+見 [01-layout.md](01-layout.md)：把 AI 面板和終端機放到右側，並可選擇安裝 Codex、Claude Code 等 AI agent 擴充功能。這一步不影響後面的練習，可以之後再做。
 
 ---
 

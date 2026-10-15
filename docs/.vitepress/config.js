@@ -43,9 +43,18 @@ export default defineConfig({
             text: '🧰 01 安裝環境',
             link: '/guide/01_install',
             items: [
-              { text: '第 0 步：安裝 Antigravity IDE', link: '/guide/01_antigravity' },
-              { text: 'Windows 安裝指南', link: '/guide/01_windows' },
-              { text: 'macOS 安裝指南', link: '/guide/01_macos' }
+              { text: '第 1 步：安裝 Antigravity IDE', link: '/guide/01_antigravity' },
+              { text: '第 2 步：取得教材', link: '/guide/01_install#第-2-步取得教材' },
+              {
+                text: '第 3 步：安裝軟體',
+                link: '/guide/01_install#第-3-步安裝軟體',
+                items: [
+                  { text: 'Windows 安裝指南', link: '/guide/01_windows' },
+                  { text: 'macOS 安裝指南', link: '/guide/01_macos' }
+                ]
+              },
+              { text: '第 4 步：版面與 AI 擴充功能', link: '/guide/01_layout' },
+              { text: 'AI 的規則（AGENTS.md）', link: '/guide/agents_md' }
             ]
           }
         ]
@@ -86,10 +95,9 @@ export default defineConfig({
         ]
       },
       {
-        text: '📜 規則與教師資料',
+        text: '👩‍🏫 教師資料',
         items: [
-          { text: '🛡️ AI 規則（AGENTS.md）', link: '/guide/agents_md' },
-          { text: '👩‍🏫 教師手冊', link: '/guide/teacher_guide' },
+          { text: '📖 教師手冊', link: '/guide/teacher_guide' },
           { text: '🗓️ 05 課程規劃', link: '/guide/teacher_05_course_plan' },
           { text: '🎬 07 示範腳本', link: '/guide/teacher_07_demo_script' }
         ]

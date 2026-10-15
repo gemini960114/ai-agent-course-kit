@@ -16,6 +16,7 @@ const SOURCES = {
   'README.md': '00_course_overview',
   '01-install/README.md': '01_install',
   '01-install/00-antigravity.md': '01_antigravity',
+  '01-install/01-layout.md': '01_layout',
   '01-install/windows.md': '01_windows',
   '01-install/macos.md': '01_macos',
   '02-organize-data/README.md': '02_organize_data',
