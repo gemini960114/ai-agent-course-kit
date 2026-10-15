@@ -87,7 +87,7 @@ Host nano4
 | **OTP 與帳號** | 輸入時切換畫面；示範結束後中斷 Remote-SSH 連線 |
 | **運算費用** | 課堂上不送出正式批次；selftest 會用到少量 SU |
 | **登入節點** | 不要示範在登入節點直接執行 `run_case.sh` 或 recon-all（違反叢集規範，專案也會拒絕） |
-| **私人 repo** | 學生無法存取該 repo，學生頁面（`07-hpc-demo/README.md`）只放觀察重點與事件摘要 |
+| **私人 repo** | 學生頁面（`07-hpc-demo/README.md`）只放觀察重點與事件摘要。學生申請存取時，在 repo 的 Settings → Collaborators 邀請對方的 GitHub 帳號（或執行 `gh api -X PUT repos/gemini960114/freesurfer-nano4-pipeline/collaborators/<學生帳號> -f permission=pull`，只給讀取權限） |
 
 ---
 
