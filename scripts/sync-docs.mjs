@@ -35,8 +35,8 @@ const SOURCES = {
   'teacher/07-demo-script.md': 'teacher_07_demo_script',
 }
 
-// 側欄中指向同一頁錨點的項目（階段一的第 2、3 步）不會出現在「上一頁／下一頁」，
-// 這裡用 frontmatter 指定，讓學生依步驟順序前進
+// 用 frontmatter 指定「上一頁／下一頁」：
+// 側欄中指向同一頁錨點的項目（階段一的第 2、3 步）不會出現在上一頁／下一頁，這裡補上，讓學生依步驟順序前進
 const STEP2 = { text: '第 2 步：取得教材', link: '/guide/01_install#第-2-步取得教材' }
 const STEP3 = { text: '第 3 步：安裝軟體', link: '/guide/01_install#第-3-步安裝軟體' }
 const STEP4 = { text: '第 4 步：版面與 AI 擴充功能', link: '/guide/01_layout' }
@@ -45,6 +45,8 @@ const PAGER = {
   '01-install/windows.md': { prev: STEP3, next: STEP4 },
   '01-install/macos.md': { prev: STEP3, next: STEP4 },
   '01-install/01-layout.md': { prev: STEP3 },
+  // 07 是學生課程的最後一頁，下一頁不要接到教師資料
+  '07-hpc-demo/README.md': { next: false },
 }
 
 function frontmatter(source) {
