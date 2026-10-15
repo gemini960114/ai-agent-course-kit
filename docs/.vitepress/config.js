@@ -28,7 +28,7 @@ export default defineConfig({
           { text: '04 網頁小遊戲', link: '/guide/04_web_game' },
           { text: '05 AI 交叉審查', link: '/guide/05_review_loop' },
           { text: '06 Agent Skills', link: '/guide/06_agent_skills' },
-          { text: '07 超級電腦（老師示範）', link: '/guide/07_hpc_demo' }
+          { text: '07 AI 指揮官（老師示範）', link: '/guide/07_hpc_demo' }
         ]
       },
       { text: 'AI 規則（AGENTS.md）', link: '/guide/agents_md' },
@@ -91,7 +91,7 @@ export default defineConfig({
       {
         text: '🖥️ 老師示範',
         items: [
-          { text: '⚡ 07 超級電腦', link: '/guide/07_hpc_demo' }
+          { text: '⚡ 07 AI 指揮官', link: '/guide/07_hpc_demo' }
         ]
       },
       {
