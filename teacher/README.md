@@ -10,7 +10,7 @@ teacher/
 └── review-log/          ← 這份教材的交叉審查紀錄（依 05 的 REVIEW-LOOP 流程）
 ```
 
-> 參考答案會一起上傳 GitHub，學生看得到也沒關係。除了階段一，學生練習時都是用 Antigravity IDE 開啟**單一階段的資料夾**（或複製到「文件」的資料夾），AI 不會讀到這裡。階段一安裝時會開啟教材的最上層資料夾，這時 AI 看得到 `teacher/`，靠根目錄 AGENTS.md 的規則要求 AI 不主動讀取。
+> 參考答案會一起上傳 GitHub，學生看得到也沒關係。除了階段一和階段三的 Step 1（登入 GitHub），學生練習時都是用 Antigravity IDE 開啟**單一階段的資料夾**（或自己在「文件」建立的資料夾），AI 不會讀到這裡。這兩個步驟會開啟教材的最上層資料夾，這時 AI 看得到 `teacher/`，靠根目錄 AGENTS.md 的規則要求 AI 不主動讀取。
 >
 > 階段六的答案表在 `06-agent-skills/example/case09/teacher/`，跟著練習資料夾一起放；由 `06-agent-skills/AGENTS.md` 規定 AI 只有提示詞指定時才能讀取。
 
@@ -26,7 +26,7 @@ teacher/
 | 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲，並自己玩一輪檢查 AI 說的「完成」 | — |
 | 五 | `05-review-loop/` | 兩次課各 90 分鐘；只有一次課時用 90 分鐘精簡版（見 `05-course-plan.md`） | 用另一個 AI 交叉審查，自己判斷要不要採納 | `05-course-plan.md`、`05-answers.md` |
 | 六 | `06-agent-skills/` | 課堂 2 小時＋課後自學 | 用 skill 產出網頁、海報、論文與 Office 文件，並用 `skill-creator` 把整理流程做成自己的 skill | `06-agent-skills/tutorial.md` 開頭的課程時間規劃；`example/case09/teacher/` 答案表 |
-| 七 | `07-hpc-demo/` | 約 20～30 分鐘（**老師示範**，學生不操作） | 看 AI 在超級電腦上操作真實研究管線，以及 AI 在真實運作中犯過的 20 個錯誤 | `07-demo-script.md` |
+| 七 | `07-hpc-demo/` | 約 20～30 分鐘（**老師示範**，學生不操作） | AI 指揮官：看老師用自然語言指揮 AI 在超級電腦上操作真實研究管線，以及 AI 在真實運作中犯過的 20 個錯誤 | `07-demo-script.md` |
 
 **貫穿全課程的主軸：AI 很快，但會出錯，要自己檢查。** 階段二是第一次發現（AI 會補寫摘要沒有的內容），階段四是自己動手驗證 AI 說的「完成」，階段五是有系統地檢查（交叉審查），階段六把做事的方法寫成 skill，但成果仍要自己核對。
 
@@ -48,7 +48,7 @@ teacher/
 
 - [ ] 註冊 GitHub 帳號
 - [ ] 安裝 AI 編輯器 Antigravity IDE（[01-install/00-antigravity.md](../01-install/00-antigravity.md)；手動下載安裝，並用 Google 帳號登入）
-- [ ] 完成階段一的**模組一**（Git、uv、Node.js、gh）
+- [ ] 完成階段一第 2 步**取得教材**，以及第 3 步的**模組一**（Git、uv、Node.js、gh）
 - [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要和 Antigravity 目前使用的**模型**不同
 - [ ] 確認電腦符合需求：Windows 10／11 64 位元，或 macOS 12 以上的 Apple Silicon Mac（**不支援 Intel Mac**）
 - [ ] 階段六前完成階段一的**模組二、三**（ffmpeg、edge-tts、Pandoc、LaTeX 等）。MacTeX 下載達數 GB，請學生在家中網路先裝好
@@ -82,3 +82,4 @@ teacher/
 | 階段二的論文 | `teacher/02-answers.md` |
 | `06-agent-skills/example/case09/` 的素材 | `06-agent-skills/example/case09/teacher/` 的答案表 |
 | 新增任何階段的答案 | 檔名用 `NN-answers.md`，與其他答案一致 |
+| 新增要放上教學網站的 Markdown 檔 | `scripts/sync-docs.mjs` 的 `SOURCES` 與 `docs/.vitepress/config.js` 的側欄；改階段名稱時也要同步側欄、導覽列與 `docs/index.md` 的首頁卡片 |
