@@ -42,7 +42,22 @@ uv init --bare
 照 `REVIEW-LOOP.md` 的步驟 ②～④，每一輪在 `review-log/` 存三個檔案：
 
 1. **② 產生審查 prompt**：把 REVIEW-LOOP.md 步驟 ② 的提示語貼給**寫程式的 AI**，它會存成 `round-N-prompt.md`。**檢查裡面的「已決定的事」**，刪掉你沒決定過的項目。
-2. **③ 交給另一個 AI 審查**：把 prompt 貼給**不同的 AI 工具**（例如 ChatGPT 或 Gemini），並確認它和寫程式的 AI **使用不同的模型**。網頁版讀不到你的檔案，要把 `grades.py`、`REQUIREMENTS.md`、`grades.csv` 的內容一起貼上。**回覆原文由你自己存成 `round-N-review.md`。**
+2. **③ 交給另一個 AI 審查**：把 prompt 貼給**不同的 AI 工具**（例如 ChatGPT 或 Gemini），並確認它和寫程式的 AI **使用不同的模型**。網頁版讀不到你的檔案，要把檔案內容一起貼上（程式分成多個檔案時，每個 `.py` 檔都要貼）：
+   ```text
+   （貼上 round-N-prompt.md 的全部內容）
+
+   以下是專案檔案的內容：
+
+   ===== REQUIREMENTS.md =====
+   （貼上內容）
+
+   ===== grades.py =====
+   （貼上內容）
+
+   ===== grades.csv =====
+   （貼上內容）
+   ```
+   **回覆原文由你自己存成 `round-N-review.md`。**
 3. **④ 逐項判斷**：把回覆貼回寫程式的 AI，用步驟 ④ 的提示語請它逐項判斷。**自己確認判斷**，再用第二段提示語請它套用、實際執行，並存成 `round-N-decision.md`。
 
 每一輪**不用 commit**。重複 Step 3，直到符合 REVIEW-LOOP.md 的「停止條件」（本作業**至少 2 輪**），最後再 commit 一次：

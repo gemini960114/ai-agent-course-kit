@@ -69,6 +69,66 @@ antigravity-ide .
 
 **產出用與審查用請使用不同的 AI 工具，並確認兩者使用不同的模型。**
 
+### 每一輪要輸入的 Prompt（照順序複製）
+
+| 順序 | 貼給誰 | 輸入 |
+| --- | --- | --- |
+| 第 0 輪 | 寫程式的 AI（Antigravity） | Prompt A，執行成功後 commit |
+| 每一輪 ② | 寫程式的 AI | Prompt B，**檢查**產生的 `round-N-prompt.md` 裡的「已決定的事」 |
+| 每一輪 ③ | 審查用的 AI（例如 ChatGPT 網頁版） | Prompt C，回覆原文存成 `round-N-review.md` |
+| 每一輪 ④ | 寫程式的 AI | Prompt D，**自己看過判斷**後再輸入 Prompt E |
+
+#### Prompt A：第 0 輪，寫出程式
+
+```text
+請依照 REQUIREMENTS.md 寫出程式，並用 grades.csv 執行一次。
+```
+
+看執行結果，自己對照 `REQUIREMENTS.md` 和 `grades.csv`，想想它算對了嗎？
+
+#### Prompt B：步驟 ②，產生審查 prompt
+
+```text
+請幫我寫一段給另一位 AI 專家的審查 prompt：說明專案用途、已決定的事，以及 review-log/ 裡前幾輪已修正和已否決的項目，
+要求只讀不執行，依 🔴 一定要修／🟡 建議修 回報，沒有重大問題就說「可以發布」。存到 review-log/ 的下一輪 prompt 檔。
+```
+
+#### Prompt C：步驟 ③，貼給審查用的 AI
+
+程式分成多個檔案時，每個 `.py` 檔都要貼。
+
+```text
+（貼上 round-N-prompt.md 的全部內容）
+
+以下是專案檔案的內容：
+
+===== REQUIREMENTS.md =====
+（貼上內容）
+
+===== grades.py =====
+（貼上內容）
+
+===== grades.csv =====
+（貼上內容）
+```
+
+#### Prompt D：步驟 ④，逐項判斷（先不修改）
+
+```text
+請逐項判斷以下審查建議（接受／部分接受／否決），附上可驗證的理由，先不要修改：
+（貼上審查原文）
+```
+
+有不同意的判斷，先和 AI 討論，確定後再輸入 Prompt E。
+
+#### Prompt E：步驟 ④，套用並記錄
+
+```text
+只套用同意的項目，修改後實際執行一次，並把判斷存到 review-log/ 的這一輪 decision 檔。
+```
+
+完成一輪後，回到 Prompt B 開始下一輪，直到符合停止條件。
+
 ---
 
 ## 三、繳交內容
