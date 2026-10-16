@@ -48,7 +48,7 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
    - **禁止**直接執行全域 `pip install <package>`。
    - **禁止**要求使用者從 python.org 下載安裝 Python；需要特定 Python 版本時使用 `uv python install 3.12` 或 `uv venv --python 3.12`。
 2. **全面優先使用 `uv` 管理環境**：
-   - 新專案：`uv init`，再用 `uv add <package>` 加入依賴（自動建立 `.venv` 並記錄於 `pyproject.toml`）。
+   - 新專案：`uv init --bare`（新版 uv 不加 `--bare` 會產生 `src/` 與 `.git`），再用 `uv add <package>` 加入依賴（自動建立 `.venv` 並記錄於 `pyproject.toml`）。
    - 既有 `requirements.txt` 專案：`uv venv` 建立虛擬環境，再 `uv pip install -r requirements.txt`。
    - 執行腳本：優先使用 `uv run python script.py`（不需手動啟用虛擬環境）；單檔臨時腳本可用 `uv run --with <package> script.py`。
    - 若需手動啟用虛擬環境：見第 5 節。
