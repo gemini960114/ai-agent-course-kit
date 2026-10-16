@@ -1,6 +1,6 @@
 ### 國網中心 OpenAI-Compatible API 使用說明
 
-> **這是示範範例。** 下方的 API Key 是假值，請換成你自己申請的 Key。真正的 Key 不要放進 git，也不要分享給別人。
+> **這是示範範例。** 下方的 API Key 是假值。請把這個檔案複製成 `apikey.txt`，再填入你自己申請的 Key。`apikey.txt` 已列在 `.gitignore`，不會被 commit；真正的 Key 不要分享給別人。
 
 國網中心提供相容 OpenAI API 格式的模型服務，可串接 Python、OpenAI SDK 及其他支援 OpenAI API 的工具。
 

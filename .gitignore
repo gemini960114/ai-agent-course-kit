@@ -29,3 +29,6 @@ docs/.vitepress/.temp/
 
 # Claude Code 個人設定
 .claude/settings.local.json
+
+# API 金鑰：從 apikey.example.txt 複製後填入自己的 Key，不要 commit
+apikey.txt
