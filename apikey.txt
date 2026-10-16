@@ -1,0 +1,15 @@
+### 國網中心 OpenAI-Compatible API 使用說明
+
+國網中心提供相容 OpenAI API 格式的模型服務，可串接 Python、OpenAI SDK 及其他支援 OpenAI API 的工具。
+
+**API 連線資訊**
+- **Base URL：** `https://portal.genai.nchc.org.tw/api/v1`
+- **API Key：** `sk-Y1G4jYZOS7Z8BSjicA4Qsw`
+- **API 格式：** OpenAI-Compatible API
+
+**可用模型（Model ID）**
+- `Inkling-Small`
+- `Muse-Glimmer-30B`
+- `gemma-4-31B-it`
+
+**使用方式：** 在支援 OpenAI-Compatible API 的工具中，填入 Base URL、API Key 及 Model ID，即可串接使用。
