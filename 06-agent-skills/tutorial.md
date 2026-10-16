@@ -28,10 +28,10 @@
 | 單元 3 `remotion-best-practices` | 影片算圖較花時間 |
 | 單元 4 `arxiv` | 查論文、寫論文前言，需要較多時間閱讀與核對 |
 | 單元 5 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文 |
-| 單元 7-1 `find-skills` | 操作簡單，照範例做即可 |
+| 單元 7-1 `find-skills` | 操作簡單，照範例做即可；範例 2 練習安裝前先檢查 skill |
 | 單元 7-2 `skill-creator` 範例 | 範例 1 做語音講稿 skill（課堂上已在單元 9 實作延伸 A 練過做 skill）；範例 2 把階段五的交叉審查流程做成 skill，上過階段五再做 |
 | 單元 8 文件處理 | 課堂上已在單元 9 間接用過，這裡練習產出 Excel 與簡報 |
-| 單元 9 實作延伸 B、C、D | 合併新資料、建立知識庫並驗證、產出交付成果 |
+| 單元 9 實作延伸 A 選做、延伸 B、C、D | 用核對結果修改 skill、合併新資料、建立知識庫並驗證、產出交付成果 |
 
 ---
 
@@ -532,6 +532,15 @@ npx skills add vercel-labs/skills@find-skills -a antigravity -a claude-code --co
 
 **預期行為**：執行 `npx skills find react --owner vercel-labs`，列出 Vercel 官方的最佳實踐 skill 與安裝數，說明各自的用途，並附上安裝指令，但不實際安裝。課程只使用 12 個 skill，額外安裝會讓觸發變得不精準（見常見問題 Q3）。
 
+**安裝前先檢查**：從候選中挑一個，看看它會做什麼，仍然不要安裝。
+
+```text
+打開剛才第一個候選 skill 在 GitHub 上的 SKILL.md 與附帶的腳本，告訴我：
+它在什麼情況下會被觸發、會執行哪些指令、會不會連線到外部網站或修改檔案。先不要安裝。
+```
+
+**預期行為**：agent 讀取 GitHub 上的檔案，整理出觸發條件、會執行的指令與外部連線，並附上檔案連結。自己也點開連結看一次，再對照常見問題 Q5，判斷它的行為是否符合用途。
+
 ---
 
 ### 7-2. `skill-creator` — 把自己的工作流程做成 skill
@@ -602,10 +611,15 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 ```text
 用 skill-creator 依照 example/case07/REVIEW-LOOP.md 做一個 skill「review-loop」，
 用在「請另一個 AI 審查我的程式或文件」的情境：
-產生審查 prompt（背景、已決定的事、只讀不執行、依 🔴／🟡 回報）→ 存到 review-log/round-N-prompt.md；
-第 2 輪起要帶入前幾輪已修正與已否決的項目；審查者讀不到檔案時（例如網頁版），提醒我把待審內容附在 prompt 後面 →
+產生審查 prompt → 存到 review-log/round-N-prompt.md：
+  AI 只填寫專案用途、已決定的事、前幾輪已修正與已否決的項目；REVIEW-LOOP.md 步驟 ② 的四條規則逐字放入；
+  開頭寫上第幾輪與版本：在 git repo 裡，先用 git status -- <待審檔案> 確認待審檔案沒有未 commit 的修改，
+  再寫上 git rev-parse --short HEAD 的結果；其他檔案的修改不用管；
+  不在 git repo 裡時，改寫待審檔案的修改時間，並提醒我這次沒有版本紀錄；
+  審查者讀不到檔案時（例如網頁版），提醒我把待審內容附在 prompt 後面，並附上檔案清單 →
 我把審查回覆原文存成 review-log/round-N-review.md →
 逐項判斷（接受／部分接受／否決），先不要修改 → 我確認後才套用，並存成 round-N-decision.md →
+在 git repo 裡時，提醒我依 REVIEW-LOOP.md 的格式 commit 這一輪，不要自己 commit →
 依停止條件判斷能不能結束。
 建立在 .claude/skills/review-loop/，並複製一份到 .agents/skills/review-loop/。
 做好後先不要測試，也不用跑評估。
@@ -619,7 +633,7 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 
 沒有做範例 1 時，改成審查老師提供的 `example/case06/source/paper.md`（只讀取，不要修改）；做完單元 5 的人，也可以審查自己的 `example/case05/paper.md`。
 
-**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個 AI 工具，且使用不同模型。
+**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式，開頭標明第幾輪與版本（用 ZIP 下載教材時不是 git repo，會改寫檔案的修改時間）。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個 AI 工具，且使用不同模型。
 
 **有時間再做（選做）：完整跑一輪。** 把 prompt 和 `SKILL.md` 的內容貼給另一個 AI 工具（且使用不同模型），回覆原文存成 `round-1-review.md`，再貼回來請它逐項判斷。確認 skill 會先停下來等你決定、存好 `round-1-decision.md`，才算驗證了整個流程，不只是產生 prompt。
 
@@ -773,6 +787,18 @@ plan.md 和這段指示不同的地方，以這段指示為準。
 **預期行為**：skill 的 `SKILL.md` 會寫明讀檔方式、分類規則與「確認後才複製」的步驟。整理的提示詞沒有點名 skill，用來觀察它會不會自動觸發；觸發後 agent 盤點完會停下來等你確認，確認後才複製。答案表等整理完才給，避免 agent 照答案分類，核對結果才有意義。這批的檔名多半只有日期（例如 `1041225議程附件.pdf`），會議紀錄的檔名則沒有日期；104～105 年多數會議沒有逐字紀錄，還有幾份附件（行動策略草案、合約條文、盤點表）內容完全沒提到會議，要靠檔名日期與內容交叉判斷。
 
 如果 agent 沒有用到 skill，檢查 `SKILL.md` 開頭的 `description` 有沒有寫到「整理會議文件」這類情境，修改後重新啟動再試一次。
+
+**課後選做：用核對結果修改 skill。** 核對結果有分錯的檔案時，可以請 skill-creator 改進 skill，再測一次：
+
+```text
+用 skill-creator 修改 meeting-organizer：依剛才的核對結果找出分錯的原因，
+把需要的判斷方法補進 SKILL.md，並說明改了哪裡。
+判斷方法要能用在其他批檔案，不要把答案表的內容或個別檔名寫進 skill。
+```
+
+**重新啟動工作階段**後，用同一句提示詞整理，但結果改放在 `example/case09/organized_extra_v2/`，再用答案表核對，比較兩次的正確率。
+
+**預期行為**：補進去的應該是通用的判斷方法，例如「檔名只有日期時，用日期對照清冊找出是哪一場會議」，而不是「某個檔案屬於某場會議」；後者只是把答案背下來，換一批檔案就沒用。用同一批檔案測，正確率提高也不代表換一批會變好，這是測試 skill 時要記得的限制。
 
 #### 延伸 B：事後找到的新資料，合併進已整理好的資料夾
 
