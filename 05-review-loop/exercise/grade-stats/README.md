@@ -22,7 +22,7 @@ uv init --bare
 
 完成後會多出 `pyproject.toml`。
 
-> 一定要加 `--bare`：新版 uv 直接執行 `uv init` 會產生 `src/` 資料夾，不適合這個練習。
+> 一定要加 `--bare`：不加的話，`uv init` 會另外產生 `README.md`、`.git` 與範例程式（依 uv 版本不同，可能是 `main.py` 或 `src/` 資料夾），不適合這個練習。
 
 ## Step 2：第 0 輪，請 AI 寫程式
 

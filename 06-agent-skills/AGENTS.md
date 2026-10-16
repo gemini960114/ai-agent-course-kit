@@ -52,7 +52,7 @@
 2. **一律透過 `uv` 執行 Python**：
    - 執行腳本：`uv run python script.py`（不需手動啟用虛擬環境）。
    - 腳本需要套件時：`uv run --with <package> python script.py`，套件只在執行時使用，不會裝進系統。
-   - 新專案：`uv init --bare`（新版 uv 不加 `--bare` 會產生 `src/` 與 `.git`），再用 `uv add <package>` 加入依賴（記錄於 `pyproject.toml`）。
+   - 新專案：`uv init --bare`（不加 `--bare` 會另外產生 `README.md`、`.git` 與範例程式，依 uv 版本不同，可能是 `main.py` 或 `src/` 資料夾），再用 `uv add <package>` 加入依賴（記錄於 `pyproject.toml`）。
    - 既有 `requirements.txt` 專案：`uv venv` 建立虛擬環境，再 `uv pip install -r requirements.txt`。
    - 若需手動啟用虛擬環境：見第 5 節。
 
