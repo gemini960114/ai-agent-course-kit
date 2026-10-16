@@ -41,10 +41,13 @@ uv init --bare
 
 照 `REVIEW-LOOP.md` 的步驟 ②～④，每一輪在 `review-log/` 存三個檔案：
 
-1. **② 產生審查 prompt**：把 REVIEW-LOOP.md 步驟 ② 的提示語貼給**寫程式的 AI**，它會存成 `round-N-prompt.md`。**檢查裡面的「已決定的事」**，刪掉你沒決定過的項目。
+1. **② 產生審查 prompt**：把 REVIEW-LOOP.md 步驟 ② 的提示語貼給**寫程式的 AI**。它會先檢查 git status，確認沒有未 commit 的修改，再存成 `round-N-prompt.md`，開頭標明第幾輪與 commit 編號。**檢查裡面的「已決定的事」**，刪掉你沒決定過的項目。
 2. **③ 交給另一個 AI 審查**：把 prompt 貼給**不同的 AI 工具**（例如 ChatGPT 或 Gemini），並確認它和寫程式的 AI **使用不同的模型**。網頁版讀不到你的檔案，要把檔案內容一起貼上（程式分成多個檔案時，每個 `.py` 檔都要貼）：
    ```text
    （貼上 round-N-prompt.md 的全部內容）
+
+   本次共提供以下 N 個檔案：（列出檔名）。請在回覆開頭列出你實際收到的檔案；
+   若有缺少或內容不完整，請先說明，不要審查缺少的部分。
 
    以下是專案檔案的內容：
 
@@ -60,9 +63,18 @@ uv init --bare
    **回覆原文由你自己存成 `round-N-review.md`。**
 3. **④ 逐項判斷**：把回覆貼回寫程式的 AI，用步驟 ④ 的提示語請它逐項判斷。**自己確認判斷**，再用第二段提示語請它套用、實際執行，並存成 `round-N-decision.md`。
 
-每一輪**不用 commit**。重複 Step 3，直到符合 REVIEW-LOOP.md 的「停止條件」（本作業**至少 2 輪**），最後再 commit 一次：
+4. **commit 這一輪**：確認程式實際執行成功後，把這一輪的修改和三個紀錄檔一起 commit：
+   ```powershell
+   git add -A
+   git commit -m "第 N 輪：接受 #1 #3，否決 #2"
+   ```
+   訊息列出這一輪接受與否決的項目編號（部分接受算在「接受」）；全部否決時寫 `"第 N 輪：否決 #1 #2"`。
+
+重複 Step 3，直到符合 REVIEW-LOOP.md 的「停止條件」（本作業**至少 2 輪**）。最後一輪的 commit 訊息改用：
 
 ```powershell
 git add -A
-git commit -m "審查完成：共 N 輪"
+git commit -m "審查完成：共 N 輪（第 N 輪：接受 #1，否決 #2）"
 ```
+
+這一輪沒有修改時，只寫 `"審查完成：共 N 輪"`。
