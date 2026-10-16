@@ -4,6 +4,8 @@
 
 📖 **教學網站：<https://gemini960114.github.io/ai-agent-course-kit/>**
 
+🗂️ **課程簡報與相關檔案（Google Drive）：<https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing>**
+
 以 Antigravity 作為 AI Agent 工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。
 
 ## 課程地圖

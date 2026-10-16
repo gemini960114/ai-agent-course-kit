@@ -12,6 +12,11 @@ hero:
     - theme: alt
       text: 開始安裝環境
       link: /guide/01_install
+    - theme: alt
+      text: 課程簡報與檔案
+      link: https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing
+      target: _blank
+      rel: noopener
 
 features:
   - icon: 🧰
