@@ -33,7 +33,9 @@
    git clone https://github.com/gemini960114/ai-agent-course-kit
    ```
 
-   **找不到 git 指令**（第一次上課的 Windows 電腦通常沒有，Git 會在第 3 步的模組一安裝）：改下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」。Windows：在檔案上按右鍵 →「解壓縮全部」；macOS：連按兩下。
+   **找不到 git 指令**（第一次上課的 Windows 電腦通常沒有，Git 會在第 3 步的模組一安裝）：改下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」。Windows：在檔案上按右鍵 →「解壓縮全部」；macOS：連按兩下。Windows 解壓縮後常會多一層同名資料夾（`ai-agent-course-kit-main\ai-agent-course-kit-main`），第 4 步要開啟的是直接看得到 `AGENTS.md` 的那一層。
+
+   > Windows 開啟 OneDrive 備份時，檔案總管裡的「文件」可能在 OneDrive 底下，和終端機的 `~/Documents` 不是同一個位置；第 4 步找不到教材時，在終端機執行 `pwd` 看教材實際放在哪裡。
 
    > macOS 輸入 `git` 時，可能跳出安裝「命令列開發者工具」的視窗。按「安裝」，等它完成後再執行一次 `git --version`。第 3 步的 Homebrew 也需要這個工具。
 
