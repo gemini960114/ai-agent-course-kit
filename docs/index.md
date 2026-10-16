@@ -45,8 +45,8 @@ features:
     link: /guide/06_agent_skills
     linkText: 學 Skills
   - icon: ⚡
-    title: 07｜AI 指揮官（老師示範）
-    details: 你當指揮官，看 AI 在國網中心超級電腦上操作真實研究管線，以及它在真實運作中犯過的錯。
+    title: 07｜AI 指揮官
+    details: 用 AI Agent 連到國網中心超級電腦 Nano4，以自然語言批次分析 MRI 腦部影像。
     link: /guide/07_hpc_demo
     linkText: 看示範
   - icon: 🧭
