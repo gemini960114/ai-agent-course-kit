@@ -49,7 +49,7 @@ teacher/
 - [ ] 註冊 GitHub 帳號
 - [ ] 安裝 AI 編輯器 Antigravity IDE（[01-install/00-antigravity.md](../01-install/00-antigravity.md)；手動下載安裝，並用 Google 帳號登入）
 - [ ] 完成階段一第 2 步**取得教材**，以及第 3 步的**模組一**（Git、uv、Node.js、gh）
-- [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要和 Antigravity 目前使用的**模型**不同
+- [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要是**不同 AI 工具、且使用不同模型**
 - [ ] 確認電腦符合需求：Windows 10／11 64 位元，或 macOS 12 以上的 Apple Silicon Mac（**不支援 Intel Mac**）
 - [ ] 階段六前完成階段一的**模組二、三**（ffmpeg、edge-tts、Pandoc、LaTeX 等）。MacTeX 下載達數 GB，請學生在家中網路先裝好
 
@@ -66,6 +66,7 @@ teacher/
 | **階段五每輪 commit 的流程** | 2026-10-16 改版後**尚未實測**（之前的紀錄是舊流程） | 用新版 grade-stats 跑至少 2 輪，確認：Prompt B 會先執行 `git status`，有未 commit 的修改時停下來；`round-N-prompt.md` 開頭有輪次與正確的 commit 編號；審查者會在回覆開頭列出收到的檔案；每輪 commit 訊息的格式正確 |
 | **階段六單元 6 課堂版** | 第 1 輪審查後新增，**尚未實測**；課程表只給 10 分鐘（之前只做過完整版） | 用 Antigravity 開啟 `06-agent-skills/`，貼上課堂版第一段提示詞並計時；確認 `example/case06/source/` 沒有被修改、`improvement-plan.md` 產生在 `example/case06/` |
 | **階段六單元 7-2 範例 2** | 第 1 輪審查後新增，2026-10-16 又改了提示詞，**尚未實測** | 完整跑一輪：產生 prompt → 交給另一個工具、不同模型審查 → 存審查原文 → 逐項判斷 → 確認 skill 停下來等你決定，結果記在 `teacher/review-log/`。另外確認：只檢查待審檔案（`git status -- <檔案>`）；在不是 git repo 的資料夾（例如 ZIP 下載的教材）會改寫修改時間，不會出錯 |
+| **階段六的選做 skill** | 2026-10-17 新增的 webapp-testing（單元 1）、grilling（單元 6）、theme-factory（單元 8）都是學生自行安裝、用完移除；安裝與移除指令已實測，**在 Antigravity 裡的完整操作尚未實測** | 各照教材跑一次：安裝 → 重新啟動 → 練習 → 移除，確認移除後 `.agents/skills/`、`.claude/skills/` 只剩 12 個課程 skill，`skills-lock.json` 也還原 |
 | **階段六單元 9 延伸 A** | 課堂上排 30 分鐘，**尚未實測** | 照延伸 A 做出 `meeting-organizer`，重新啟動後整理 `extra_files/`，用答案表核對；記下花費時間，確認 skill 會自動觸發並在盤點後停下來等確認 |
 | **公用電腦** | 學生的 GitHub 登入會留在電腦上 | 課後提醒學生執行 `gh auth logout` |
 | **階段六的 skill** | skill 已預先放在 `06-agent-skills/.agents/skills/` 與 `.claude/skills/`；學生若開錯資料夾，skill 不會被載入 | 用 Antigravity 開啟 `06-agent-skills/`，問 AI「目前有哪些 skill 可以用？」，確認列出 12 個課程 skill |

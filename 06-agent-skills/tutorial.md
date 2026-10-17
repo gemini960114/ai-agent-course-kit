@@ -28,7 +28,7 @@
 | 單元 1 選做 `webapp-testing` | 另外安裝，用瀏覽器實際測試範例 1 的產品頁 |
 | 單元 3 `remotion-best-practices` | 影片算圖較花時間 |
 | 單元 4 `arxiv` | 查論文、寫論文前言，需要較多時間閱讀與核對 |
-| 單元 5 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文 |
+| 單元 5 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文；延伸：輸出 APA 第 7 版格式 |
 | 單元 6 第二段、選做 `grilling` | 依改進計畫修改論文；選做時另外安裝 grilling，逼問改進計畫，和 brainstorming 比較 |
 | 單元 7-1 `find-skills` | 操作簡單，照範例做即可；範例 2 練習安裝前先檢查 skill，並看一個介紹和內容不符的真實案例 |
 | 單元 7-2 `skill-creator` 範例 | 範例 1 做語音講稿 skill（課堂上已在單元 9 實作延伸 A 練過做 skill）；範例 2 把階段五的交叉審查流程做成 skill，上過階段五再做 |
@@ -58,7 +58,7 @@ Skill 可以裝在兩個地方：
 
 ### 安裝指令說明
 
-> **本課程的 12 個 skill 已經裝好，課堂上不要執行本教材裡的安裝、更新、移除指令。** 重新安裝可能換成不同版本，讓你的結果和教材不同。這些指令是給你離開本課程、在自己的專案安裝 skill 時參考。
+> **本課程的 12 個 skill 已經裝好，課堂上不要執行本教材裡的安裝、更新、移除指令。** 重新安裝可能換成不同版本，讓你的結果和教材不同。這些指令是給你離開本課程、在自己的專案安裝 skill 時參考。唯一例外是標示「選做」、要另外安裝 skill 的段落：課後可以依該段的指示安裝，做完照指示移除。
 
 ```bash
 npx skills add <GitHub擁有者>/<repo>[@skill名稱] -a antigravity -a claude-code --copy -y
@@ -100,7 +100,7 @@ npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code -
 ### 範例 1：從零做一個有個性的產品頁
 
 ```text
-在目錄 example/case01/ 中，幫我做一個台灣手工茶葉品牌「山嵐茶研所」的單頁官網（HTML + CSS）。
+在目錄 example/case01/ 中，幫我做一個台灣手工茶葉品牌「山嵐茶研所」的單頁官網（HTML + CSS），主頁面存成 example/case01/index.html。
 受眾是 30–50 歲重視產地與職人精神的消費者。
 需要：品牌故事、三款茶品介紹、產地地圖區、訂購按鈕。
 不要用常見的 SaaS 模板風格，請先提出 2 個美學方向讓我選。
@@ -139,7 +139,13 @@ npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code -
 
 AI 說「頁面做好了」，不代表每個區塊都正常。[`webapp-testing`](https://github.com/anthropics/skills/tree/main/skills/webapp-testing)（Anthropic 官方）會用 Playwright 真的打開瀏覽器、點按鈕、截圖、讀取錯誤訊息。
 
-這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。第一次使用時，Playwright 會下載瀏覽器核心（約 700 MB），需要幾分鐘與網路連線。
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。第一次使用時，Playwright 會下載瀏覽器核心（約 700 MB），需要幾分鐘與網路連線。安裝前先看過它的 `SKILL.md`：
+
+```text
+打開 https://github.com/anthropics/skills/tree/main/skills/webapp-testing 的 SKILL.md，告訴我它在什麼情況下會被觸發、會執行哪些指令、會不會連線到外部網站或修改檔案。先不要安裝。
+```
+
+確認沒問題後再安裝：
 
 ```text
 請幫我安裝 skill：npx skills add anthropics/skills@webapp-testing -a antigravity -a claude-code --copy -y
@@ -169,6 +175,8 @@ Python 用 uv run --with playwright 執行；第一次先執行 uv run --with pl
 ```text
 請移除 skill：npx skills remove webapp-testing -y
 ```
+
+移除 skill 不會刪掉 Playwright 下載的瀏覽器（Windows 在 `%LOCALAPPDATA%\ms-playwright`）。不再需要時，可以請 agent 執行 `uv run --with playwright python -m playwright uninstall --all` 釋出空間。
 
 ---
 
@@ -360,7 +368,7 @@ example/case05/source/data/ 裡有臺灣高級中等學校的校級面板資料�
 **預期行為**：先讀欄位說明，再決定分析方式。例如進修學校、特教學校、矯正學校的性質不同，可能要排除；國立與縣市立合併為公立。每個決定都寫進 `analysis.md`。結果的方向應該是：
 
 - 私立一年級學生數減少約一半，公立約減少兩成，私立的下降幅度明顯較大
-- 專業群科的比例整體下降，但主要來自私立；公立反而微幅上升
+- 專業群科的比例整體下降，但主要來自私立；公立反而微幅上升（單元 6 會換一種算法再檢驗這個結論）
 
 排除條件不同，數字會略有差異，但方向應該一致。這也是 `analysis.md` 要寫清楚理由的原因：別人才能重現你的結果。
 
@@ -527,7 +535,7 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 
 討論中，agent 用資料驗證時，應該會得到類似的結果：
 
-- **第 1 輪**：私立學校數 207 → 187（−9.7%），平均每校一年級人數 589 → 306（−48.0%）。私立減少的主因是每間學校招到的人變少，學校關閉只占一小部分
+- **第 1 輪**：私立學校數 207 → 187（−9.7%），平均每校一年級人數 589 → 306（−48.0%）。私立減少的主因是每間學校招到的人變少，學校關閉只占一小部分。排除條件不同，數字會跟著變，例如課堂版論文算出 208 → 199 所、平均 586 → 288 人；只要方向相同（學校數小幅減少、平均每校人數約減半），結論就一致
 - **第 3 輪**：保留進修學校重算，一年級變化為公立 −20.0%、私立 −52.9%，和原本的 −19.7%、−53.0% 幾乎相同，研究問題 1 的結論很穩定
 - **第 4 輪**：分母用全體學生時，公立專業群科比例 30.5% → 31.3%（上升）；只算普通科、專業群科、綜合高中時，變成 33.0% → 32.4%（下降）。**換一種合理的算法，公立的方向就反過來了**，論文中「公立微升」的結論需要改寫；私立在兩種算法下都明顯下降，這部分結論穩定
 
@@ -537,7 +545,13 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 
 `improvement-plan.md` 寫好後、動手修改前，可以換一個風格不同的 skill 再檢查一次。[`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md)（出自 `mattpocock/skills`）專門對已經寫好的計畫做壓力測試：把決定整理成一棵「決策樹」，一輪列出所有現在就能回答的問題，每題附上它的**推薦答案**；回答「yes」就是接受推薦。
 
-這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除，避免和 `brainstorming` 搶著被觸發。安裝前先依單元 7-1「安裝前先檢查」看過它的 `SKILL.md`。
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除，避免和 `brainstorming` 搶著被觸發。安裝前先看過它的 `SKILL.md`：
+
+```text
+打開 https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md 的 SKILL.md，告訴我它在什麼情況下會被觸發、會執行哪些指令、會不會連線到外部網站或修改檔案。先不要安裝。
+```
+
+確認沒問題後再安裝：
 
 ```text
 請幫我安裝 skill：npx skills add mattpocock/skills@grilling -a antigravity -a claude-code --copy -y
@@ -616,7 +630,7 @@ npx skills add vercel-labs/skills@find-skills -a antigravity -a claude-code --co
 幫我找 Vercel 官方出的 React / Next.js 效能最佳化 skill，列出候選並說明差異，先不要安裝。
 ```
 
-**預期行為**：執行 `npx skills find react --owner vercel-labs`，列出 Vercel 官方的最佳實踐 skill 與安裝數，說明各自的用途，並附上安裝指令，但不實際安裝。課程只使用 12 個 skill，額外安裝會讓觸發變得不精準（見常見問題 Q3）。
+**預期行為**：執行 `npx skills find react --owner vercel-labs`，列出 Vercel 官方的最佳實踐 skill 與安裝數，說明各自的用途，並附上安裝指令，但不實際安裝。課程預先安裝 12 個 skill，額外安裝會讓觸發變得不精準（見常見問題 Q3）。
 
 **安裝前先檢查**：從候選中挑一個，看看它會做什麼，仍然不要安裝。
 
@@ -710,7 +724,7 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
   AI 只填寫專案用途、已決定的事、前幾輪已修正與已否決的項目；REVIEW-LOOP.md 步驟 ② 的四條規則逐字放入；
   開頭寫上第幾輪與版本：在 git repo 裡，先用 git status -- <待審檔案> 確認待審檔案沒有未 commit 的修改，
   再寫上 git rev-parse --short HEAD 的結果；其他檔案的修改不用管；
-  不在 git repo 裡時，改寫待審檔案的修改時間，並提醒我這次沒有版本紀錄；
+  不在 git repo 裡，或待審檔案沒有被 git 追蹤（git status 顯示 ??）時，改寫待審檔案的修改時間，並提醒我這次沒有版本紀錄；
   審查者讀不到檔案時（例如網頁版），提醒我把待審內容附在 prompt 後面，並附上檔案清單 →
 我把審查回覆原文存成 review-log/round-N-review.md →
 逐項判斷（接受／部分接受／否決），先不要修改 → 我確認後才套用，並存成 round-N-decision.md →
@@ -728,7 +742,7 @@ npx skills add anthropics/skills@skill-creator -a antigravity -a claude-code --c
 
 沒有做範例 1 時，改成審查老師提供的 `example/case06/source/paper.md`（只讀取，不要修改）；做完單元 5 的人，也可以審查自己的 `example/case05/paper.md`。
 
-**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式，開頭標明第幾輪與版本（用 ZIP 下載教材時不是 git repo，會改寫檔案的修改時間）。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個 AI 工具，且使用不同模型。
+**預期行為**：沒有點名 skill，也會用到 `review-loop`，產生 `example/case07/review-log/round-1-prompt.md`，內容有背景、已決定的事、「只讀不執行」與回報格式，開頭標明第幾輪與版本。`voice-script/SKILL.md` 是你自己做的，沒有被 git 追蹤；用 ZIP 下載的教材則不是 git repo，這兩種情況都會改寫檔案的修改時間。提示語裡的 `<待審檔案>` 照抄即可，skill 執行時會換成實際的檔名。這裡只檢查待審檔案，和階段五檢查整個專案不同，因為教材資料夾裡本來就有其他練習的產出。和階段五一樣，**先檢查「已決定的事」**：AI 常把自己的設計選擇也列進去，不是你決定過的就刪掉。skill 只負責產出者這一側，審查仍要交給另一個 AI 工具，且使用不同模型。
 
 **有時間再做（選做）：完整跑一輪。** 把 prompt 和 `SKILL.md` 的內容貼給另一個 AI 工具（且使用不同模型），回覆原文存成 `round-1-review.md`，再貼回來請它逐項判斷。確認 skill 會先停下來等你決定、存好 `round-1-decision.md`，才算驗證了整個流程，不只是產生 prompt。
 
@@ -776,7 +790,13 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 
 [`theme-factory`](https://github.com/anthropics/skills/tree/main/skills/theme-factory)（Anthropic 官方）提供 10 組配色與字型組合，例如 Ocean Depths、Forest Canopy、Tech Innovation。它會先把主題展示給你看，等你選定才套用。
 
-這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。安裝前先看過它的 `SKILL.md`：
+
+```text
+打開 https://github.com/anthropics/skills/tree/main/skills/theme-factory 的 SKILL.md，告訴我它在什麼情況下會被觸發、會執行哪些指令、會不會連線到外部網站或修改檔案。先不要安裝。
+```
+
+確認沒問題後再安裝：
 
 ```text
 請幫我安裝 skill：npx skills add anthropics/skills@theme-factory -a antigravity -a claude-code --copy -y
@@ -829,7 +849,7 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 > | `extra_files/` | 另外 5 場會議（104～105 年），共 21 個檔（延伸 A 使用） |
 > | `new_files/` | 事後才找到的 7 個檔（延伸 B 使用） |
 > | `reference/` | 官方的「歷次會議紀錄暨資料清冊.csv」，列出每場會議的日期、出席者與文件 |
-> | `teacher/` | 老師用的答案表與完整原始資料，只在核對步驟使用 |
+> | `teacher/` | 老師用的答案表，只在核對步驟使用 |
 
 #### 步驟 1：盤點與提案，先不要動檔案
 

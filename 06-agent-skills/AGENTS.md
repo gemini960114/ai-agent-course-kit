@@ -8,7 +8,7 @@
 >
 > - 教材是 [tutorial.md](tutorial.md)。協助學生練習時不要修改它；只有使用者明確表示自己是老師、要修改教材時才可以改。
 > - 練習的產出一律放在提示詞指定的 `example/caseXX/` 資料夾，不要寫到其他地方。過程中需要的暫存檔（例如擷取文字用的腳本、中間結果）也放在該 case 資料夾內，任務完成後刪除，不要留在專案根目錄。
-> - 課程使用的 skill 已由老師預先安裝在 `.claude/skills/` 與 `.agents/skills/`。不要自行安裝、移除、修改或刪除這些 skill；唯一例外是使用者用 `skill-creator` 製作自己的新 skill 時，可以在這兩個資料夾建立該 skill。使用者明確要求加入 skill 時（例如練習 `find-skills`），使用 `npx skills add <owner>/<repo>@<skill> -a antigravity -a claude-code --copy -y`。
+> - 課程使用的 skill 已由老師預先安裝在 `.claude/skills/` 與 `.agents/skills/`。不要自行安裝、移除、修改或刪除這些 skill；唯一例外是使用者用 `skill-creator` 製作自己的新 skill 時，可以在這兩個資料夾建立該 skill。使用者明確要求加入 skill 時（例如練習 `find-skills`，或教材標示「選做」的段落），使用 `npx skills add <owner>/<repo>@<skill> -a antigravity -a claude-code --copy -y`；使用者要求移除這類另外加入的 skill 時，使用 `npx skills remove <skill> -y`。預先安裝的 12 個 skill 一律不要移除。
 > - `example/case08/source/` 是老師提供的素材，只讀取、不要修改或刪除。
 > - `example/case09/messy_files/`、`example/case09/extra_files/`、`example/case09/new_files/`、`example/case09/reference/` 是老師提供的素材，只讀取、不要修改、移動或刪除；整理結果一律複製到提示詞指定的新資料夾。
 > - `example/case06/source/` 是老師提供的單元 6 課堂用論文，只讀取、不要修改或刪除。
