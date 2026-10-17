@@ -25,12 +25,14 @@
 | 內容 | 說明 |
 | --- | --- |
 | 單元 1、2 範例 2 | 和範例 1 性質相近，可加深印象 |
+| 單元 1 選做 `webapp-testing` | 另外安裝，用瀏覽器實際測試範例 1 的產品頁 |
 | 單元 3 `remotion-best-practices` | 影片算圖較花時間 |
 | 單元 4 `arxiv` | 查論文、寫論文前言，需要較多時間閱讀與核對 |
 | 單元 5 `research-paper-writing` | 用開放資料分析、找文獻，寫出完整研究論文 |
-| 單元 7-1 `find-skills` | 操作簡單，照範例做即可；範例 2 練習安裝前先檢查 skill |
+| 單元 6 第二段、選做 `grilling` | 依改進計畫修改論文；選做時另外安裝 grilling，逼問改進計畫，和 brainstorming 比較 |
+| 單元 7-1 `find-skills` | 操作簡單，照範例做即可；範例 2 練習安裝前先檢查 skill，並看一個介紹和內容不符的真實案例 |
 | 單元 7-2 `skill-creator` 範例 | 範例 1 做語音講稿 skill（課堂上已在單元 9 實作延伸 A 練過做 skill）；範例 2 把階段五的交叉審查流程做成 skill，上過階段五再做 |
-| 單元 8 文件處理 | 課堂上已在單元 9 間接用過，這裡練習產出 Excel 與簡報 |
+| 單元 8 文件處理 | 課堂上已在單元 9 間接用過，這裡練習產出 Excel 與簡報；選做時另外安裝 `theme-factory` 幫簡報換主題 |
 | 單元 9 實作延伸 A 選做、延伸 B、C、D | 用核對結果修改 skill、合併新資料、建立知識庫並驗證、產出交付成果 |
 
 ---
@@ -132,6 +134,41 @@ npx skills add anthropics/skills@frontend-design -a antigravity -a claude-code -
 **預期行為**：沒有 skill 時，agent 常會做出常見的模板風格，例如紫藍漸層、置中大標題、三欄卡片、預設字體。改版時 AI 會指出這些問題，換成有辨識度的字體配對和版面節奏。把兩個版本並排打開，就能看出 skill 帶來的差異。
 
 > 「不要使用任何 skill」是寫在提示詞裡的要求，agent 大多會遵守，但不保證。做完可以問它「這次有沒有用到 skill」確認。
+
+### 選做：用 webapp-testing 實際測試頁面
+
+AI 說「頁面做好了」，不代表每個區塊都正常。[`webapp-testing`](https://github.com/anthropics/skills/tree/main/skills/webapp-testing)（Anthropic 官方）會用 Playwright 真的打開瀏覽器、點按鈕、截圖、讀取錯誤訊息。
+
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。第一次使用時，Playwright 會下載瀏覽器核心（約 700 MB），需要幾分鐘與網路連線。
+
+```text
+請幫我安裝 skill：npx skills add anthropics/skills@webapp-testing -a antigravity -a claude-code --copy -y
+```
+
+**重新啟動工作階段**後：
+
+```text
+請用 webapp-testing 測試 example/case01/index.html（範例 1 做的產品頁），先不要修改任何檔案：
+1. 用電腦（1280×800）與手機（375×812）兩種寬度打開頁面，各截一張整頁圖，存到 example/case01/test/
+2. 確認品牌故事、三款茶品、產地地圖、訂購按鈕都有出現，手機寬度下沒有左右捲動
+3. 點一下訂購按鈕，記錄發生了什麼
+4. 列出瀏覽器主控台的錯誤訊息
+Python 用 uv run --with playwright 執行；第一次先執行 uv run --with playwright python -m playwright install chromium。
+結果整理成 example/case01/test/report.md。
+```
+
+**預期行為**：第一次會先下載瀏覽器，接著寫一支 Playwright 測試程式，存下兩張截圖與測試報告。打開截圖自己看一次，對照報告寫的是否屬實。Windows 上常見兩個狀況，可以直接告訴 agent：
+
+- 出現 `UnicodeEncodeError`（cp950）：請它設定 `PYTHONIOENCODING=utf-8` 再執行
+- 卡在等待網頁載入，最後 `Timeout`：請它改成等頁面的 `load` 事件，不要等網路完全閒置（`networkidle`）
+
+**想一想**：測試程式也是 AI 寫的，它檢查的項目會不會剛好都是自己做對的地方？自己挑一項它沒測到的（例如點產地地圖、填寫訂購表單），請它加測。
+
+做完後移除：
+
+```text
+請移除 skill：npx skills remove webapp-testing -y
+```
 
 ---
 
@@ -435,7 +472,7 @@ example/case05/source/data/ 裡有臺灣高級中等學校的校級面板資料�
 npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --copy -y
 ```
 
-**用途**：出自 `obra/superpowers`。讓 agent 在動手前**先跟你把事情談清楚**：一次只問一個問題、提出 2～3 種做法並說明取捨、等你選定才往下談，最後寫成文件。適用於任何需要先想清楚的情境，例如規劃新功能、設計報告，或像本章這樣改進一篇已經寫好的論文。
+**用途**：出自 `obra/superpowers`。讓 agent 在動手前**先跟你把事情談清楚**：一次只問一個問題，先請你用自己的話描述，你卡住時才提供選項，談完寫成文件。範例的提示詞會另外要求它提出 2～3 種改法並說明取捨。適用於任何需要先想清楚的情境，例如規劃新功能、設計報告，或像本章這樣改進一篇已經寫好的論文。
 
 > 這個 skill 預設會把討論結果存到 `docs/superpowers/specs/`，並在最後建議接著寫實作計畫（需要另一個本課程沒裝的 skill）。範例的提示詞會指定存檔位置，並說明「先不要修改」。
 
@@ -496,6 +533,42 @@ npx skills add obra/superpowers@brainstorming -a antigravity -a claude-code --co
 
 **算過的版本都要寫進論文。** 敏感度分析試了幾種算法，就要把每一種的結果都報告出來，不能只留下支持結論的那一種，否則就是選擇性報告。比較好的做法是在看到結果之前，先決定要試哪幾種算法，這就是[階段七](../07-hpc-demo/README.md#討論問題)討論問題 3 提到的「先凍結方法」。
 
+### 選做：用 grilling 逼問改進計畫
+
+`improvement-plan.md` 寫好後、動手修改前，可以換一個風格不同的 skill 再檢查一次。[`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md)（出自 `mattpocock/skills`）專門對已經寫好的計畫做壓力測試：把決定整理成一棵「決策樹」，一輪列出所有現在就能回答的問題，每題附上它的**推薦答案**；回答「yes」就是接受推薦。
+
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除，避免和 `brainstorming` 搶著被觸發。安裝前先依單元 7-1「安裝前先檢查」看過它的 `SKILL.md`。
+
+```text
+請幫我安裝 skill：npx skills add mattpocock/skills@grilling -a antigravity -a claude-code --copy -y
+```
+
+**重新啟動工作階段**後：
+
+```text
+請用 grilling 逼問 example/case06/improvement-plan.md 這份改進計畫，找出還沒想清楚、或只是假設的地方。
+資料在 example/case05/source/data/，需要事實的地方先自己用資料查證，需要決定的地方再問我。
+先不要修改任何檔案；逼問結束、我確認後，再把調整寫回 improvement-plan.md。
+```
+
+**預期行為**：agent 一輪列出好幾個問題（❓ Q1、Q2……），每題下面附上推薦答案（➡️），等你回答完才進入下一輪；全部問完、你確認雙方理解一致後才動手。這個 skill 會派子代理（sub-agent）查資料，不支援的 agent 會改成自己查。
+
+**注意**：推薦答案是 AI 的意見，不是事實。**不要一路回答 yes**，每一題都先想想推薦答案的理由站不站得住，需要時請它用資料算給你看。
+
+**比較看看**：
+
+| | `brainstorming` | `grilling` |
+| --- | --- | --- |
+| 一次問幾題 | 一題 | 一整輪 |
+| 有沒有推薦答案 | 先請你自己描述 | 每題都有 |
+| 適合 | 還沒想清楚要做什麼 | 檢查已經寫好的計畫 |
+
+做完後移除：
+
+```text
+請移除 skill：npx skills remove grilling -y
+```
+
 ### 第二段：依討論結果修改
 
 ```text
@@ -553,6 +626,15 @@ npx skills add vercel-labs/skills@find-skills -a antigravity -a claude-code --co
 ```
 
 **預期行為**：agent 讀取 GitHub 上的檔案，整理出觸發條件、會執行的指令與外部連線，並附上檔案連結。自己也點開連結看一次，再對照常見問題 Q5，判斷它的行為是否符合用途。
+
+**真實案例：介紹和內容不一樣。** 網路文章常把 Anthropic 官方的 `brand-guidelines` 介紹成「把你的品牌色彩、字型套用到所有輸出」。實際打開來看：
+
+```text
+打開 anthropics/skills 裡 brand-guidelines 的 SKILL.md，告訴我：
+它會套用「誰」的品牌顏色和字型？我能不能用它套用自己學校或公司的品牌？先不要安裝。
+```
+
+**預期行為**：agent 會發現它套用的是 **Anthropic 自己的**品牌（例如深色 `#141413`、橘色 `#d97757`），不是你的品牌。要套用自己的品牌，得改寫這個 skill 或用 skill-creator 做一個新的。介紹文字只能參考，裝之前一定要看 `SKILL.md`。
 
 ---
 
@@ -689,6 +771,34 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 ```
 
 **預期行為**：產出 5 頁簡報，包含標題頁、指標說明、走勢圖表與重點觀察；圖表數字與 Excel 一致，文字不超出版面。用 PowerPoint 打開，檢查版面是否整齊、圖表能不能正常顯示。
+
+### 選做：用 theme-factory 幫簡報換主題
+
+[`theme-factory`](https://github.com/anthropics/skills/tree/main/skills/theme-factory)（Anthropic 官方）提供 10 組配色與字型組合，例如 Ocean Depths、Forest Canopy、Tech Innovation。它會先把主題展示給你看，等你選定才套用。
+
+這個 skill 不在課程預先安裝的 12 個裡面，要自己安裝，做完再移除。
+
+```text
+請幫我安裝 skill：npx skills add anthropics/skills@theme-factory -a antigravity -a claude-code --copy -y
+```
+
+**重新啟動工作階段**後：
+
+```text
+請用 theme-factory 幫 example/case08/pmi.pptx 換一套主題：
+先把可選的主題給我看，等我選定後再套用，另存成 example/case08/pmi-themed.pptx，原本的 pmi.pptx 不要修改。
+只套用主題的配色；字型一律使用系統內建的中文字型。
+```
+
+**預期行為**：先打開 `theme-showcase.pdf` 讓你看 10 個主題，等你回答要哪一個，才把配色套用到簡報。主題指定的字型（例如 FreeSerif、FreeSans）是英文字型，Windows 通常沒有，也不含中文，所以提示詞要求改用系統中文字型。把兩份簡報並排打開，檢查換色後文字和背景的對比是否足夠、圖表顏色有沒有跟著換。
+
+**比較看看**：請它依「臺灣採購經理人指數、給主管看」自己產生一個新主題（skill 支援自訂主題），和預設主題比較。
+
+做完後移除：
+
+```text
+請移除 skill：npx skills remove theme-factory -y
+```
 
 ---
 
