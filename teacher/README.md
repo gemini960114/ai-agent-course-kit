@@ -66,7 +66,7 @@ teacher/
 | **階段六的 skill** | skill 已預先放在 `06-agent-skills/.agents/skills/` 與 `.claude/skills/`；學生若開錯資料夾，skill 不會被載入 | 用 Antigravity 開啟 `06-agent-skills/`，問 AI「目前有哪些 skill 可以用？」，確認列出 12 個課程 skill |
 | **階段六的 LaTeX** | 單元 5 輸出 PDF 需要 xelatex；MiKTeX 第一次編譯會自動下載套件 | 在 `06-agent-skills/` 執行 `xelatex --version`；課前自己先跑一次單元 5 的 PDF 輸出 |
 | **階段七的遠端連線** | 示範要從教室連到 Nano4，學校網路可能擋 2222 埠；recon-all 每例需數小時 | 依 `07-demo-script.md` 第一節完成課前準備：教室實測連線、前一天先跑好示範批次；網路不通時改播示範影片（連結見 `07-demo-script.md`） |
-| **階段八的 OpenCode v1 行為** | 2026-10-18 新增，教材依官方文件撰寫，**尚未在 1.19.3 實測**；老師電腦若已裝 OpenCode 2，可用 `npx opencode-ai@1.19.3` 臨時執行 | 照 `08-opencode/tutorial.md` 完整跑一次，確認：Plan 改檔前是詢問還是直接禁止（第 4 步的寫法依結果修正）；`/check` 是否交給 ta 在另一個對話執行、你仍停在 Build；請 `@ta` 改 `grade.py` 時確實被擋下；第 8 步實驗中 AI 改檔的頻率；`reference.md` 提到的 `--auto` 參數在 1.19.3 是否存在、是否仍擋下 `deny`；各步驟實際花費時間是否符合 60 分鐘的規劃 |
+| **階段八的 OpenCode v1 行為** | 2026-10-18 新增，教材依官方文件撰寫，**尚未在 1.19.3 實測**；老師電腦若已裝 OpenCode 2，可用 `npx opencode-ai@1.19.3` 臨時執行 | 照 `08-opencode/tutorial.md` 完整跑一次，確認：Plan 改檔前是詢問還是直接禁止（第 4 步的寫法依結果修正）；`/check` 是否交給 ta 在另一個對話執行、你仍停在 Build；請 `@ta` 改 `grade.py` 時確實被擋下，且第 9 步對照實驗（拿掉提示詞的「不修改」規則）中 ta 的實際反應和教材描述一致；第 8 步實驗中 AI 改檔的頻率；`reference.md` 提到的 `--auto` 參數在 1.19.3 是否存在、是否仍擋下 `deny`；各步驟實際花費時間是否符合 60 分鐘的規劃 |
 
 ---
 

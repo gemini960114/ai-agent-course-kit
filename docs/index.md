@@ -21,42 +21,42 @@ hero:
 features:
   - icon: 🧰
     title: 01｜安裝環境
-    details: 四個步驟：安裝 Antigravity IDE、取得教材、請 AI 安裝 Git、uv、Node.js、GitHub CLI 等開發工具，再調整版面。
+    details: 安裝 Antigravity IDE 和開發工具，準備好和 AI 協作的環境。
     link: /guide/01_install
     linkText: 開始安裝
   - icon: 📚
     title: 02｜AI 整理文獻
-    details: 請 AI 把真實論文摘要整理成比較表，並檢查它有沒有補寫摘要沒有的內容。
+    details: 請 AI 整理論文比較表，檢查它有沒有編造內容。
     link: /guide/02_organize_data
     linkText: 整理文獻
   - icon: 🔗
     title: 03｜連線 GitHub
-    details: 用 gh 登入 GitHub，用 git 存版本，把第一個程式推上 GitHub。
+    details: 登入 GitHub，用 git 存版本，推上第一個程式。
     link: /guide/03_hello_github
     linkText: 連線 GitHub
   - icon: 🎮
     title: 04｜網頁小遊戲
-    details: 用自然語言請 AI 做出網頁小遊戲，再自己玩一輪，檢查 AI 說的「完成」。
+    details: 請 AI 做網頁小遊戲，自己玩一輪，檢查它說的「完成」。
     link: /guide/04_web_game
     linkText: 做遊戲
   - icon: 🔁
     title: 05｜AI 交叉審查
-    details: 用另一個 AI 審查程式，逐項判斷要不要採納，練習發現審查者也會說錯。
+    details: 請另一個 AI 審查程式，自己判斷建議對不對。
     link: /guide/05_review_loop
     linkText: 交叉審查
   - icon: 🧩
     title: 06｜Agent Skills
-    details: 用 12 個精選 skill 做出網頁、海報、論文與 Office 文件，再把整理文件的流程做成自己的 skill。
+    details: 用 skill 做出網頁、海報和論文，再做一個自己的 skill。
     link: /guide/06_agent_skills
     linkText: 學 Skills
   - icon: ⚡
     title: 07｜AI 指揮官
-    details: 用 AI Agent 連到國網中心超級電腦 Nano4，以自然語言批次分析 MRI 腦部影像。
+    details: 看老師用 AI 操作國網中心超級電腦，批次分析腦部影像。
     link: /guide/07_hpc_demo
     linkText: 看示範
   - icon: 💻
     title: 08｜OpenCode 入門（選修）
-    details: 開源 AI Agent 搭配地端模型（例如國網中心的模型服務），程式與資料不必送到商用雲端；再用設定檔做出一個系統不讓它改檔的作業助教。
+    details: 開源 Agent 接上地端模型，做一個不能改檔的作業助教。
     link: /guide/08_opencode
     linkText: 學 OpenCode
 ---

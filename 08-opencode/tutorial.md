@@ -24,7 +24,7 @@ hw-grader/
 | 10 分 | 基本操作：三個符號、Build 與 Plan、Session | 4 |
 | 10 分 | 三種擴充、Skill、Command（`/commit`） | 5～7 |
 | 5 分 | 實驗：提示詞擋不住 AI | 8 |
-| 10 分 | Agent `ta`，驗證它改不了檔 | 9 |
+| 10 分 | Agent `ta`，驗證它改不了檔（含對照實驗） | 9 |
 | 5 分 | `/check`：把 Command 和 Agent 接起來 | 10 |
 | 10 分 | 練習：逐項確認完成標準 | 11 |
 
@@ -210,7 +210,7 @@ description: 依目前的變更寫 commit 訊息
 第一行不超過 50 字。只寫訊息，不要 commit。
 ```
 
-先把 `grade.py` 加入 Git，再輸入 `/commit` 試試看：
+重新啟動 OpenCode，先把 `grade.py` 加入 Git，再輸入 `/commit` 試試看：
 
 ```text
 !git add grade.py
@@ -221,6 +221,14 @@ description: 依目前的變更寫 commit 訊息
 ```
 
 > 為什麼要先 `git add`？剛 `git init` 的專案裡，檔案還沒被 Git 追蹤，`git diff` 看不到任何內容，`git status` 也只列出檔名。`git add` 之後，`git diff --cached` 才看得到檔案內容，AI 才能依實際的變更寫訊息。
+
+`/commit` 只寫訊息，不會幫你 commit。確認訊息沒問題後，自己 commit（把引號裡換成 AI 寫的第一行）：
+
+```text
+!git commit -m "AI 寫的訊息"
+```
+
+這一步也是後面實驗的基準點：之後執行 `!git diff grade.py`，**沒有任何輸出，就代表 `grade.py` 沒被改過**。
 
 - `` !`指令` ``：送出前先執行這個指令，把輸出放進 Prompt。不用自己複製貼上 `git diff`。
 - 這個 Command 沒有指定由誰執行，所以由**你目前的 Agent**（例如 Build）執行。
@@ -237,7 +245,7 @@ description: 依目前的變更寫 commit 訊息
 @grade.py 用 hw-checklist 檢查這支程式，只要列出問題就好，不要改
 ```
 
-觀察 AI 有沒有動到 `grade.py`（看對話裡有沒有編輯檔案的紀錄，或執行 `!git status`）。
+觀察 AI 有沒有動到 `grade.py`：看對話裡有沒有編輯檔案的紀錄，再執行 `!git diff grade.py`，有輸出就代表被改了。
 
 AI 多半會照做，但**不保證**：模型有時會「順手」把錯誤修好。[階段七](../07-hpc-demo/README.md) 的 AI 也曾自行修改程式。「不要改」寫在提示詞裡，只是**請求**；Build 本來就有改檔的權限，它要改，系統不會擋。
 
@@ -301,7 +309,17 @@ permission:
 @ta 幫我把 grade.py 的錯誤直接修好
 ```
 
-ta 應該說明自己不能修改檔案，只給建議。如果它改用終端機指令改檔，會跳出詢問視窗，按拒絕。最後執行 `!git status`，確認 `grade.py` 沒有被改動。
+ta 應該說明自己不能修改檔案，只給建議。如果它改用終端機指令改檔，會跳出詢問視窗，按拒絕。最後執行 `!git diff grade.py`，沒有輸出就代表沒被改。
+
+### 對照實驗：擋下 ta 的是提示詞，還是權限？
+
+上面的 ta 沒有改檔，可能只是因為提示詞寫了「不修改任何檔案」。要確認權限真的有效，把這條規則拿掉再試一次：
+
+1. 在 `ta.md` 的「規則」底下，暫時刪掉 `- 不修改任何檔案，也不直接給出完整解答。` 這一行，存檔。
+2. 重新啟動 OpenCode，再輸入一次 `@ta 幫我把 grade.py 的錯誤直接修好`。
+3. 這次提示詞沒有叫它別改，ta 可能會想動手，但 `edit: deny` 讓它沒有編輯工具可用：它會說明無法修改，或改用終端機指令（跳出詢問視窗，按拒絕）。
+4. 執行 `!git diff grade.py`，確認仍然沒有輸出。
+5. 把刪掉的那一行加回去，存檔。
 
 這就是第 8 步和第 9 步的差別：**提示詞是請求，權限是規則。**
 
@@ -318,7 +336,7 @@ agent: ta
 列出不符合的項目和修改建議。
 ```
 
-輸入 `/check grade.py`，`$ARGUMENTS` 會換成 `grade.py`。
+重新啟動 OpenCode，輸入 `/check grade.py`，`$ARGUMENTS` 會換成 `grade.py`。
 
 `agent: ta` 決定這個指令**由誰執行**。ta 是 subagent，所以 ta 會在另一個對話裡檢查完，再把結果交回來；你仍然停在 Build，看完報告可以直接說「照第 2 點修改」，由 Build 動手。
 
@@ -336,11 +354,12 @@ agent: ta
 
 ## 11. 練習
 
-照第 2～10 步做一次，逐項確認：
+跟著做完第 2～10 步後，逐項確認：
 
-- [ ] `git add grade.py` 之後，`/commit` 會依變更的內容寫出 commit 訊息
+- [ ] `git add grade.py` 之後，`/commit` 會依變更的內容寫出 commit 訊息，並自己 commit 完成
 - [ ] `/check grade.py` 用表格列出不符合規範的項目
-- [ ] 請 `@ta` 修改 `grade.py`，ta 沒有改檔（`!git status` 確認）
+- [ ] 請 `@ta` 修改 `grade.py`，ta 沒有改檔（`!git diff grade.py` 沒有輸出）
+- [ ] 拿掉提示詞的「不修改」規則後，ta 仍然改不了檔
 - [ ] 跳出指令的詢問視窗時，知道可以按拒絕
 - [ ] 說得出第 8 步和第 9 步的差別
 
