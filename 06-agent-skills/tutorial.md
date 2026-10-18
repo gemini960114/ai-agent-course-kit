@@ -598,6 +598,8 @@ example/case05/ 裡的檔案都不要修改。
 
 修正版也要核對：修改時新增的事實描述（例如資料集以外的統計數字）有沒有附上來源，「結果」一節是否仍只描述數據。agent 在修正問題的同時，也可能加入新的、沒有根據的說法。
 
+> **延伸閱讀（課後）：** `brainstorming` 出自 superpowers 這套 skill。手上有一份問題清單、要逐項修正專案時，可以用它的其他 skill 依「計畫 → 測試 → 修正 → 審查」的流程進行，見 [用 superpowers 依清單修正專案](superpowers.md)。
+
 ---
 
 ## 單元 7：找 Skills 與自己做 Skill — `find-skills`、`skill-creator`
@@ -1086,6 +1088,6 @@ npx skills add anthropics/skills@xlsx -a antigravity -a claude-code --copy -y
 - Anthropic Skills：<https://github.com/anthropics/skills>
 - Remotion：<https://www.remotion.dev/>
 - arXiv API：<https://info.arxiv.org/help/api/>
-- Superpowers（brainstorming 出處）：<https://github.com/obra/superpowers>
+- Superpowers（brainstorming 出處；依清單修正專案的流程見 [superpowers.md](superpowers.md)）：<https://github.com/obra/superpowers>
 - Research Paper Writing Skills：<https://github.com/master-cai/research-paper-writing-skills>
 - 臺灣高級中等學校校級面板資料：<https://github.com/gemini960114/tw-highschool-panel>

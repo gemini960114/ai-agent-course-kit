@@ -86,7 +86,8 @@ export default defineConfig({
             text: '🧩 06 Agent Skills',
             link: '/guide/06_agent_skills',
             items: [
-              { text: '教材：12 個精選 Skills', link: '/guide/06_tutorial' }
+              { text: '教材：12 個精選 Skills', link: '/guide/06_tutorial' },
+              { text: '延伸：用 superpowers 修正專案', link: '/guide/06_superpowers' }
             ]
           }
         ]

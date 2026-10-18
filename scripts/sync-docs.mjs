@@ -28,6 +28,7 @@ const SOURCES = {
   '05-review-loop/exercise/ASSIGNMENT.md': '05_assignment',
   '06-agent-skills/README.md': '06_agent_skills',
   '06-agent-skills/tutorial.md': '06_tutorial',
+  '06-agent-skills/superpowers.md': '06_superpowers',
   '07-hpc-demo/README.md': '07_hpc_demo',
   '08-opencode/README.md': '08_opencode',
   '08-opencode/tutorial.md': '08_tutorial',
