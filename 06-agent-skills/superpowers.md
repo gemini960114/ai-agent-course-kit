@@ -1,6 +1,6 @@
 # 延伸閱讀：用 superpowers 依清單修正專案
 
-> 課後自學，不在課堂時間內。適用：能分派 subagent 的 AI 工具（例如 Claude Code）；Antigravity 尚未實測，見文末。
+> 課後自學，不在課堂時間內。適用：能分派 subagent 的 AI 工具（例如 Claude Code）；Antigravity 尚未實測，不能分派 subagent 時，第 5 步改請 AI 用 `executing-plans`，由同一個 AI 依序完成每個任務。
 
 [superpowers](https://github.com/obra/superpowers) 是一套規範 AI **做事流程**的 skill。單元 6 的 `brainstorming` 就出自這裡。其他 skill 讓 AI 照「計畫 → 測試 → 修改 → 驗證 → 審查」的順序做事，正好呼應本課程的主軸：AI 會出錯，要檢查。
 
@@ -71,7 +71,7 @@
 | 第 5 步：逐項修正 | `subagent-driven-development`、`receiving-code-review` | `test-driven-development`、`using-git-worktrees`、`verification-before-completion`、`systematic-debugging`、`finishing-a-development-branch`；不能分派 subagent 時改用 `executing-plans` |
 | 第 6 步：審查分支 | `requesting-code-review` | — |
 
-第 2、4、6 步由你把關，是這套流程不可少的部分。AI 負責把清單有紀律地做完，**清單的內容對不對、要不要合併，由人決定**。這也是階段五教的事。
+第 2、4、6 步由你把關，是這套流程不可少的部分。AI 負責把清單有紀律地做完，**清單的內容對不對、要不要合併，由人決定**。測試全部通過，只代表 AI 寫的測試通過，不代表修正一定正確。這也是階段五教的事。
 
 ## 安裝
 
@@ -109,20 +109,3 @@ npx skills add obra/superpowers@finishing-a-development-branch -a antigravity -a
 ```bash
 npx skills remove writing-plans subagent-driven-development executing-plans test-driven-development using-git-worktrees requesting-code-review receiving-code-review verification-before-completion systematic-debugging finishing-a-development-branch -y
 ```
-
-## 實例：修正一組自製 skill
-
-老師用這套流程修正自己寫的三個「文件 → 動畫簡報 → 講解影片」skill：
-
-1. **審查**：三個 subagent 用合成資料實際執行三個 skill（路徑刻意包含中文和空格），找出高、中、低風險的問題，每項都有編號，並標明是實測重現還是讀程式碼推得。
-2. **計畫**：拆成 13 個任務，每個任務註明對應的編號和要先寫的測試；需要老師決定的事情（例如要用哪個配音聲音）先列出來問。
-3. **執行**：每個任務交給一個 subagent，先寫會失敗的測試，再修正、確認通過、commit；每個任務完成後，另派一個 subagent 審查。全程在新分支上進行，不動主分支。
-4. **結果**：約 35 分鐘完成前 9 個任務，測試從 3 個增加到 59 個。
-
-最值得注意的一次：計畫要求把字幕裡的 `\` 改成 `\\`，但 AI 實際算出一張影片畫面，發現字幕引擎不支援這種寫法，於是改用別的方法，並在紀錄裡寫下理由和「判斷錯了的代價」。**它沒有照計畫硬做，而是先驗證、再修改。**
-
-這也提醒我們：測試全部通過，代表 AI 寫的測試通過，不代表修正一定正確。第 6 步的審查與合併前的確認，還是要由人來做。
-
-## 尚未實測
-
-- `subagent-driven-development` 需要 AI 工具能分派 subagent（例如 Claude Code）。在 Antigravity 上能不能照樣運作還沒確認。不能分派時，可以改請 AI 用 `executing-plans`，由同一個 AI 依序完成每個任務。
