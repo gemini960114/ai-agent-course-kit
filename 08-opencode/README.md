@@ -28,5 +28,6 @@
 2. [reference.md](reference.md)：延伸閱讀，做完練習想知道更多時再看（自訂模型、更多 Agent 範例、權限細節）
 3. [example/hw-grader/](example/hw-grader)：完成版的設定檔，做完可以對照
 
-> 🎬 **講解影片與簡報**：見 [課程簡報與相關檔案（Google Drive）](https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing)。
+> 🎬 **示範影片**：[OpenCode 入門實戰（YouTube）](https://youtu.be/n70ciPOsPMc)
+> 簡報與相關檔案見 [Google Drive](https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing)。
 > 影片與簡報正在依新教材改版，目前的版本有幾處和教材不同（例如 `/check` 交給誰執行）。**內容不同時，以 tutorial.md 為準。**
