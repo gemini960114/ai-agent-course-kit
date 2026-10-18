@@ -47,9 +47,29 @@
 ```text
 請用 subagent-driven-development 在新分支上依計畫逐項修正，
 每個任務先寫會失敗的測試，修完確認通過再 commit。
+修正前用 receiving-code-review 確認每一項意見是否成立；不成立的項目不要硬改，列出來告訴我。
 ```
 
+> 第 2 步你已經刪掉不同意的項目，但動手修改時才可能發現某項意見其實不成立。`receiving-code-review` 讓 AI 先驗證、再修改，不盲目照做。
+
 ### 第 6 步：全部完成後，請另一個 AI 審查分支，你確認後再合併
+
+最好換另一個 AI 工具或不同模型（例如在 Antigravity 修正，就用 Claude Code 審查）：
+
+```text
+請用 requesting-code-review 審查目前分支相對於 main 的所有修改，
+對照 report.md 和修正計畫，列出沒修好、修錯或新產生的問題。先不要修改任何檔案。
+```
+
+審查沒有問題、你也確認過，再合併到 main。
+
+### 每一步用到的 skill
+
+| 步驟 | 你在提示詞點名的 skill | 執行時自動用到的 skill |
+| --- | --- | --- |
+| 第 3 步：寫計畫 | `writing-plans` | — |
+| 第 5 步：逐項修正 | `subagent-driven-development`、`receiving-code-review` | `test-driven-development`、`using-git-worktrees`、`verification-before-completion`、`systematic-debugging`、`finishing-a-development-branch`；不能分派 subagent 時改用 `executing-plans` |
+| 第 6 步：審查分支 | `requesting-code-review` | — |
 
 第 2、4、6 步由你把關，是這套流程不可少的部分。AI 負責把清單有紀律地做完，**清單的內容對不對、要不要合併，由人決定**。這也是階段五教的事。
 
@@ -64,6 +84,7 @@ npx skills add obra/superpowers@executing-plans -a antigravity -a claude-code --
 npx skills add obra/superpowers@test-driven-development -a antigravity -a claude-code --copy -y
 npx skills add obra/superpowers@using-git-worktrees -a antigravity -a claude-code --copy -y
 npx skills add obra/superpowers@requesting-code-review -a antigravity -a claude-code --copy -y
+npx skills add obra/superpowers@receiving-code-review -a antigravity -a claude-code --copy -y
 npx skills add obra/superpowers@verification-before-completion -a antigravity -a claude-code --copy -y
 npx skills add obra/superpowers@systematic-debugging -a antigravity -a claude-code --copy -y
 npx skills add obra/superpowers@finishing-a-development-branch -a antigravity -a claude-code --copy -y
@@ -76,9 +97,9 @@ npx skills add obra/superpowers@finishing-a-development-branch -a antigravity -a
 | `--copy` | 複製檔案（Windows 不支援捷徑連結時也能用） |
 | `-y` | 跳過確認 |
 
-- 你只需要叫用 `writing-plans` 和 `subagent-driven-development`，其他 skill 是它們執行時會自動用到的。
+- 你只需要在提示詞點名 `writing-plans`、`subagent-driven-development`、`receiving-code-review`、`requesting-code-review`，其他 skill 是執行時自動用到的（見上方「每一步用到的 skill」）。
 - 安裝完成後重新啟動 AI 工具的工作階段，再用 `npx skills list` 確認。
-- 想看這套 skill 的完整清單：`npx skills add obra/superpowers --list`（只列出，不安裝）。
+- superpowers 一共有 15 個 skill，這裡只列這套流程需要的 10 個。完整清單：`npx skills add obra/superpowers --list`（只列出，不安裝）。
 - Windows 執行 `npx` 被擋時，改用 `npx.cmd`（見 [AGENTS.md](../AGENTS.md) 第 5 節）。
 
 > **不要安裝 `using-superpowers`。** 它要求 AI 在任何回應之前都先找 skill 來用，會接管整段對話：請它做個小修改，也會先進入討論和計畫流程，回應變慢、也更耗 token。
@@ -86,7 +107,7 @@ npx skills add obra/superpowers@finishing-a-development-branch -a antigravity -a
 用完可以移除：
 
 ```bash
-npx skills remove writing-plans subagent-driven-development executing-plans test-driven-development using-git-worktrees requesting-code-review verification-before-completion systematic-debugging finishing-a-development-branch -y
+npx skills remove writing-plans subagent-driven-development executing-plans test-driven-development using-git-worktrees requesting-code-review receiving-code-review verification-before-completion systematic-debugging finishing-a-development-branch -y
 ```
 
 ## 實例：修正一組自製 skill
