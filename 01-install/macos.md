@@ -36,7 +36,7 @@ brew --version
 
 ## 模組一：核心開發工具
 
-包含：`Git`、`uv`、`Node.js`、`GitHub CLI (gh)`。
+包含：`Git`、`uv`、`Node.js`、`GitHub CLI (gh)`、`Pandoc`（Markdown、Word、HTML 等格式互轉，階段二起使用）。
 
 - macOS 的 Git 由 Xcode Command Line Tools 提供，偵測到即沿用，不另外透過 Homebrew 安裝。
 - Homebrew 的 `node` 是最新版，不一定是 LTS；一般教學與開發使用沒有差別。
@@ -45,7 +45,7 @@ brew --version
 
 ```zsh
 # 格式為「指令名稱:Homebrew 套件名稱」
-coreTools=(git:git uv:uv node:node gh:gh)
+coreTools=(git:git uv:uv node:node gh:gh pandoc:pandoc)
 failed=()
 
 if ! command -v brew >/dev/null 2>&1; then
@@ -88,6 +88,28 @@ node --version        # 階段四需要 22.12 以上（或 20.19 以上的 20 �
 npm --version
 npx --version
 gh --version
+pandoc --version
+```
+
+再實際把一份含中文表格的 Markdown 轉成 Word，確認 Pandoc 正常：
+
+```zsh
+cd "${TMPDIR:-/tmp}"
+printf '%s\n' '# 轉檔測試' '' '| 欄位 | 內容 |' '| --- | --- |' '| 中文 | 正常顯示 |' > pandoc-test.md
+if pandoc pandoc-test.md -o pandoc-test.docx; then
+    echo "Word 轉檔成功！"
+    open pandoc-test.docx
+else
+    echo "Word 轉檔失敗，請查看上方錯誤訊息。"
+fi
+```
+
+Pandoc 使用範例：
+
+```zsh
+pandoc report.md -o report.docx     # Markdown 轉 Word
+pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
+pandoc report.md -o report.html     # Markdown 轉網頁
 ```
 
 ---
@@ -182,21 +204,14 @@ rg "API_KEY" -g '!node_modules/**'  # 不在 Git 儲存庫時，手動排除 nod
 
 ---
 
-## 模組三：文件轉換工具（Pandoc、LaTeX）
+## 模組三：LaTeX（階段六使用）
 
-包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）與 `MacTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。Pandoc 幾秒鐘就裝好；MacTeX 內含完整套件，下載達數 GB，建議在家中寬頻網路安裝。
+包含：`MacTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。內含完整套件，下載達數 GB，建議在家中寬頻網路安裝。階段六開始前再裝即可；PDF 輸出測試需要模組一的 Pandoc。
 
 > 安裝 MacTeX 時 Homebrew 會要求輸入 Mac 的登入密碼，這是正常的（不要自己在指令前加 `sudo`）。安裝完成後，LaTeX 指令位於 `/Library/TeX/texbin`。
 
 ```zsh
 failed=()
-
-if command -v pandoc >/dev/null 2>&1; then
-    echo "[已安裝] pandoc，跳過。"
-else
-    echo "[缺少] 正在安裝 Pandoc ..."
-    brew install pandoc || failed+=("pandoc")
-fi
 
 if command -v xelatex >/dev/null 2>&1; then
     echo "[已安裝] LaTeX (xelatex)，跳過。"
@@ -212,34 +227,21 @@ echo
 if [ ${#failed[@]} -gt 0 ]; then
     echo "以下項目安裝失敗：${failed[*]}。請查看上方錯誤訊息，處理後重新執行本段。"
 else
-    echo "文件轉換工具安裝檢查完成！"
+    echo "LaTeX 安裝檢查完成！"
 fi
 ```
 
-### 文件轉換工具驗證
+### LaTeX 驗證
 
 ```zsh
-pandoc --version
 xelatex --version
 ```
 
-再實際把一份含中文表格的 Markdown 轉成 Word：
+再實際輸出一份中文 PDF：
 
 ```zsh
 cd "${TMPDIR:-/tmp}"
 printf '%s\n' '# 轉檔測試' '' '| 欄位 | 內容 |' '| --- | --- |' '| 中文 | 正常顯示 |' > pandoc-test.md
-if pandoc pandoc-test.md -o pandoc-test.docx; then
-    echo "Word 轉檔成功！"
-    open pandoc-test.docx
-else
-    echo "Word 轉檔失敗，請查看上方錯誤訊息。"
-fi
-```
-
-接著用同一份檔案測試中文 PDF 輸出：
-
-```zsh
-cd "${TMPDIR:-/tmp}"
 if pandoc pandoc-test.md -o pandoc-test.pdf --pdf-engine=xelatex -V CJKmainfont="Songti TC"; then
     echo "PDF 輸出成功！"
     open pandoc-test.pdf
@@ -248,19 +250,62 @@ else
 fi
 ```
 
-### 文件轉換工具使用範例
+### LaTeX 使用範例
 
 ```zsh
-pandoc report.md -o report.docx     # Markdown 轉 Word
-pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
-pandoc report.md -o report.html     # Markdown 轉網頁
-
 # Markdown 轉 PDF（含中文）
 pandoc report.md -o report.pdf --pdf-engine=xelatex -V CJKmainfont="Songti TC"
 
 # 編譯 LaTeX 論文（有參考文獻時：xelatex → bibtex → xelatex → xelatex）
 xelatex paper.tex
 ```
+
+---
+
+## 模組四：OpenCode（選修，階段八使用）
+
+[OpenCode](https://opencode.ai) 是開源的終端機 AI Agent。本課程以 **v1（1.19.3）** 為準，用 npm 安裝指定版本。
+
+> 不要用 `brew install opencode`，也不要執行 `opencode upgrade --major`：Homebrew 官方套件與升級指令都會裝到設定方式不同的 OpenCode 2。
+
+請先完成模組一（需要 Node.js），再複製以下指令執行（已存在則自動跳過）：
+
+```zsh
+failed=()
+
+if command -v opencode >/dev/null 2>&1; then
+    ver=$(opencode --version 2>/dev/null)
+    major=$(echo "$ver" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n 1 | cut -d. -f1)
+    if [ "$major" = "1" ]; then
+        echo "[已安裝] opencode ($ver)，跳過。"
+    else
+        # 已裝的是 OpenCode 2 時不自動降版，避免動到使用者原本的設定
+        echo "[版本不同] opencode $ver：本課程以 v1 為準。教材的設定檔在 v2 預期也能用，差異見 08-opencode/reference.md；要改用 v1，先移除目前的版本再重新執行本段。"
+    fi
+elif ! command -v npm >/dev/null 2>&1; then
+    echo "錯誤：找不到 npm，請先完成模組一（Node.js）。"
+    failed+=("Node.js")
+else
+    echo "[缺少] 正在安裝 OpenCode 1.19.3 ..."
+    npm install -g opencode-ai@1.19.3 || failed+=("opencode-ai")
+fi
+
+hash -r
+echo
+if [ ${#failed[@]} -gt 0 ]; then
+    echo "以下項目安裝失敗：${failed[*]}。請查看上方錯誤訊息，處理後重新執行本段。"
+else
+    echo "OpenCode 安裝檢查完成！"
+fi
+```
+
+### OpenCode 驗證
+
+```zsh
+opencode --version    # 應顯示 1.19.3
+```
+
+接上模型與使用方式，見 [階段八](../08-opencode/tutorial.md)。
 
 ---
 

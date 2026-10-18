@@ -20,7 +20,7 @@ teacher/
 
 | 階段 | 資料夾 | 時間 | 學生學到什麼 | 教師資料 |
 | --- | --- | --- | --- | --- |
-| 一 | `01-install/` | 模組一約 15～30 分鐘；模組二、三可課後安裝（階段六需要模組二、三） | 安裝開發環境 | — |
+| 一 | `01-install/` | 模組一（含 Pandoc）約 15～30 分鐘；模組二可課後安裝；模組三（LaTeX）在階段六開始前安裝（Prompt 在 `06-agent-skills/README.md`）；模組四（OpenCode）在階段八之前安裝 | 安裝開發環境 | — |
 | 二 | `02-organize-data/` | 約 30 分鐘 | 請 AI 整理文獻比較表，並**檢查 AI 有沒有編造內容** | `02-answers.md` |
 | 三 | `03-hello-github/` | 約 30 分鐘 | 登入 GitHub，用 git 存版本、推上 GitHub | — |
 | 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲，並自己玩一輪檢查 AI 說的「完成」 | — |
@@ -41,11 +41,11 @@ teacher/
 
 - [ ] 註冊 GitHub 帳號
 - [ ] 安裝 AI 編輯器 Antigravity IDE（[01-install/00-antigravity.md](../01-install/00-antigravity.md)；手動下載安裝，並用 Google 帳號登入）
-- [ ] 完成階段一第 2 步**取得教材**，以及第 3 步的**模組一**（Git、uv、Node.js、gh）
+- [ ] 完成階段一第 2 步**取得教材**，以及第 3 步的**模組一**（Git、uv、Node.js、gh、Pandoc）
 - [ ] 階段五需要**兩個不同的 AI**：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查。審查用的 AI 要是**不同 AI 工具、且使用不同模型**
 - [ ] 確認電腦符合需求：Windows 10／11 64 位元，或 macOS 12 以上的 Apple Silicon Mac（**不支援 Intel Mac**）
-- [ ] 階段六前完成階段一的**模組二、三**（ffmpeg、edge-tts、Pandoc、LaTeX 等）。MacTeX 下載達數 GB，請學生在家中網路先裝好
-- [ ] 要上階段八（選修）時，請學生依 `08-opencode/tutorial.md` 第 1 步先裝好 OpenCode v1，並確認有一個可以使用的模型（OpenCode Zen 的免費模型，或學校的模型服務）
+- [ ] 階段六前完成階段一的**模組二、三**（ffmpeg、edge-tts、LaTeX 等；模組三的 Prompt 在階段六 README 的「開始之前」）。MacTeX 下載達數 GB，請學生在家中網路先裝好
+- [ ] 要上階段八（選修）時，請學生用階段一的 Prompt 3（模組四）先裝好 OpenCode v1，並確認有一個可以使用的模型（OpenCode Zen 的免費模型，或學校的模型服務）
 
 ---
 
@@ -56,7 +56,7 @@ teacher/
 | **edge-tts 是否正常** | 依賴微軟線上服務，偶爾會整體失效（2026-10 曾出現 403 錯誤，見 [rany2/edge-tts#490](https://github.com/rany2/edge-tts/issues/490)） | 執行 `edge-tts --text "測試" --write-media test.mp3`，有產生檔案即正常。失效時，階段四的音效改用 ffmpeg（README 已是預設做法） |
 | **arXiv 論文狀態** | 論文可能被撤回或改版（階段二曾有一篇被撤回而更換） | 打開 `02-organize-data/` 各篇的 arXiv 連結，確認沒有標示 withdrawn |
 | **階段四 GitHub Pages** | 選做步驟，需要 public repo。**已實測**（2026-10-15，[my-game](https://gemini960114.github.io/my-game/)） | 每學期開課前，打開範例網址確認仍可開啟 |
-| **macOS 安裝指南** | **略過（無設備）**：沒有 Apple Silicon Mac 可以實測，本課程只支援 Apple Silicon | 有 Mac 的學生上課時，請他回報模組一到三的驗證結果；遇到問題時以 Windows 版的步驟對照排除 |
+| **macOS 安裝指南** | **略過（無設備）**：沒有 Apple Silicon Mac 可以實測，本課程只支援 Apple Silicon | 有 Mac 的學生上課時，請他回報模組一到四的驗證結果；遇到問題時以 Windows 版的步驟對照排除 |
 | **階段五每輪 commit 的流程** | 2026-10-16 改版後**尚未實測**（之前的紀錄是舊流程） | 用新版 grade-stats 跑至少 2 輪，確認：Prompt B 會先執行 `git status`，有未 commit 的修改時停下來；`round-N-prompt.md` 開頭有輪次與正確的 commit 編號；審查者會在回覆開頭列出收到的檔案；每輪 commit 訊息的格式正確 |
 | **階段六單元 6 課堂版** | 第 1 輪審查後新增，**尚未實測**；課程表只給 10 分鐘（之前只做過完整版） | 用 Antigravity 開啟 `06-agent-skills/`，貼上課堂版第一段提示詞並計時；確認 `example/case06/source/` 沒有被修改、`improvement-plan.md` 產生在 `example/case06/` |
 | **階段六單元 7-2 範例 2** | 第 1 輪審查後新增，2026-10-16 又改了提示詞，**尚未實測** | 完整跑一輪：產生 prompt → 交給另一個工具、不同模型審查 → 存審查原文 → 逐項判斷 → 確認 skill 停下來等你決定，結果記在 `teacher/review-log/`。另外確認：只檢查待審檔案（`git status -- <檔案>`）；在不是 git repo 的資料夾（例如 ZIP 下載的教材）會改寫修改時間，不會出錯 |
@@ -66,7 +66,7 @@ teacher/
 | **階段六的 skill** | skill 已預先放在 `06-agent-skills/.agents/skills/` 與 `.claude/skills/`；學生若開錯資料夾，skill 不會被載入 | 用 Antigravity 開啟 `06-agent-skills/`，問 AI「目前有哪些 skill 可以用？」，確認列出 12 個課程 skill |
 | **階段六的 LaTeX** | 單元 5 輸出 PDF 需要 xelatex；MiKTeX 第一次編譯會自動下載套件 | 在 `06-agent-skills/` 執行 `xelatex --version`；課前自己先跑一次單元 5 的 PDF 輸出 |
 | **階段七的遠端連線** | 示範要從教室連到 Nano4，學校網路可能擋 2222 埠；recon-all 每例需數小時 | 依 `07-demo-script.md` 第一節完成課前準備：教室實測連線、前一天先跑好示範批次；網路不通時改播示範影片（連結見 `07-demo-script.md`） |
-| **階段八的 OpenCode v1 行為** | 2026-10-18 新增，教材依官方文件撰寫，**尚未在 1.19.3 實測**；老師電腦若已裝 OpenCode 2，可用 `npx opencode-ai@1.19.3` 臨時執行 | 照 `08-opencode/tutorial.md` 完整跑一次，確認：Plan 改檔前是詢問還是直接禁止（第 4 步的寫法依結果修正）；`/check` 是否交給 ta 在另一個對話執行、你仍停在 Build；請 `@ta` 改 `grade.py` 時確實被擋下，且第 9 步對照實驗（拿掉提示詞的「不修改」規則）中 ta 的實際反應和教材描述一致；第 8 步實驗中 AI 改檔的頻率；`reference.md` 提到的 `--auto` 參數在 1.19.3 是否存在、是否仍擋下 `deny`；各步驟實際花費時間是否符合 60 分鐘的規劃 |
+| **階段八的 OpenCode v1 行為** | 2026-10-18 新增，教材依官方文件撰寫，**尚未在 1.19.3 實測**；老師電腦若已裝 OpenCode 2，可用 `npx opencode-ai@1.19.3` 臨時執行 | 照 `08-opencode/tutorial.md` 完整跑一次，確認：Plan 改檔前是詢問還是直接禁止（第 4 步的寫法依結果修正）；`/check` 是否交給 ta 在另一個對話執行、你仍停在 Build；請 `@ta` 改 `grade.py` 時確實被擋下，且第 9 步對照實驗（拿掉提示詞的「不修改」規則）中 ta 的實際反應和教材描述一致；第 8 步實驗中 AI 改檔的頻率；`reference.md` 提到的 `--auto` 參數在 1.19.3 是否存在、是否仍擋下 `deny`；各步驟實際花費時間是否符合 60 分鐘的規劃；安裝指南模組四的腳本（Windows、macOS）與 Prompt 3 能裝好 1.19.3、已裝 2.x 時會停下來；在 Antigravity 右側終端機執行 OpenCode 時，選取、複製、貼上的實際按鍵（再寫回 tutorial 的「常用按鍵」） |
 
 ---
 

@@ -10,7 +10,17 @@ Skill 是寫給 AI 的工作說明書：告訴它某一類任務該怎麼做、�
 
 ## 開始之前
 
-1. 完成 [階段一](../01-install/README.md) 的模組一～三。單元 5 輸出 PDF 需要模組三的 LaTeX。
+1. 完成 [階段一](../01-install/README.md) 的模組一、二，再安裝模組三（LaTeX，單元 5 輸出 PDF 需要）。在教材的最上層資料夾（不是 `06-agent-skills/`），把下面這段貼給 Antigravity 的 AI：
+
+   ```text
+   請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
+   執行其中的「模組三：LaTeX」：
+   1. 先檢查 xelatex 是否已存在，缺少才安裝。
+   2. 安裝失敗時請列出錯誤訊息，不要回報成功。
+   3. 完成後重載 PATH，回報 xelatex 版本，並執行指南中的中文 PDF 輸出測試。
+   ```
+
+   MacTeX 下載達數 GB，Mac 請在家中網路先裝好。
 2. 在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟**這個資料夾** `06-agent-skills/`（不是教材的最上層資料夾）。課程用的 skill 已經放在這裡的 `.agents/skills/` 與 `.claude/skills/`，只有開啟這個資料夾時才會被載入。
 3. 打開 [tutorial.md](tutorial.md)，從「0. 先備知識」開始，依順序練習。
 

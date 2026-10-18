@@ -39,12 +39,12 @@
 
 1. 安裝並啟動 Antigravity IDE：[01-install/00-antigravity.md](01-install/00-antigravity.md)
 2. 在 Antigravity 的終端機用 `git clone https://github.com/gemini960114/ai-agent-course-kit` 下載教材，並開啟教材資料夾。還沒有 Git 的電腦改下載 [ZIP 檔](https://github.com/gemini960114/ai-agent-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」（資料夾名稱為 `ai-agent-course-kit-main`）
-3. 請 AI 安裝軟體，至少裝好模組一。模組二、三可以課後安裝，階段六之前要裝好
+3. 請 AI 安裝軟體，至少裝好模組一。模組二可以課後安裝，階段六之前要裝好；模組三（LaTeX）在階段六開始前安裝，模組四（OpenCode）在階段八之前安裝
 4. （建議）調整版面、安裝其他 AI 擴充功能：[01-install/01-layout.md](01-install/01-layout.md)
 
 接著從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做。階段六要另外開啟 `06-agent-skills/` 資料夾，見 [06-agent-skills/README.md](06-agent-skills/README.md)。
 
-需要：Windows 10／11（64 位元）或 macOS 12 以上的 Apple Silicon（M 系列晶片）Mac（Intel Mac 不支援，見 [00-antigravity.md](01-install/00-antigravity.md)）、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組二（語音、影音）與模組三（LaTeX 輸出 PDF）；階段八需要一個 OpenCode 可以使用的模型。
+需要：Windows 10／11（64 位元）或 macOS 12 以上的 Apple Silicon（M 系列晶片）Mac（Intel Mac 不支援，見 [00-antigravity.md](01-install/00-antigravity.md)）、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組二（語音、影音）與模組三（LaTeX 輸出 PDF）；階段八需要模組四（OpenCode）與一個 OpenCode 可以使用的模型。
 
 ---
 

@@ -16,7 +16,7 @@
 
 > 需要：
 >
-> - 模組一已安裝 Git、uv、Node.js。
+> - 階段一的模組一（Git、uv、Node.js），以及模組四（OpenCode，用 [Prompt 3](../01-install/README.md#prompt-3模組四opencode選修) 安裝）。
 > - 一個 OpenCode 可以使用的模型。可以先試 OpenCode Zen 標示 Free 的模型；學校或單位有自己的模型服務時，見 [reference.md](reference.md#1-接上自己的模型服務)。
 > - 本教材以 **OpenCode v1（1.19.3）** 為準。OpenCode 2 已經推出，但設定方式有差異，見 [reference.md](reference.md#8-如果你裝的是-opencode-2)。
 

@@ -60,7 +60,7 @@
 
 ## 選做：轉成 Word 檔
 
-用模組三安裝的 Pandoc，把比較表轉成 Word 檔（只需要 Pandoc，不需要 LaTeX）。對 AI 說：
+用模組一安裝的 Pandoc，把比較表轉成 Word 檔（只需要 Pandoc，不需要 LaTeX）。對 AI 說：
 
 ```text
 用 pandoc 把 output/ 裡的比較表轉成 Word 檔，存在同一個資料夾。

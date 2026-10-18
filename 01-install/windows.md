@@ -25,7 +25,7 @@ winget --version
 
 ## 模組一：核心開發工具
 
-包含：`Git`、`uv`、`Node.js LTS`、`GitHub CLI (gh)`。
+包含：`Git`、`uv`、`Node.js LTS`、`GitHub CLI (gh)`、`Pandoc`（Markdown、Word、HTML 等格式互轉，階段二起使用）。
 
 複製以下指令貼入 PowerShell 執行（已存在則自動跳過）：
 
@@ -38,7 +38,8 @@ $coreTools = @(
     @{ Cmd = "git";  Id = "Git.Git" },
     @{ Cmd = "uv";   Id = "astral-sh.uv" },
     @{ Cmd = "node"; Id = "OpenJS.NodeJS.LTS" },
-    @{ Cmd = "gh";   Id = "GitHub.cli" }
+    @{ Cmd = "gh";   Id = "GitHub.cli" },
+    @{ Cmd = "pandoc"; Id = "JohnMacFarlane.Pandoc" }
 )
 
 # 3. 已存在則跳過，缺少才安裝；記錄失敗項目
@@ -82,6 +83,29 @@ node --version        # 階段四需要 22.12 以上（或 20.19 以上的 20 �
 npm --version
 npx --version
 gh --version
+pandoc --version
+```
+
+再實際把一份含中文表格的 Markdown 轉成 Word，確認 Pandoc 正常：
+
+```powershell
+Set-Location $env:TEMP
+[IO.File]::WriteAllText("$env:TEMP\pandoc-test.md", "# 轉檔測試`n`n| 欄位 | 內容 |`n| --- | --- |`n| 中文 | 正常顯示 |", [Text.UTF8Encoding]::new($false))
+pandoc pandoc-test.md -o pandoc-test.docx
+if ($LASTEXITCODE -eq 0 -and (Test-Path pandoc-test.docx)) {
+    Write-Host "Word 轉檔成功！" -ForegroundColor Green
+    Start-Process pandoc-test.docx
+} else {
+    Write-Host "Word 轉檔失敗，請查看上方錯誤訊息。" -ForegroundColor Red
+}
+```
+
+Pandoc 使用範例：
+
+```powershell
+pandoc report.md -o report.docx     # Markdown 轉 Word
+pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
+pandoc report.md -o report.html     # Markdown 轉網頁
 ```
 
 ---
@@ -181,9 +205,9 @@ rg "API_KEY" -g "!node_modules/**"  # 不在 Git 儲存庫時，手動排除 nod
 
 ---
 
-## 模組三：文件轉換工具（Pandoc、LaTeX）
+## 模組三：LaTeX（階段六使用）
 
-包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）與 `MiKTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。Pandoc 幾秒鐘就裝好；MiKTeX 安裝檔約 150 MB，第一次編譯時還會自動下載需要的套件，建議在穩定的網路環境安裝。
+包含：`MiKTeX`（LaTeX 排版，用來輸出 PDF、撰寫論文格式）。安裝檔約 150 MB，第一次編譯時還會自動下載需要的套件，建議在穩定的網路環境安裝。階段六開始前再裝即可；PDF 輸出測試需要模組一的 Pandoc。
 
 > MiKTeX 只先安裝基本套件，編譯時缺什麼才自動下載。下方腳本會：
 >
@@ -193,14 +217,6 @@ rg "API_KEY" -g "!node_modules/**"  # 不在 Git 儲存庫時，手動排除 nod
 
 ```powershell
 $failed = @()
-
-if (Get-Command pandoc -ErrorAction SilentlyContinue) {
-    Write-Host "[已安裝] pandoc，跳過。" -ForegroundColor Yellow
-} else {
-    Write-Host "[缺少] 正在安裝 Pandoc ..." -ForegroundColor Cyan
-    winget install --id JohnMacFarlane.Pandoc -e --source winget --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -notin 0, -1978335189) { $failed += "JohnMacFarlane.Pandoc" }
-}
 
 $miktexBin = "$env:LOCALAPPDATA\Programs\MiKTeX\miktex\bin\x64"
 if ((Get-Command xelatex -ErrorAction SilentlyContinue) -or (Test-Path "$miktexBin\xelatex.exe")) {
@@ -237,35 +253,21 @@ if (Get-Command initexmf -ErrorAction SilentlyContinue) {
 if ($failed) {
     Write-Host "`n以下項目安裝失敗：$($failed -join ', ')。請查看上方錯誤訊息，處理後重新執行本段。" -ForegroundColor Red
 } else {
-    Write-Host "`n文件轉換工具安裝檢查完成！" -ForegroundColor Green
+    Write-Host "`nLaTeX 安裝檢查完成！" -ForegroundColor Green
 }
 ```
 
-### 文件轉換工具驗證
+### LaTeX 驗證
 
 ```powershell
-pandoc --version
 xelatex --version
 ```
 
-再實際把一份含中文表格的 Markdown 轉成 Word：
+再實際輸出一份中文 PDF。第一次執行時 MiKTeX 會自動下載中文排版套件，可能需要幾分鐘：
 
 ```powershell
 Set-Location $env:TEMP
 [IO.File]::WriteAllText("$env:TEMP\pandoc-test.md", "# 轉檔測試`n`n| 欄位 | 內容 |`n| --- | --- |`n| 中文 | 正常顯示 |", [Text.UTF8Encoding]::new($false))
-pandoc pandoc-test.md -o pandoc-test.docx
-if ($LASTEXITCODE -eq 0 -and (Test-Path pandoc-test.docx)) {
-    Write-Host "Word 轉檔成功！" -ForegroundColor Green
-    Start-Process pandoc-test.docx
-} else {
-    Write-Host "Word 轉檔失敗，請查看上方錯誤訊息。" -ForegroundColor Red
-}
-```
-
-接著用同一份檔案測試中文 PDF 輸出。第一次執行時 MiKTeX 會自動下載中文排版套件，可能需要幾分鐘：
-
-```powershell
-Set-Location $env:TEMP
 pandoc pandoc-test.md -o pandoc-test.pdf --pdf-engine=xelatex -V CJKmainfont="Microsoft JhengHei"
 if ($LASTEXITCODE -eq 0 -and (Test-Path pandoc-test.pdf)) {
     Write-Host "PDF 輸出成功！" -ForegroundColor Green
@@ -275,19 +277,64 @@ if ($LASTEXITCODE -eq 0 -and (Test-Path pandoc-test.pdf)) {
 }
 ```
 
-### 文件轉換工具使用範例
+### LaTeX 使用範例
 
 ```powershell
-pandoc report.md -o report.docx     # Markdown 轉 Word
-pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
-pandoc report.md -o report.html     # Markdown 轉網頁
-
 # Markdown 轉 PDF（含中文）
 pandoc report.md -o report.pdf --pdf-engine=xelatex -V CJKmainfont="Microsoft JhengHei"
 
 # 編譯 LaTeX 論文（有參考文獻時：xelatex → bibtex → xelatex → xelatex）
 xelatex paper.tex
 ```
+
+---
+
+## 模組四：OpenCode（選修，階段八使用）
+
+[OpenCode](https://opencode.ai) 是開源的終端機 AI Agent。本課程以 **v1（1.19.3）** 為準，用 npm 安裝指定版本。
+
+> 不要執行 `opencode upgrade --major`，也不要用其他方式安裝最新版：那些會裝到設定方式不同的 OpenCode 2。
+
+請先完成模組一（需要 Node.js），再複製以下指令執行（已存在則自動跳過）：
+
+```powershell
+$failed = @()
+
+if (Get-Command opencode -ErrorAction SilentlyContinue) {
+    $ver = (opencode --version 2>$null) -join " "
+    if ($ver -match '(\d+)\.\d+\.\d+' -and $Matches[1] -eq '1') {
+        Write-Host "[已安裝] opencode ($ver)，跳過。" -ForegroundColor Yellow
+    } else {
+        # 已裝的是 OpenCode 2 時不自動降版，避免動到使用者原本的設定
+        Write-Host "[版本不同] opencode $ver：本課程以 v1 為準。教材的設定檔在 v2 預期也能用，差異見 08-opencode/reference.md；要改用 v1，先移除目前的版本再重新執行本段。" -ForegroundColor Yellow
+    }
+} elseif (-not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
+    Write-Host "錯誤：找不到 npm，請先完成模組一（Node.js）。" -ForegroundColor Red
+    $failed += "Node.js"
+} else {
+    Write-Host "[缺少] 正在安裝 OpenCode 1.19.3 ..." -ForegroundColor Cyan
+    # 用 npm.cmd：學校或公司電腦無法變更執行原則時，npm.ps1 會被擋下
+    npm.cmd install -g opencode-ai@1.19.3
+    if ($LASTEXITCODE -ne 0) { $failed += "opencode-ai" }
+}
+
+# 重載 PATH（保留目前視窗原有的路徑）
+$env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [Environment]::GetEnvironmentVariable("Path", "User") + ";" + $env:Path
+
+if ($failed) {
+    Write-Host "`n以下項目安裝失敗：$($failed -join ', ')。請查看上方錯誤訊息，處理後重新執行本段。" -ForegroundColor Red
+} else {
+    Write-Host "`nOpenCode 安裝檢查完成！" -ForegroundColor Green
+}
+```
+
+### OpenCode 驗證
+
+```powershell
+opencode --version    # 應顯示 1.19.3
+```
+
+接上模型與使用方式，見 [階段八](../08-opencode/tutorial.md)。
 
 ---
 

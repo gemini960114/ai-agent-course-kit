@@ -36,10 +36,11 @@ hw-grader/
 
 OpenCode 有終端機版、桌面版和 VS Code 擴充功能，這個階段用**終端機版**，設定檔和指令都看得最清楚。
 
-在終端機執行（Windows 與 macOS 相同）：
+安裝交給 AI：在 Antigravity 開啟教材的最上層資料夾，把 [階段一的 Prompt 3](../01-install/README.md#prompt-3模組四opencode選修) 貼給 AI，它會依你的作業系統執行安裝指南的「模組四」。想自己安裝的話，照 [windows.md](../01-install/windows.md) 或 [macos.md](../01-install/macos.md) 的模組四執行。
+
+最後在終端機確認：
 
 ```text
-npm install -g opencode-ai@1.19.3
 opencode --version
 ```
 
@@ -47,11 +48,10 @@ opencode --version
 
 > - 套件名稱是 `opencode-ai`，不是 `opencode`。
 > - **不要**執行 `opencode upgrade --major`；看到 OpenCode 2 的升級提示，按 Dismiss 略過。macOS 也不要用 `brew install opencode`，Homebrew 的版本已經換成 OpenCode 2。
-> - Windows 執行 `npm` 被擋時，改用 `npm.cmd`（見 [AGENTS.md](../AGENTS.md) 第 5 節）。
 
 ## 2. 建立作業專案
 
-在「文件」裡建立專案，路徑不要有空白或中文：
+在「文件」裡建立專案，路徑不要有空白或中文。在 Antigravity 的終端機執行：
 
 Windows（PowerShell）：
 
@@ -75,7 +75,7 @@ uv init --bare
 uv add --dev pytest
 ```
 
-接著用編輯器在 `hw-grader` 裡建立 `grade.py`：
+在 Antigravity 選「檔案 → 開啟資料夾」，開啟剛建立的 `hw-grader`，並在裡面建立 `grade.py`：
 
 ```python
 def calc_average(a, b, c):
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
 這支程式**故意**留了幾個問題：分數混進字串 `"78"`，執行會出現 `TypeError`；沒有 docstring；變數名稱 `a`、`b`、`c` 看不出意義；沒有檢查分數是否在 0～100；也沒有測試。後面的助教會把這些找出來。
 
-最後在 `hw-grader` 裡啟動 OpenCode：
+最後啟動 OpenCode。建議照 [版面設定](../01-install/01-layout.md#3-選用在右側終端機使用-opencode) 把終端機移到右側：左邊看檔案、中間看程式、右邊用 OpenCode。開啟新的終端機（會自動位在 `hw-grader`），輸入：
 
 ```text
 opencode
@@ -139,7 +139,7 @@ opencode
 | 換行 | Ctrl+J |
 | 中斷 AI | Esc（中斷不會還原已經改過的檔案） |
 | 選取文字 | 按住 Shift 再用滑鼠拖曳 |
-| 複製選取的文字 | Ctrl+Shift+C（Windows Terminal）；**不要用 Ctrl+C**，在 OpenCode 裡它是清空輸入或離開 |
+| 複製選取的文字 | 依終端機而不同（Windows Terminal 是 Ctrl+Shift+C）；**不要用 Ctrl+C**，在 OpenCode 裡它是清空輸入或離開 |
 | 命令清單 | Ctrl+P |
 | 離開 | `/exit` |
 

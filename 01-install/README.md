@@ -1,12 +1,12 @@
 # 階段一：安裝開發環境
 
-照下面四個步驟完成。第 3 步的模組一約 15～30 分鐘；模組二、三可以課後安裝。Windows 和 macOS 的模組編號相同，上課時可以直接說「請安裝模組一」。
+照下面四個步驟完成。第 3 步的模組一約 15～30 分鐘；模組二可以課後安裝，模組三、四到用得到的階段再裝。Windows 和 macOS 的模組編號相同，上課時可以直接說「請安裝模組一」。
 
 | 步驟 | 做什麼 | 說明 |
 | --- | --- | --- |
 | 第 1 步 | 安裝並啟動 Antigravity IDE（手動） | [00-antigravity.md](00-antigravity.md) |
 | 第 2 步 | 在 Antigravity 的終端機下載教材，並開啟教材資料夾 | [本頁](#第-2-步取得教材) |
-| 第 3 步 | 請 AI 安裝軟體（模組一～三） | [本頁](#第-3-步安裝軟體) |
+| 第 3 步 | 請 AI 安裝軟體（模組一、二） | [本頁](#第-3-步安裝軟體) |
 | 第 4 步 | 調整版面、安裝其他 AI 擴充功能（建議） | [01-layout.md](01-layout.md) |
 
 ---
@@ -43,25 +43,27 @@
 
 ## 第 3 步：安裝軟體
 
-| 模組 | 內容 | Windows | macOS |
-| --- | --- | --- | --- |
-| 模組一（核心開發） | Git、uv、Node.js、GitHub CLI (`gh`) | WinGet | Homebrew |
-| 模組二（多媒體與進階 CLI） | ffmpeg、ripgrep (`rg`)、jq、ImageMagick、edge-tts、yt-dlp | WinGet + uv tool | Homebrew + uv tool |
-| 模組三（文件轉換） | Pandoc、LaTeX（Windows：MiKTeX；macOS：MacTeX） | WinGet | Homebrew |
+| 模組 | 內容 | 什麼時候裝 | Windows | macOS |
+| --- | --- | --- | --- | --- |
+| 模組一（核心開發） | Git、uv、Node.js、GitHub CLI (`gh`)、Pandoc | 現在（必裝） | WinGet | Homebrew |
+| 模組二（多媒體與進階 CLI） | ffmpeg、ripgrep (`rg`)、jq、ImageMagick、edge-tts、yt-dlp | 階段六之前（階段四的選做也會用到） | WinGet + uv tool | Homebrew + uv tool |
+| 模組三（LaTeX） | Windows：MiKTeX；macOS：MacTeX | 階段六開始前，見 [階段六](../06-agent-skills/README.md#開始之前) | WinGet | Homebrew |
+| 模組四（OpenCode，選修） | OpenCode v1 | 階段八之前 | npm | npm |
 
 把下方的 Prompt 貼給 Antigravity 的 AI，AI 會依你的作業系統選擇對應的安裝指南。
 
 **三個 Prompt 怎麼選：**
 
 - **Prompt 1 和 Prompt 2 二選一。** Prompt 2 已經包含模組一；上課時間有限就先用 Prompt 1，模組二課後再補。
-- **Prompt 3 另外執行**，但要在完成 Prompt 1 或 2 之後才貼（macOS 需要模組一準備好的 Homebrew）。階段六之前裝好即可。
+- **Prompt 3 是選修的 OpenCode**，要上階段八時，在完成 Prompt 1 或 2 之後才貼（需要模組一的 Node.js）。
+- 模組三（LaTeX）檔案較大，只有階段六用得到，安裝 Prompt 放在 [階段六](../06-agent-skills/README.md#開始之前)。
 
 ### Prompt 1：模組一（核心開發，必裝）
 
 ```text
 請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 執行其中的「模組一：核心開發工具」（macOS 若尚未安裝 Homebrew，請先完成「事前準備」）：
-1. 先檢查 Git、uv、Node.js、gh 是否已存在。
+1. 先檢查 Git、uv、Node.js、gh、pandoc 是否已存在。
 2. 已安裝的項目請列出版本並略過；缺少的項目才透過 WinGet（Windows）或 Homebrew（macOS）安裝。
 3. 全部嘗試完成後，若有任何一項失敗，請列出失敗項目與錯誤訊息，不要回報成功。
 4. 安裝完成後重載環境變數並執行版本驗證回報。
@@ -72,21 +74,22 @@
 ```text
 請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 幫我檢查並安裝模組一與模組二：
-- 系統原生工具（Git、uv、Node.js、gh、ffmpeg、ripgrep (rg)、jq、ImageMagick (magick)）請透過 WinGet（Windows）或 Homebrew（macOS）安裝。
+- 系統原生工具（Git、uv、Node.js、gh、pandoc、ffmpeg、ripgrep (rg)、jq、ImageMagick (magick)）請透過 WinGet（Windows）或 Homebrew（macOS）安裝。
 - Python 工具（edge-tts, yt-dlp）請在 uv 安裝完成後透過 uv tool 安裝。
 - 已存在的工具跳過，缺少的才安裝；套件名稱以安裝指南中的清單為準。
 - 全部嘗試完成後，若有任何一項失敗，請列出失敗項目與錯誤訊息，不要回報成功。
 - 完成後重載 PATH，並回報所有工具的版本狀態。
 ```
 
-### Prompt 3：模組三（文件轉換，Pandoc、LaTeX）
+### Prompt 3：模組四（OpenCode，選修）
 
 ```text
 請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
-執行其中的「模組三：文件轉換工具」：
-1. 先檢查 pandoc、xelatex 是否已存在，缺少才安裝。
-2. 安裝失敗時請列出錯誤訊息，不要回報成功。
-3. 完成後重載 PATH，回報 pandoc 與 xelatex 版本，並執行指南中的 Word 轉檔與中文 PDF 輸出測試。
+執行其中的「模組四：OpenCode」：
+1. 先檢查 opencode 是否已存在；已經是 1.x 就列出版本並略過。
+2. 已安裝的是 2.x 時，不要自行移除或降版，告訴我目前的版本後停下來。
+3. 缺少時依指南用 npm 安裝 opencode-ai@1.19.3；不要用 brew install opencode 或 opencode upgrade --major。
+4. 安裝失敗時請列出錯誤訊息，不要回報成功；完成後重載 PATH，回報 opencode --version。
 ```
 
 ### 不透過 AI，手動安裝

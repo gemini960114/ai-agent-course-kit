@@ -19,6 +19,16 @@
    - **Claude Code for VS Code**（發行者 Anthropic），需要 Claude 付費方案
 2. 安裝後，它們的圖示可能出現在左側。在圖示上按滑鼠右鍵 → **Move → Secondary Side Bar**，移到右側和 AI 面板放在一起。
 
+## 3. 選用：在右側終端機使用 OpenCode
+
+[階段八](../08-opencode/README.md) 的 OpenCode 是在終端機裡執行的 AI Agent。照第 1 節把終端機移到右側後，就能左邊看檔案、中間看程式、右邊用 OpenCode：
+
+1. 先用 [Prompt 3](README.md#prompt-3模組四opencode選修) 安裝 OpenCode（模組四）。
+2. 選「檔案 → 開啟資料夾」開啟你的專案，新增一個終端機（它會位在專案資料夾）。
+3. 在右側終端機輸入 `opencode` 啟動。終端機太窄時，拖曳 Secondary Side Bar 的左邊界把它拉寬。
+
+> 在終端機裡，OpenCode 會接管鍵盤：`Ctrl+C` 是清空輸入或離開 OpenCode，不是複製。選取與複製的按鍵見 [階段八的常用按鍵](../08-opencode/tutorial.md#常用按鍵)。
+
 ---
 
 完成後，回到 [階段一](README.md)，或直接從 [階段二：AI 整理文獻](../02-organize-data/README.md) 開始練習。
