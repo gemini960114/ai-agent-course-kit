@@ -1,6 +1,6 @@
 # 階段八（選修）：OpenCode 入門
 
-約 90 分鐘。換一個 AI 工具：在終端機使用開源的 [OpenCode](https://opencode.ai)，用一個小作業專案 `hw-grader`，從安裝一路做到自己的作業助教。
+約 60 分鐘（OpenCode 請在課前裝好）。換一個 AI 工具：在終端機使用開源的 [OpenCode](https://opencode.ai)，用一個小作業專案 `hw-grader`，從安裝一路做到自己的作業助教。
 
 前面的階段都在 Antigravity 裡用 AI；這個階段學的是**把 AI 的工作方式寫成設定檔**：
 
@@ -13,6 +13,7 @@
 **重點：在提示詞裡說「不要改」，只是請求；要 AI 真的不能改，得靠權限設定。**
 
 > 需要：
+>
 > - 模組一已安裝 Git、uv、Node.js。
 > - 一個 OpenCode 可以使用的模型。可以先試 OpenCode Zen 標示 Free 的模型；學校或單位有自己的模型服務時，見 [reference.md](reference.md#1-接上自己的模型服務)。
 > - 本教材以 **OpenCode v1（1.19.3）** 為準。OpenCode 2 已經推出，但設定方式有差異，見 [reference.md](reference.md#8-如果你裝的是-opencode-2)。
@@ -26,3 +27,4 @@
 3. [example/hw-grader/](example/hw-grader)：完成版的設定檔，做完可以對照
 
 > 🎬 **講解影片與簡報**：見 [課程簡報與相關檔案（Google Drive）](https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing)。
+> 影片與簡報正在依新教材改版，目前的版本有幾處和教材不同（例如 `/check` 交給誰執行）。**內容不同時，以 tutorial.md 為準。**

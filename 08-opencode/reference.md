@@ -54,9 +54,11 @@
 ```markdown
 ---
 description: 依目前的變更寫 commit 訊息
-model: 供應商/便宜又快的模型
+model: 供應商/模型
 ---
 ```
+
+`供應商/模型` 要換成 `/models` 清單裡實際看到的名稱，格式和 `opencode -m` 相同。
 
 - 寫在 **Command**：只有這個指令用這個模型。
 - 寫在 **Agent**：這個角色固定用這個模型。
@@ -144,7 +146,7 @@ Command 指定的 `agent:` 是 subagent 時，指令會交給這個 subagent 執
 - **三種值**：`allow` 直接執行；`ask` 跳出視窗，可以選允許一次（once）、這次對話一律允許（always）或拒絕（reject）；`deny` 禁止。
 - **最後一條生效**：多條規則都符合時，最後一條生效。範圍最大的 `"*"` 寫在最前面，例外寫在後面。
 - **`.env` 預設就不能讀**：OpenCode 預設禁止讀取 `.env`、`.env.*`（`.env.example` 除外），不用自己設定。
-- **自動核准模式也擋不住 `deny`**：用 `--auto` 自動核准時，會略過 `ask` 的詢問，但 `deny` 仍然有效。
+- **自動核准模式也擋不住 `deny`**：依官方文件，用 `--auto` 自動核准時，會略過 `ask` 的詢問，但 `deny` 仍然有效。
 - **權限可以寫在全域**：寫在 `opencode.json` 的 `permission` 會套用到所有 Agent；寫在個別 Agent 的設定會覆蓋全域。
 
 ```json

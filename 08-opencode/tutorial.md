@@ -16,6 +16,20 @@ hw-grader/
 
 完成版放在 [example/hw-grader/](example/hw-grader)，做完可以對照。
 
+## 課堂時間規劃（60 分鐘）
+
+| 時間 | 內容 | 對應步驟 |
+| --- | --- | --- |
+| 10 分 | 建立專案、接上模型（OpenCode 請在課前裝好） | 1～3 |
+| 10 分 | 基本操作：三個符號、Build 與 Plan、Session | 4 |
+| 10 分 | 三種擴充、Skill、Command（`/commit`） | 5～7 |
+| 5 分 | 實驗：提示詞擋不住 AI | 8 |
+| 10 分 | Agent `ta`，驗證它改不了檔 | 9 |
+| 5 分 | `/check`：把 Command 和 Agent 接起來 | 10 |
+| 10 分 | 練習：逐項確認完成標準 | 11 |
+
+[reference.md](reference.md) 與進階挑戰留到課後。
+
 ---
 
 ## 1. 安裝 OpenCode
@@ -196,7 +210,17 @@ description: 依目前的變更寫 commit 訊息
 第一行不超過 50 字。只寫訊息，不要 commit。
 ```
 
-輸入 `/commit` 試試看。
+先把 `grade.py` 加入 Git，再輸入 `/commit` 試試看：
+
+```text
+!git add grade.py
+```
+
+```text
+/commit
+```
+
+> 為什麼要先 `git add`？剛 `git init` 的專案裡，檔案還沒被 Git 追蹤，`git diff` 看不到任何內容，`git status` 也只列出檔名。`git add` 之後，`git diff --cached` 才看得到檔案內容，AI 才能依實際的變更寫訊息。
 
 - `` !`指令` ``：送出前先執行這個指令，把輸出放進 Prompt。不用自己複製貼上 `git diff`。
 - 這個 Command 沒有指定由誰執行，所以由**你目前的 Agent**（例如 Build）執行。
@@ -314,7 +338,7 @@ agent: ta
 
 照第 2～10 步做一次，逐項確認：
 
-- [ ] `/commit` 會依 `git diff` 的內容寫出 commit 訊息
+- [ ] `git add grade.py` 之後，`/commit` 會依變更的內容寫出 commit 訊息
 - [ ] `/check grade.py` 用表格列出不符合規範的項目
 - [ ] 請 `@ta` 修改 `grade.py`，ta 沒有改檔（`!git status` 確認）
 - [ ] 跳出指令的詢問視窗時，知道可以按拒絕

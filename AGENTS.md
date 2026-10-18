@@ -19,6 +19,8 @@
 
 AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若不確定某工具是否存在，先檢查（Windows：`Get-Command <指令>`；macOS：`command -v <指令>`），**確實缺少時**再依該系統安裝指南的對應方式提議安裝，不要改用其他來源或安裝方式（安裝指南「常見問題排除」列出的官方備援方式，須經使用者確認才可使用）。
 
+> **OpenCode（階段八選修）不在安裝指南內。** 需要安裝時，依 [08-opencode/tutorial.md](08-opencode/tutorial.md) 第 1 步執行 `npm install -g opencode-ai@1.19.3`；不要用 `brew install opencode` 或 `opencode upgrade --major`，這兩種會裝到設定方式不同的 OpenCode 2。
+
 ### 核心開發（模組一）
 
 - **Git**：版本控制
