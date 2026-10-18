@@ -59,9 +59,4 @@ features:
     details: 用 OpenCode 把 Skill、Command、Agent 寫成設定檔，做出一個系統不讓它改檔的作業助教。
     link: /guide/08_opencode
     linkText: 學 OpenCode
-  - icon: 🧭
-    title: 學習路徑建議
-    details: 依科系背景與可用時間選擇路線：教育與統計相關系所、工學院，或完整課程。
-    link: /guide/00_course_overview#學習路徑建議
-    linkText: 選擇路線
 ---
