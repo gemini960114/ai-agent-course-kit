@@ -33,7 +33,7 @@ export default defineConfig({
         ]
       },
       { text: 'AI 規則（AGENTS.md）', link: '/guide/agents_md' },
-      { text: '學習路徑建議', link: '/guide/teacher_guide#學習路徑建議' }
+      { text: '學習路徑建議', link: '/guide/00_course_overview#學習路徑建議' }
     ],
     sidebar: [
       {

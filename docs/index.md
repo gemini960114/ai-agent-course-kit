@@ -54,9 +54,14 @@ features:
     details: 用 AI Agent 連到國網中心超級電腦 Nano4，以自然語言批次分析 MRI 腦部影像。
     link: /guide/07_hpc_demo
     linkText: 看示範
+  - icon: 💻
+    title: 08｜OpenCode 入門（選修）
+    details: 用 OpenCode 把 Skill、Command、Agent 寫成設定檔，做出一個系統不讓它改檔的作業助教。
+    link: /guide/08_opencode
+    linkText: 學 OpenCode
   - icon: 🧭
     title: 學習路徑建議
-    details: 依科系背景與可用時間選擇路線：教育與統計相關系所、工學院，或完整的七個階段。
-    link: /guide/teacher_guide#學習路徑建議
+    details: 依科系背景與可用時間選擇路線：教育與統計相關系所、工學院，或完整課程。
+    link: /guide/00_course_overview#學習路徑建議
     linkText: 選擇路線
 ---
