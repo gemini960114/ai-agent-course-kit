@@ -28,7 +28,8 @@ export default defineConfig({
           { text: '04 網頁小遊戲', link: '/guide/04_web_game' },
           { text: '05 AI 交叉審查', link: '/guide/05_review_loop' },
           { text: '06 Agent Skills', link: '/guide/06_agent_skills' },
-          { text: '07 AI 指揮官（老師示範）', link: '/guide/07_hpc_demo' }
+          { text: '07 AI 指揮官（老師示範）', link: '/guide/07_hpc_demo' },
+          { text: '08 OpenCode 入門（選修）', link: '/guide/08_opencode' }
         ]
       },
       { text: 'AI 規則（AGENTS.md）', link: '/guide/agents_md' },
@@ -92,6 +93,19 @@ export default defineConfig({
         text: '🖥️ 老師示範',
         items: [
           { text: '⚡ 07 AI 指揮官', link: '/guide/07_hpc_demo' }
+        ]
+      },
+      {
+        text: '🧭 選修',
+        items: [
+          {
+            text: '💻 08 OpenCode 入門',
+            link: '/guide/08_opencode',
+            items: [
+              { text: '教材：做出你的作業助教', link: '/guide/08_tutorial' },
+              { text: '延伸閱讀', link: '/guide/08_reference' }
+            ]
+          }
         ]
       },
       {

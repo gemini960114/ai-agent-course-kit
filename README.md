@@ -19,6 +19,7 @@
 | [05 AI 交叉審查](05-review-loop/README.md) | 經過多輪審查的成績統計程式 | 審查 AI 很有自信地給出錯誤建議 | 90 分～2 × 90 分 |
 | [06 Agent Skills](06-agent-skills/README.md) | 產品頁、海報、研究論文、整理好的會議文件，以及自己做的 skill | 照著 skill 做，不代表成果正確 | 2 小時＋課後自學 |
 | [07 AI 指揮官](07-hpc-demo/README.md)（老師示範） | （示範）指揮 AI 操作國網中心超級電腦 | 謊報「15/15 完成」、自行修改程式 | 20～30 分 |
+| [08 OpenCode 入門](08-opencode/README.md)（選修） | 一個不能改檔的作業助教 | 提示詞說「不要改」，AI 還是可能改檔 | 90 分 |
 
 ## 開始
 
@@ -31,7 +32,7 @@
 
 接著從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做。階段六要另外開啟 `06-agent-skills/` 資料夾，見 [06-agent-skills/README.md](06-agent-skills/README.md)。
 
-需要：Windows 10／11（64 位元）或 macOS 12 以上的 Apple Silicon（M 系列晶片）Mac（Intel Mac 不支援，見 [00-antigravity.md](01-install/00-antigravity.md)）、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組二（語音、影音）與模組三（LaTeX 輸出 PDF）。
+需要：Windows 10／11（64 位元）或 macOS 12 以上的 Apple Silicon（M 系列晶片）Mac（Intel Mac 不支援，見 [00-antigravity.md](01-install/00-antigravity.md)）、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）；階段六需要模組二（語音、影音）與模組三（LaTeX 輸出 PDF）；階段八需要一個 OpenCode 可以使用的模型。
 
 ---
 

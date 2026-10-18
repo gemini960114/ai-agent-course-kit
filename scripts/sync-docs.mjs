@@ -29,6 +29,9 @@ const SOURCES = {
   '06-agent-skills/README.md': '06_agent_skills',
   '06-agent-skills/tutorial.md': '06_tutorial',
   '07-hpc-demo/README.md': '07_hpc_demo',
+  '08-opencode/README.md': '08_opencode',
+  '08-opencode/tutorial.md': '08_tutorial',
+  '08-opencode/reference.md': '08_reference',
   'AGENTS.md': 'agents_md',
   'teacher/README.md': 'teacher_guide',
   'teacher/05-course-plan.md': 'teacher_05_course_plan',
@@ -45,8 +48,8 @@ const PAGER = {
   '01-install/windows.md': { prev: STEP3, next: STEP4 },
   '01-install/macos.md': { prev: STEP3, next: STEP4 },
   '01-install/01-layout.md': { prev: STEP3 },
-  // 07 是學生課程的最後一頁，下一頁不要接到教師資料
-  '07-hpc-demo/README.md': { next: false },
+  // 08 延伸閱讀是學生課程的最後一頁，下一頁不要接到教師資料
+  '08-opencode/reference.md': { next: false },
 }
 
 function frontmatter(source) {
