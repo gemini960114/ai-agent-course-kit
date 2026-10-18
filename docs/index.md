@@ -56,7 +56,7 @@ features:
     linkText: 看示範
   - icon: 💻
     title: 08｜OpenCode 入門（選修）
-    details: 用 OpenCode 把 Skill、Command、Agent 寫成設定檔，做出一個系統不讓它改檔的作業助教。
+    details: 開源 AI Agent 搭配地端模型（例如國網中心的模型服務），程式與資料不必送到商用雲端；再用設定檔做出一個系統不讓它改檔的作業助教。
     link: /guide/08_opencode
     linkText: 學 OpenCode
 ---
