@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "AI Agent 協作開發與研究"
   text: "不只聊天：讓 AI Agent 和你一起開發與研究"
-  tagline: "以 Antigravity 作為 AI Agent 工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。"
+  tagline: "以 Antigravity 為主、開源的 OpenCode 為選修，透過文獻整理、GitHub、網頁開發、交叉審查與 Skills 實作，學習運用 AI Agent，並自己檢查它的產出。"
   actions:
     - theme: brand
       text: 進入課程總覽
@@ -23,7 +23,7 @@ features:
     title: 01｜安裝環境
     details: 安裝 Antigravity IDE 和開發工具，準備好和 AI 協作的環境。
     link: /guide/01_install
-    linkText: 開始安裝
+    linkText: 安裝環境
   - icon: 📚
     title: 02｜AI 整理文獻
     details: 請 AI 整理論文比較表，檢查它有沒有編造內容。
@@ -50,7 +50,7 @@ features:
     link: /guide/06_agent_skills
     linkText: 學 Skills
   - icon: ⚡
-    title: 07｜AI 指揮官
+    title: 07｜AI 指揮官（老師示範）
     details: 看老師用 AI 操作國網中心超級電腦，批次分析腦部影像。
     link: /guide/07_hpc_demo
     linkText: 看示範

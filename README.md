@@ -6,7 +6,7 @@
 
 🗂️ **課程簡報與相關檔案（Google Drive）：<https://drive.google.com/drive/folders/1sVEZqsPDyDFIVwplZimbIYweJH68_XOW?usp=sharing>**
 
-以 Antigravity 作為 AI Agent 工具，透過文獻整理、GitHub、網頁開發與交叉審查等實作，學習運用 AI Agent、檢查產出，並把工作流程寫成 Skills。
+以 Antigravity 為主、開源的 OpenCode 為選修，透過文獻整理、GitHub、網頁開發、交叉審查與 Skills 實作，學習運用 AI Agent，並自己檢查它的產出。
 
 ## 課程地圖
 
