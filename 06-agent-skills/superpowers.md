@@ -1,6 +1,6 @@
 # 延伸閱讀：用 superpowers 依清單修正專案
 
-> 課後自學，不在課堂時間內。適用：能分派 subagent 的 AI 工具（例如 Claude Code）；Antigravity 尚未實測，不能分派 subagent 時，第 5 步改請 AI 用 `executing-plans`，由同一個 AI 依序完成每個任務。
+> 課後自學，不在課堂時間內。第 5 步需要 AI 工具能分派 subagent（例如 Claude Code）；不能分派時，改請 AI 用 `executing-plans`，由同一個 AI 依序完成每個任務。
 
 [superpowers](https://github.com/obra/superpowers) 是一套規範 AI **做事流程**的 skill。單元 6 的 `brainstorming` 就出自這裡。其他 skill 讓 AI 照「計畫 → 測試 → 修改 → 驗證 → 審查」的順序做事，正好呼應本課程的主軸：AI 會出錯，要檢查。
 
